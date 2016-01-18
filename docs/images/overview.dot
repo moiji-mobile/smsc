@@ -1,0 +1,14 @@
+digraph G {
+  smpprouter [label="SMPP Router"];
+  smscinsert [label="SMSC Inserter"];
+  smsdb      [label="SMSC MongoDB"];
+  smscdeliv  [label="SMSC delivery"];
+  osmostp    [label="TCP/SCTP M3UA converter"];
+  network    [label="SCTP edge"];
+
+  smpprouter -> smscinsert [label="DeliverSM/SubmitSM"];
+  smscinsert -> smsdb      [label="Store in DB"];
+  smscdeliv  -> smsdb      [label="Fetch from DB"];
+  smscdeliv  -> osmostp    [label="SS7 request"];
+  osmostp    -> network    [label="Route to remote network"];
+}

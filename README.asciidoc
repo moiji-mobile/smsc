@@ -1,0 +1,98 @@
+Scalable Smalltalk Short Message Center (SMSC)
+----------------------------------------------
+
+Design Goals
+~~~~~~~~~~~~
+
+* Receive to be delivered SMS by SMPP from multiple connections.
+* Deal with SubmitSM and DeliverSM and convert to DeliverSM.
+* Be able to have multiple delivery processes.
+
+Design Ideas
+~~~~~~~~~~~~
+
+Overview
+^^^^^^^^
+
+image:docs/images/overview.png[]
+
+
+Storage
+^^^^^^^
+
+The central storage is planned to be a MongoDB. The reason is that
+it supports tailable cursors on capped collections, replication,
+atomic update of a document and the write concern for replication.
+
+
+SMS/SMPP Record
++++++++++++++++
+
+One record will be a single SMPP DeliverSM with meta information.
+Most of the information will be extracted for some queries. Most
+notable the following fields need to be there:
+
+* Arrival time at the SMSC
+* Destination number
+* Priority
+* Sender Report needed
+* Expiration time
+* Retry counter
+* Scheduled re-transmit time
+* Locking information (state + time)
+* SMPP DeliverSM message
+
+Event structure
++++++++++++++++
+
+Create small capped collection for notification entries. This allows
+one to use a tailable mongo cursor that blocks until an entry has been
+inserted into the collection.
+
+
+Inserter
+^^^^^^^^
+
+Receive SMPP SubmitSM/DeliverSM and store in the database for store and
+forward. Multiple inserters must be able to run in parallel.
+
+* Use existing Smalltalk SMPP framework to open or listen to connections
+* Convert SubmitSM to DeliverSM (this is losing some info...)
+* After the content has been inserted add an event
+
+
+Delivery
+^^^^^^^^
+
+The task is to wake up for the next delivery time or when a new SMS has
+been inserted into the table. By using a capped collection for the notifcation
+collection the cursor will become readable and the system can wake up and
+select the message to be delivered. With a system of multiple delivery nodes
+running, all of them will wake up but only one will be able to lock the SMPP
+record with a CAS and process with the delivery process.
+
+Once a SMS has been picked it will be checked if there are more SMS for this
+subscriber and up to four for messages will be blocked and scheduled in the
+same delivery run. If the delivery of a message fails the next delivery time
+will be set and the delivery worker goes back to waiting for work.
+
+In general we want to avoid two delivery nodes to deliver to the same subscriber.
+This might result in a more complicated CAS locking scheme. The first lock would
+be to declare interest to deliver to the user and second lock would increase
+the lock by checking that no other delivery node has reached that level. Once
+that lock level has been reached it can try to find up to four different messages
+for delivery on the same TCAP session.
+
+We might decide to put the delivery history (attempts, timestamps, info) into
+the record as well to help with debugging.
+
+
+Clean-up
+^^^^^^^^
+
+As the locking process might leave some locked SMS behind and we need to remove
+SMS that were never delivered there should be a clean-up task with the following
+responsibilities:
+
+* Remove old SMS that could not be delivered
+* Reset SMS that are in the pending state for too long
