@@ -8,8 +8,9 @@
 	"instvars" : [
 		"root",
 		"database",
-		"collection" ],
-	"name" : "ShortMessageDatabasePoll",
+		"collectionForNotification",
+		"collectionForSms" ],
+	"name" : "ShortMessageDatabase",
 	"pools" : [
 		 ],
 	"super" : "Object",

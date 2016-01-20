@@ -1,0 +1,12 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"collectionForNotification:" : "HolgerHansPeterFreyther 1/20/2016 20:41",
+		"collectionForSms:" : "HolgerHansPeterFreyther 1/20/2016 20:42",
+		"database:" : "HolgerHansPeterFreyther 1/20/2016 20:31",
+		"reopenDatabase" : "HolgerHansPeterFreyther 1/20/2016 20:42",
+		"root:" : "HolgerHansPeterFreyther 1/20/2016 20:28",
+		"smsPending" : "HolgerHansPeterFreyther 1/20/2016 20:51",
+		"waitFor:" : "HolgerHansPeterFreyther 1/20/2016 20:45",
+		"waitUntil:" : "HolgerHansPeterFreyther 1/20/2016 20:52" } }

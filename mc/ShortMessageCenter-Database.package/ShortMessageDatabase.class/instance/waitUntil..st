@@ -1,9 +1,9 @@
-as yet unclassified
+polling
 waitUntil: aDateTime
 	| now duration |
 	now := DateAndTime now.
 	duration := (aDateTime - now) asSeconds.
-	duration < 0 ifTrue: [
+	duration <= 0 ifTrue: [
 		^self].
 
 	self waitFor: duration.
