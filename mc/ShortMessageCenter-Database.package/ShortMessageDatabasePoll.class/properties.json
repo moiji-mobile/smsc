@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 1/20/2016 20:28",
+	"instvars" : [
+		"root",
+		"database",
+		"collection" ],
+	"name" : "ShortMessageDatabasePoll",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,1 @@
+I am responsible for dealing with a database and wait for an event. I can either sleep until a given time or whever a database event occurs.

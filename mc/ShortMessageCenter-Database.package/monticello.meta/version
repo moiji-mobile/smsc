@@ -1,0 +1,1 @@
+(name 'ShortMessageCenter-Database-HolgerHansPeterFreyther.1' message 'Begin with the central database interfaceThis will allow us to sleep and wait for SMS instead of busy polling the system. Let''s see how this turns out.' id 'e057ac77-aa69-40a1-93e0-aa932e2a6a52' date '20 January 2016' time '8:38:52.428146 pm' author 'HolgerHansPeterFreyther' ancestors () stepChildren ())
