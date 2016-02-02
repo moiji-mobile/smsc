@@ -1,0 +1,14 @@
+{
+	"category" : "ConfigurationOfShortMessageCenter",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"LastVersionLoad" ],
+	"commentStamp" : "",
+	"instvars" : [
+		"project" ],
+	"name" : "ConfigurationOfShortMessageCenter",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
