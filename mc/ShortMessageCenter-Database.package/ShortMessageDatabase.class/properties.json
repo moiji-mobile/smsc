@@ -9,7 +9,8 @@
 		"root",
 		"database",
 		"collectionForNotification",
-		"collectionForSms" ],
+		"collectionForSms",
+		"collectionForLock" ],
 	"name" : "ShortMessageDatabase",
 	"pools" : [
 		 ],
