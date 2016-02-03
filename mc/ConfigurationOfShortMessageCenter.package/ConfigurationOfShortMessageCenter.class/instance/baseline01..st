@@ -9,6 +9,6 @@ baseline01: spec
 		spec project: 'MongoTalk' with: [
 				spec
 					className: #ConfigurationOfMongoTalk;
-					versionString: #'stable';
+					versionString: #'bleedingEdge';
 					repository: 'http://smalltalkhub.com/mc/MongoTalkTeam/mongotalk/main/' ].
 		spec package: #'ShortMessageCenter-Database'. ].

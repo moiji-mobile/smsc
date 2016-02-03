@@ -1,0 +1,7 @@
+package-cache
+play-cache
+*.image
+*.changes
+*.sw?
+PharoDebug.log
+*.sources

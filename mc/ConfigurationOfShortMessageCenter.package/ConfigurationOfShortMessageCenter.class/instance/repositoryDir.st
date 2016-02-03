@@ -1,3 +1,3 @@
 baselines
 repositoryDir
-	^'filetre://mc'
+	^'filetree://./mc'
