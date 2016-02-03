@@ -1,0 +1,3 @@
+baselines
+repositoryDir
+	^'filetre://mc'

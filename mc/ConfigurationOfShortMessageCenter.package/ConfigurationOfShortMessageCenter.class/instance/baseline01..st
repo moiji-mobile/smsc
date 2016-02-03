@@ -4,6 +4,8 @@ baseline01: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'baseline'.
+		spec repositories: [
+			spec repository: self repositoryDir].
 		spec project: 'MongoTalk' with: [
 				spec
 					className: #ConfigurationOfMongoTalk;
