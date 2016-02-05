@@ -15,3 +15,9 @@ testWaitUntil
 	[ (Delay forMilliseconds: 100) wait. smscDatabase addNewShortMessageNotification: 'Wake up'] fork.
 	res := smscDatabase waitUntil: (DateAndTime now + 5 seconds).
 	self assert: res equals: ShortMessageWorkArrived.
+
+	"And add a message so we do not wait at all"
+smscDatabase
+		insertShortMessage: 'This is a message' destination: '1234567890' deliverIn:  0 seconds expireIn: (DateAndTime now + 10 days).
+	res := smscDatabase waitUntil: (DateAndTime now + 10 seconds).
+	self assert: res equals: ShortMessageWorkPending.
