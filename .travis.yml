@@ -5,6 +5,9 @@ os:
   - linux
   - osx
 
+services:
+  - mongodb # Essential to what we do
+
 smalltalk:
   - Pharo-4.0
   - Pharo-5.0
