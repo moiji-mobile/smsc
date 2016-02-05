@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-Database-SystemTests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/5/2016 17:22",
+	"instvars" : [
+		"root",
+		"database",
+		"smscDatabase" ],
+	"name" : "ShortMessageDatabaseTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

@@ -1,10 +1,13 @@
 {
 	"class" : {
-		"default" : "HolgerHansPeterFreyther 2/2/2016 16:30" },
+		"createInsertNotificationCollection:" : "HolgerHansPeterFreyther 2/5/2016 17:19",
+		"default" : "HolgerHansPeterFreyther 2/5/2016 17:30",
+		"withDatabase:" : "HolgerHansPeterFreyther 2/5/2016 17:31" },
 	"instance" : {
 		"addNewShortMessageNotification:" : "HolgerHansPeterFreyther 1/28/2016 17:43",
 		"collectionForLock:" : "HolgerHansPeterFreyther 1/28/2016 19:56",
 		"collectionForNotification:" : "HolgerHansPeterFreyther 1/20/2016 20:41",
+		"collectionForSms" : "HolgerHansPeterFreyther 2/5/2016 17:40",
 		"collectionForSms:" : "HolgerHansPeterFreyther 1/20/2016 20:42",
 		"database:" : "HolgerHansPeterFreyther 1/20/2016 20:31",
 		"insertShortMessage:destination:deliverIn:expirationDate:" : "HolgerHansPeterFreyther 2/2/2016 21:40",

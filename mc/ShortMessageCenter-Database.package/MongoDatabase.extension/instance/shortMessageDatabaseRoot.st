@@ -1,0 +1,3 @@
+*ShortMessageCenter-Database
+shortMessageDatabaseRoot
+	^root
