@@ -1,10 +1,11 @@
 notification
-insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration expirationDate: expirationTime
+insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration expireIn: anExpirationDuration
 
-	| record now deliveryTime |
+	| record now deliveryTime expirationTime |
 
 	now := DateAndTime now.
 	deliveryTime := now + aDuration.
+	expirationTime := now + anExpirationDuration.
 	record := {
 		'destMSISDN' -> aNumber.
 		'encodedMessage' -> anEncodedMessage.
