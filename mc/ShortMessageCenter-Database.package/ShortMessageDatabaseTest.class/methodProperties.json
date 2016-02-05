@@ -4,4 +4,5 @@
 	"instance" : {
 		"setUp" : "HolgerHansPeterFreyther 2/5/2016 17:37",
 		"testInsertShortMessageDestinationDeliverInExpireIn" : "HolgerHansPeterFreyther 2/5/2016 18:24",
-		"testSmsPending" : "HolgerHansPeterFreyther 2/5/2016 18:25" } }
+		"testSmsPending" : "HolgerHansPeterFreyther 2/5/2016 18:25",
+		"testWaitUntil" : "HolgerHansPeterFreyther 2/5/2016 19:01" } }

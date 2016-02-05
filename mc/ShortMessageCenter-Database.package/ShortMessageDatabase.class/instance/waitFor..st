@@ -19,7 +19,7 @@ waitFor: aDurationAsSeconds
 		yourself.
 	tailableCursor create.
 	self smsPending ifTrue: [
-		^self].
+		^ShortMessageWorkPending].
 	tailableCursor requestNext.
 
 	root stream socket waitForDataFor: aDurationAsSeconds
@@ -30,7 +30,8 @@ waitFor: aDurationAsSeconds
 			for now but it requires work."
 			self flag: #todo. "See above"
 			self reopenDatabase.
-			^self].
+			^ShortMessageTimeout].
 	tailableCursor readNext.
 
 	"Either mongod after ~2s timed out or new work is there. let's have a look"
+	^ShortMessageWorkArrived

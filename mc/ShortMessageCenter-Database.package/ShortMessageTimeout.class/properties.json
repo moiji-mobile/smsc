@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Database-Waiting",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageTimeout",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

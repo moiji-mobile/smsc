@@ -6,4 +6,4 @@ waitUntil: aDateTime
 	duration <= 0 ifTrue: [
 		^self].
 
-	self waitFor: duration.
+	^self waitFor: duration.
