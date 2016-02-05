@@ -3,7 +3,7 @@ sudo: false
 
 os:
   - linux
-  - osx
+#  - osx OSX doesn't come with a mongodb service
 
 services:
   - mongodb # Essential to what we do
