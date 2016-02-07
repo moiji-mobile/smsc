@@ -13,7 +13,7 @@
 		"collectionForSms:" : "HolgerHansPeterFreyther 1/20/2016 20:42",
 		"createLockIndex" : "HolgerHansPeterFreyther 2/7/2016 19:03",
 		"database:" : "HolgerHansPeterFreyther 1/20/2016 20:31",
-		"findAndLockPendingSms:" : "HolgerHansPeterFreyther 2/5/2016 19:27",
+		"findAndLockPendingSms:reject:" : "HolgerHansPeterFreyther 2/7/2016 20:04",
 		"insertShortMessage:destination:deliverIn:expireIn:" : "HolgerHansPeterFreyther 2/5/2016 18:19",
 		"lockDestination:for:" : "HolgerHansPeterFreyther 2/7/2016 19:10",
 		"releaseDestination:" : "HolgerHansPeterFreyther 2/7/2016 18:45",
@@ -21,5 +21,6 @@
 		"root:" : "HolgerHansPeterFreyther 1/20/2016 20:28",
 		"smsPending" : "HolgerHansPeterFreyther 2/5/2016 19:31",
 		"unlockSms:" : "HolgerHansPeterFreyther 2/5/2016 20:15",
+		"unlockSms:for:" : "HolgerHansPeterFreyther 2/7/2016 19:43",
 		"waitFor:" : "HolgerHansPeterFreyther 2/5/2016 18:58",
 		"waitUntil:" : "HolgerHansPeterFreyther 2/5/2016 18:53" } }

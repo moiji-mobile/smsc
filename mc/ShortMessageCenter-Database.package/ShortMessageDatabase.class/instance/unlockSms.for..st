@@ -1,15 +1,15 @@
 sms-read
-findAndLockPendingSms: aSystemName
+unlockSms: aSmsOID for: aSystem
 	| res now |
 	now := DateAndTime now.
 	res := database command: {
 		'findAndModify' -> collectionForSms name.
-		'query' -> [:item | (item lock = 0) & (item deliveryTime <= now) ] asMongoQuery.
+		'query' -> [:item | (item _id = aSmsOID) & (item lockedBy = aSystem)] asMongoQuery.
 		'update' -> {
 			'$set' -> {
-				'lockTime' -> now.
-				'lockedBy' -> aSystemName.
-				'lock' -> 1.
+				'lockTime' -> nil.
+				'lockedBy' -> nil.
+				'lock' -> 0.
 			} asDictionary.
 		} asDictionary.
 		'new' -> true.
