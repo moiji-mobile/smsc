@@ -8,6 +8,14 @@ os:
 services:
   - mongodb # Essential to what we do
 
+# Target mongodb v3.0 as lowest version
+addons:
+  apt:
+    sources:
+    - mongodb-3.0-precise
+    packages:
+    - mongodb-org-server
+
 smalltalk:
   - Pharo-4.0
   - Pharo-5.0
