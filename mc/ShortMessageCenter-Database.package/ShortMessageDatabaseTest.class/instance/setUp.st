@@ -9,3 +9,4 @@ setUp
 	"Create the capped collection"
 	ShortMessageDatabase createInsertNotificationCollection: database.
 	smscDatabase := ShortMessageDatabase withDatabase: database.
+	smscDatabase createLockIndex.

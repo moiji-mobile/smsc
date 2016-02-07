@@ -2,9 +2,10 @@
 	"class" : {
 		 },
 	"instance" : {
-		"setUp" : "HolgerHansPeterFreyther 2/5/2016 17:37",
+		"setUp" : "HolgerHansPeterFreyther 2/7/2016 18:58",
 		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 2/5/2016 19:08",
 		"testFindAndLockPendingSms" : "HolgerHansPeterFreyther 2/5/2016 20:16",
 		"testInsertShortMessageDestinationDeliverInExpireIn" : "HolgerHansPeterFreyther 2/5/2016 18:24",
+		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 2/7/2016 19:12",
 		"testSmsPending" : "HolgerHansPeterFreyther 2/5/2016 18:25",
 		"testWaitUntil" : "HolgerHansPeterFreyther 2/5/2016 19:03" } }
