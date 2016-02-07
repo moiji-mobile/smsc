@@ -8,6 +8,6 @@
 		"testInsertShortMessageDestinationDeliverInExpireIn" : "HolgerHansPeterFreyther 2/5/2016 18:24",
 		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 2/7/2016 20:21",
 		"testLockNextSmsForLocked" : "HolgerHansPeterFreyther 2/7/2016 20:57",
-		"testNextSms" : "HolgerHansPeterFreyther 2/7/2016 21:18",
+		"testNextSms" : "HolgerHansPeterFreyther 2/7/2016 21:39",
 		"testSmsPending" : "HolgerHansPeterFreyther 2/5/2016 18:25",
 		"testWaitUntil" : "HolgerHansPeterFreyther 2/5/2016 19:03" } }
