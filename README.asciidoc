@@ -96,3 +96,30 @@ responsibilities:
 
 * Remove old SMS that could not be delivered
 * Reset SMS that are in the pending state for too long
+
+
+Database locking protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is one collection for "sms" and one for the "locks". Each SMS is one entry
+in the "sms" collection and for each destination MSISDN there is either one or
+no entry in the "locks" collection.
+
+A worker will use Compare-And-Swap to lock one entry that is to be delivered. It
+is possible that two workers lock two SMS to the same user. This means as the next
+step both workers will try to get a destination lock. This is by having a unique
+index per destination MSISDN in the "locks" collection and then using CAS to try
+to lock the destination.
+
+The system that could not lock the destination will need to release the lock and
+it is done using a CAS as well.
+
+The system that got the lock and will now continue. It will try to lock more SMS
+using the CAS approach to lock matching SMS and ignore the current lock setting.
+The SMS will be either removed or unlocked depending on the delivery result. The
+lock from the other system will either be used after it has been unlocked or it
+will be stolen.
+
+A third system might try to do delivery and needs to avoid always locking a SMS
+that is currently been delivered to. This is done by maintaining a list of excluded
+destMSISDN in the current round.
