@@ -7,9 +7,11 @@ testLockAndReleaseDestination
 	smscDatabase lockDestination: '4234242314' for: 'testcase'.
 	smscDatabase lockDestination: '4234242315' for: 'testcase'.
 	self assert: smscDatabase collectionForLock size equals: 2.
-	smscDatabase releaseDestination: '4234242314'.
+	res := smscDatabase releaseDestination: '4234242314'.
+	self deny: res isNil.
 	self assert: smscDatabase collectionForLock size equals: 1.
-	smscDatabase releaseDestination: '4234242315'.
+	res := smscDatabase releaseDestination: '4234242315'.
+	self deny: res isNil.
 	self assert: smscDatabase collectionForLock size equals: 0.
 
 	"Double lock"
