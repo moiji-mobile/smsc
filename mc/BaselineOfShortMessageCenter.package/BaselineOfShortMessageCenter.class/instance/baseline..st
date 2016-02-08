@@ -18,5 +18,14 @@ baseline: spec
 					className: #ConfigurationOfStatsDClient;
 					versionString: '3';
 					repository: 'http://smalltalkhub.com/mc/hfreyther2/StatsD/main/' ].
+		spec project: 'OsmoLogging' with: [
+				spec
+					className: #ConfigurationOfOsmoLogging;
+					versionString: '1';
+					repository: 'http://smalltalkhub.com/mc/osmocom/Logging/main/' ].
+
+
 		spec package: #'ShortMessageCenter-Database' with: [
-			spec requires: #('MongoTalk' 'StatsDClient' 'SMPP') ]].
+			spec requires: #('MongoTalk' 'OsmoLogging') ].
+		spec package: #'ShortMessageCenter-Inserter' with: [
+			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging') ]].
