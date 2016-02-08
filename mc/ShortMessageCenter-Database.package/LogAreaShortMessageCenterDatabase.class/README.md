@@ -1,0 +1,1 @@
+I represent debug messages of the ShortMessageCenter Database

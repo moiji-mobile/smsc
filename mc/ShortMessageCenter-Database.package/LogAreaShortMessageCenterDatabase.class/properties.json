@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/8/2016 15:17",
+	"instvars" : [
+		 ],
+	"name" : "LogAreaShortMessageCenterDatabase",
+	"pools" : [
+		 ],
+	"super" : "LogArea",
+	"type" : "normal" }
