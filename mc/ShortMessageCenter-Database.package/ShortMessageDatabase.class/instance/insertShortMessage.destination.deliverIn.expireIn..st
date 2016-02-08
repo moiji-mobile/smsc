@@ -6,6 +6,8 @@ insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration e
 	now := DateAndTime now.
 	deliveryTime := now + aDuration.
 	expirationTime := now + anExpirationDuration.
+	logger logDebug: 'Inserting short message' with: { 'dest' -> aNumber. 'deliverIn' -> aDuration. 'expireIn' -> anExpirationDuration }.
+
 	record := {
 		'destMSISDN' -> aNumber.
 		'encodedMessage' -> anEncodedMessage.

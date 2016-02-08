@@ -17,4 +17,5 @@ lockNextSms: aDestMSISDN for: aSystemName locked: aList
 		} asDictionary.
 		'new' -> true.
 	} asDictionary.
+	logger logDebug: 'Locking next' with: { 'res nil' -> res isNil. 'systemName' -> aSystemName. 'destMSISDN' -> aDestMSISDN }.
 	^res ifNotNil: [res at: 'value'].

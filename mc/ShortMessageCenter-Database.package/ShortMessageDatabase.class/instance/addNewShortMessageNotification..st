@@ -8,4 +8,5 @@ addNewShortMessageNotification: aMessage
 		'date' -> DateAndTime now.
 		'message' -> aMessage
 	} asDictionary.
+	logger logDebug: 'Adding notification' with: { 'msg' -> aMessage }.
 	collectionForNotification add: record.

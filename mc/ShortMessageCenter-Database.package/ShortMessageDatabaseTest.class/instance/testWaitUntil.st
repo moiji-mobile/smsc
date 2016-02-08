@@ -18,6 +18,6 @@ testWaitUntil
 
 	"And add a message so we do not wait at all"
 smscDatabase
-		insertShortMessage: 'This is a message' destination: '1234567890' deliverIn:  0 seconds expireIn: (DateAndTime now + 10 days).
+		insertShortMessage: 'This is a message' destination: '1234567890' deliverIn:  0 seconds expireIn: 10 days.
 	res := smscDatabase waitUntil: (DateAndTime now + 10 seconds).
 	self assert: res equals: ShortMessageWorkPending.

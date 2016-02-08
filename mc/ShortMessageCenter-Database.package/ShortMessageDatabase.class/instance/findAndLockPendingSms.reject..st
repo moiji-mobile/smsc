@@ -17,4 +17,5 @@ findAndLockPendingSms: aSystemName reject: aMsisdnList
 		} asDictionary.
 		'new' -> true.
 	} asDictionary.
+	logger logDebug: 'Find and lock pending' with: { 'res nil' -> res isNil. 'systemName' -> aSystemName }.
 	^res ifNotNil: [res at: 'value'].

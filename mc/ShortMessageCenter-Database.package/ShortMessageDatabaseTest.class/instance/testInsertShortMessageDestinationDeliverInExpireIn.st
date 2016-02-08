@@ -8,7 +8,7 @@ testInsertShortMessageDestinationDeliverInExpireIn
 
 	"Insert a message"
 	smscDatabase
-		insertShortMessage: 'This is a message' destination: '1234567890' deliverIn:  10 hours expireIn: (DateAndTime now + 10 days).
+		insertShortMessage: 'This is a message' destination: '1234567890' deliverIn:  10 hours expireIn: 10 days.
 
 	"Check that there is one"
 	self assert: smscDatabase collectionForSms size equals: 1.
