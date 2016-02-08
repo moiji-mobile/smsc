@@ -2,4 +2,8 @@
 	"class" : {
 		 },
 	"instance" : {
-		 } }
+		"handleDeliverSM:handler:" : "HolgerHansPeterFreyther 2/8/2016 15:25",
+		"handleSubmitSM:handler:" : "HolgerHansPeterFreyther 2/8/2016 15:25",
+		"smppCommand:from:" : "HolgerHansPeterFreyther 2/8/2016 14:47",
+		"smppConnection:" : "HolgerHansPeterFreyther 2/8/2016 14:47",
+		"smppConnectionManager:" : "HolgerHansPeterFreyther 2/8/2016 14:46" } }

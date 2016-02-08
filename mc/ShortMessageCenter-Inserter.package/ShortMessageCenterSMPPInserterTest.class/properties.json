@@ -1,0 +1,15 @@
+{
+	"category" : "ShortMessageCenter-Inserter-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"smscInserter",
+		"mockConnection" ],
+	"name" : "ShortMessageCenterSMPPInserterTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }
