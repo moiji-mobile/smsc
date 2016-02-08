@@ -1,0 +1,1 @@
+I handle SMPP messages and put them into our database

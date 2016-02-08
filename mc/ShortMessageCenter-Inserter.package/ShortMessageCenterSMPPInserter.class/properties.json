@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Inserter",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/8/2016 14:19",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageCenterSMPPInserter",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
