@@ -8,5 +8,15 @@ baseline: spec
 					className: #ConfigurationOfMongoTalk;
 					versionString: #'bleedingEdge';
 					repository: 'http://smalltalkhub.com/mc/MongoTalkTeam/mongotalk/main/' ].
+		spec project: 'SMPP' with: [
+				spec
+					className: #ConfigurationOfSMPP;
+					versionString: '1';
+					repository: 'http://smalltalkhub.com/mc/osmocom/SMPP/main/' ].
+		spec project: 'StatsDClient' with: [
+				spec
+					className: #ConfigurationOfStatsDClient;
+					versionString: '3';
+					repository: 'http://smalltalkhub.com/mc/hfreyther2/StatsD/main/' ].
 		spec package: #'ShortMessageCenter-Database' with: [
-			spec requires: 'MongoTalk' ]].
+			spec requires: #('MongoTalk' 'StatsDClient' 'SMPP') ]].
