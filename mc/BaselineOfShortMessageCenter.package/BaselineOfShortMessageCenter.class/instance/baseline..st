@@ -23,7 +23,11 @@ baseline: spec
 					className: #ConfigurationOfOsmoLogging;
 					versionString: '1';
 					repository: 'http://smalltalkhub.com/mc/osmocom/Logging/main/' ].
-
+		spec project: 'ShortMessage' with: [
+				spec
+					className: #ConfigurationOfShortMessage;
+					versionString: '1';
+					repository: 'http://smalltalkhub.com/mc/osmocom/ShortMessage/main/' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
 			spec requires: #('MongoTalk' 'OsmoLogging') ].
