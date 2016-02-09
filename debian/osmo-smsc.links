@@ -1,0 +1,2 @@
+#/usr/share/image-launch/scripts/restore-ui-manager etc/image-launch/images/osmo-smsc/launch.d/01-restore-ui-manager
+#/usr/share/image-launch/scripts/rfb-vnc-server etc/image-launch/images/osmos-smsc/launch.d/02-rfb-vnc-server

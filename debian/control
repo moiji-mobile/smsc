@@ -1,0 +1,12 @@
+Source: osmo-smsc
+Maintainer: Holger Freyther <holger@freyther.de>
+Section: pharo
+Priority: optional
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: osmo-smsc
+Architecture: any
+Depends: ${misc:Depends}, image-launch, runit, pharo-vm-core [!amd64], pharo-vm-core:i386 [amd64], pharo-sources-files
+Description: osmo-smsc
+
