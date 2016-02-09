@@ -1,3 +1,8 @@
 as yet unclassified
-handleSubmitSM: aSMPPMessage handler: aSMPPClientHandler 
-	self shouldBeImplemented.
+handleSubmitSM: aMessage handler: aHandler
+	|  deliverSM |
+	logger logDebug: 'handleSubmitSM' with: { 'systemId' -> aHandler systemId }.
+
+	deliverSM := self convertToDeliverSM: aMessage body.
+	self storeDeliverSM: deliverSM.
+	self smppReturnSuccessOn: aHandler for: aMessage

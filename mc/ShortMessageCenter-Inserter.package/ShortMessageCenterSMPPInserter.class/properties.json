@@ -7,7 +7,9 @@
 	"commentStamp" : "HolgerHansPeterFreyther 2/8/2016 14:19",
 	"instvars" : [
 		"smppConnectionManager",
-		"smppConnection" ],
+		"smppConnection",
+		"smscDatabase",
+		"logger" ],
 	"name" : "ShortMessageCenterSMPPInserter",
 	"pools" : [
 		 ],
