@@ -10,7 +10,7 @@
 		"smppConnection",
 		"smscDatabase",
 		"logger" ],
-	"name" : "ShortMessageCenterSMPPInserter",
+	"name" : "ShortMessageCenterInserter",
 	"pools" : [
 		 ],
 	"super" : "Object",

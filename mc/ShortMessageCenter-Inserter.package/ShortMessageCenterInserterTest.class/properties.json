@@ -9,7 +9,7 @@
 		"smscInserter",
 		"mockConnection",
 		"smscDatabase" ],
-	"name" : "ShortMessageCenterSMPPInserterTest",
+	"name" : "ShortMessageCenterInserterTest",
 	"pools" : [
 		 ],
 	"super" : "TestCase",
