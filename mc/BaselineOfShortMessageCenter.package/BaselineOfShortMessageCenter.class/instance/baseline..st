@@ -38,6 +38,12 @@ baseline: spec
 					className: #ConfigurationOfASN1;
 					versionString: '1';
 					repository: 'http://smalltalkhub.com/mc/NorbertHartl/ASN1/main' ].
+		spec project: 'ZincHTTPComponents' with: [
+				spec
+					className: #ConfigurationOfZincHTTPComponents;
+					versionString: #'stable';
+					loads: #('REST' );
+					repository: 'http://mc.stfx.eu/ZincHTTPComponents' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
 			spec requires: #('MongoTalk' 'OsmoLogging') ].
