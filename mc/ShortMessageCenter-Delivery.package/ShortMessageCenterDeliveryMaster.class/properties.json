@@ -1,0 +1,15 @@
+{
+	"category" : "ShortMessageCenter-Delivery",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"logger",
+		"smscDatabase" ],
+	"name" : "ShortMessageCenterDeliveryMaster",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
