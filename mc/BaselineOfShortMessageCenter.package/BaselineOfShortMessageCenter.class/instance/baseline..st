@@ -31,12 +31,12 @@ baseline: spec
 		spec project: 'TCAP' with: [
 				spec
 					className: #ConfigurationOfTCAP;
-					versionString: #'5';
+					versionString: '5';
 					repository: 'http://smalltalkhub.com/mc/osmocom/TCAP/main' ].
 		spec project: 'ASN1' with: [
 				spec
 					className: #ConfigurationOfASN1;
-					versionString: #'1';
+					versionString: '1';
 					repository: 'http://smalltalkhub.com/mc/NorbertHartl/ASN1/main' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
