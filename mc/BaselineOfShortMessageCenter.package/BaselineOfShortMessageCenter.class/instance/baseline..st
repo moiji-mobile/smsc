@@ -28,8 +28,20 @@ baseline: spec
 					className: #ConfigurationOfShortMessage;
 					versionString: '1';
 					repository: 'http://smalltalkhub.com/mc/osmocom/ShortMessage/main/' ].
+		spec project: 'TCAP' with: [
+				spec
+					className: #ConfigurationOfTCAP;
+					versionString: #'5';
+					repository: 'http://smalltalkhub.com/mc/osmocom/TCAP/main' ].
+		spec project: 'ASN1' with: [
+				spec
+					className: #ConfigurationOfASN1;
+					versionString: #'1';
+					repository: 'http://smalltalkhub.com/mc/NorbertHartl/ASN1/main' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
 			spec requires: #('MongoTalk' 'OsmoLogging') ].
 		spec package: #'ShortMessageCenter-Inserter' with: [
-			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging') ]].
+			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging')].
+		spec package: #'ShortMessageCenter-Delivery' with: [
+			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging' 'ASN1' 'TCAP')]].
