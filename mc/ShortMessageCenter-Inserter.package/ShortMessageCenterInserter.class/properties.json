@@ -6,10 +6,10 @@
 		 ],
 	"commentStamp" : "HolgerHansPeterFreyther 2/8/2016 14:19",
 	"instvars" : [
-		"smppConnectionManager",
-		"smppConnection",
 		"smscDatabase",
-		"logger" ],
+		"logger",
+		"smppConnections",
+		"omDatabase" ],
 	"name" : "ShortMessageCenterInserter",
 	"pools" : [
 		 ],
