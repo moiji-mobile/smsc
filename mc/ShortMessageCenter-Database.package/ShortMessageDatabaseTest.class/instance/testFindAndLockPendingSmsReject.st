@@ -8,12 +8,12 @@ testFindAndLockPendingSmsReject
 	self deny: smscDatabase smsPending.
 
 	"Sms from the future no result."
-	smscDatabase insertShortMessage: 'bla' destination: 'foo' deliverIn: 10 hours expireIn: 2 days.
+	smscDatabase insertShortMessage: 'bla' destination: 'foo' deliverIn: 10 hours expireIn: 2 days receivedOn: 'testLink'.
 	res := smscDatabase findAndLockPendingSms: 'TestSystem' reject: #().
 	self assert: res isNil.
 	self deny: smscDatabase smsPending.
 
-	smscDatabase insertShortMessage: 'foo' destination: 'dest' deliverIn: 0 seconds expireIn: 2 days.
+	smscDatabase insertShortMessage: 'foo' destination: 'dest' deliverIn: 0 seconds expireIn: 2 days receivedOn: 'testLink'.
 	res := smscDatabase findAndLockPendingSms: 'TestSystem' reject: #().
 	self deny: res isNil.
 	self assert: (res at: 'destMSISDN') equals: 'dest'.

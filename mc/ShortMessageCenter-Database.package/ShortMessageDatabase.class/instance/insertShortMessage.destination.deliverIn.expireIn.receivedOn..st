@@ -1,5 +1,5 @@
 notification
-insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration expireIn: anExpirationDuration
+insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration expireIn: anExpirationDuration receivedOn: aSystemId
 
 	| record now deliveryTime expirationTime |
 
@@ -16,7 +16,8 @@ insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration e
 		'deliveryTime' -> deliveryTime.
 		'attempts' -> 0.
 		'lock' -> 0.
-		'expirationTime' -> expirationTime
+		'expirationTime' -> expirationTime.
+		'receivedOn' -> aSystemId.
 	} asDictionary.
 	collectionForSms add: record.
 	self addNewShortMessageNotification: 'New message for ', aNumber.

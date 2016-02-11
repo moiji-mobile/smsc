@@ -4,10 +4,10 @@
 	"instance" : {
 		"setUp" : "HolgerHansPeterFreyther 2/7/2016 18:58",
 		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 2/5/2016 19:08",
-		"testFindAndLockPendingSmsReject" : "HolgerHansPeterFreyther 2/7/2016 20:06",
-		"testInsertShortMessageDestinationDeliverInExpireIn" : "HolgerHansPeterFreyther 2/8/2016 16:14",
+		"testFindAndLockPendingSmsReject" : "HolgerHansPeterFreyther 2/11/2016 21:33",
+		"testInsertShortMessageDestinationDeliverInExpireInReceivedOn" : "HolgerHansPeterFreyther 2/11/2016 21:34",
 		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 2/7/2016 20:21",
-		"testLockNextSmsForLocked" : "HolgerHansPeterFreyther 2/7/2016 20:57",
-		"testNextSms" : "HolgerHansPeterFreyther 2/7/2016 21:39",
-		"testSmsPending" : "HolgerHansPeterFreyther 2/8/2016 16:14",
-		"testWaitUntil" : "HolgerHansPeterFreyther 2/8/2016 16:14" } }
+		"testLockNextSmsForLocked" : "HolgerHansPeterFreyther 2/11/2016 21:34",
+		"testNextSms" : "HolgerHansPeterFreyther 2/11/2016 21:35",
+		"testSmsPending" : "HolgerHansPeterFreyther 2/11/2016 21:35",
+		"testWaitUntil" : "HolgerHansPeterFreyther 2/11/2016 21:35" } }
