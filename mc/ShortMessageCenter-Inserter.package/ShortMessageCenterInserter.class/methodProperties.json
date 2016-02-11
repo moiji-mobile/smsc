@@ -4,12 +4,12 @@
 	"instance" : {
 		"addConnection:" : "HolgerHansPeterFreyther 2/11/2016 20:49",
 		"convertToDeliverSM:" : "HolgerHansPeterFreyther 2/9/2016 08:33",
-		"handleDeliverSM:handler:" : "HolgerHansPeterFreyther 2/9/2016 09:15",
-		"handleSubmitSM:handler:" : "HolgerHansPeterFreyther 2/9/2016 09:15",
+		"handleDeliverSM:handler:" : "HolgerHansPeterFreyther 2/11/2016 21:30",
+		"handleSubmitSM:handler:" : "HolgerHansPeterFreyther 2/11/2016 21:31",
 		"initialize" : "HolgerHansPeterFreyther 2/11/2016 20:50",
 		"omDatabase:" : "HolgerHansPeterFreyther 2/11/2016 20:50",
 		"smppCommand:from:" : "HolgerHansPeterFreyther 2/8/2016 14:47",
 		"smppReturnSuccessOn:for:" : "HolgerHansPeterFreyther 2/9/2016 09:21",
 		"smscDatabase:" : "HolgerHansPeterFreyther 2/8/2016 16:02",
 		"start" : "HolgerHansPeterFreyther 2/11/2016 20:53",
-		"storeDeliverSM:" : "HolgerHansPeterFreyther 2/9/2016 09:19" } }
+		"storeDeliverSM:from:" : "HolgerHansPeterFreyther 2/11/2016 21:31" } }

@@ -4,5 +4,5 @@ handleSubmitSM: aMessage handler: aHandler
 	logger logDebug: 'handleSubmitSM' with: { 'systemId' -> aHandler systemId }.
 
 	deliverSM := self convertToDeliverSM: aMessage body.
-	self storeDeliverSM: deliverSM.
+	self storeDeliverSM: deliverSM from: aHandler systemId.
 	self smppReturnSuccessOn: aHandler for: aMessage
