@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-REST",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 09:59",
+	"instvars" : [
+		"omDatabase",
+		"smscDatabase",
+		"logger" ],
+	"name" : "ShortMessageCenterRestBase",
+	"pools" : [
+		 ],
+	"super" : "ZnJSONRestCall",
+	"type" : "normal" }

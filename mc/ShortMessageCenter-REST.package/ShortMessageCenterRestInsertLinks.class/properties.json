@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-REST",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 20:42",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageCenterRestInsertLinks",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageCenterRestBase",
+	"type" : "normal" }

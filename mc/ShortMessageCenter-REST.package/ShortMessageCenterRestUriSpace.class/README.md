@@ -1,0 +1,1 @@
+I delegate/match one of the ShortMessageCenterRestBase classes to offer the REST service of the ShortMessageCenter

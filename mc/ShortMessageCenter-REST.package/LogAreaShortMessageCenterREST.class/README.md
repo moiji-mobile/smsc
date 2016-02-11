@@ -1,0 +1,1 @@
+I represent the log output for the REST interface of the SMSC

@@ -1,0 +1,15 @@
+{
+	"category" : "ShortMessageCenter-REST",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 10:03",
+	"instvars" : [
+		"omDatabase",
+		"smscDatabase" ],
+	"name" : "ShortMessageCenterRestUriSpace",
+	"pools" : [
+		 ],
+	"super" : "ZnRestUriSpace",
+	"type" : "normal" }

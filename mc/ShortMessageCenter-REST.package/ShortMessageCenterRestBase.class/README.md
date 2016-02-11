@@ -1,0 +1,1 @@
+I am the baseclass  for all REST calls of the ShortMessageCenter
