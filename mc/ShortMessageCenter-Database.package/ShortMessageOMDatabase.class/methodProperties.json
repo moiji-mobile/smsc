@@ -1,0 +1,14 @@
+{
+	"class" : {
+		"default" : "HolgerHansPeterFreyther 2/11/2016 16:40",
+		"withDatabase:" : "HolgerHansPeterFreyther 2/11/2016 16:55" },
+	"instance" : {
+		"allInserterLinks" : "HolgerHansPeterFreyther 2/11/2016 17:58",
+		"collectionForInserter:" : "HolgerHansPeterFreyther 2/11/2016 16:55",
+		"createOrUpdateInserterLink:" : "HolgerHansPeterFreyther 2/11/2016 17:47",
+		"database:" : "HolgerHansPeterFreyther 2/11/2016 16:55",
+		"findInserterLink:" : "HolgerHansPeterFreyther 2/11/2016 16:58",
+		"initialize" : "HolgerHansPeterFreyther 2/11/2016 17:59",
+		"materializeSMPPLink:" : "HolgerHansPeterFreyther 2/11/2016 16:38",
+		"removeInserterLink:" : "HolgerHansPeterFreyther 2/11/2016 17:48",
+		"root:" : "HolgerHansPeterFreyther 2/11/2016 16:55" } }

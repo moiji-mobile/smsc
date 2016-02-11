@@ -1,0 +1,17 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 16:35",
+	"instvars" : [
+		"root",
+		"database",
+		"collectionForInserter",
+		"logger" ],
+	"name" : "ShortMessageOMDatabase",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
