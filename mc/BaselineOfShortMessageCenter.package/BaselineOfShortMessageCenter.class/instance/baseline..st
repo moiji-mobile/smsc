@@ -11,7 +11,7 @@ baseline: spec
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;
-					versionString: '2';
+					versionString: '3';
 					repository: 'http://smalltalkhub.com/mc/osmocom/SMPP/main/' ].
 		spec project: 'StatsDClient' with: [
 				spec
@@ -50,4 +50,6 @@ baseline: spec
 		spec package: #'ShortMessageCenter-Inserter' with: [
 			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging')].
 		spec package: #'ShortMessageCenter-Delivery' with: [
-			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging' 'ASN1' 'TCAP')]].
+			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging' 'ASN1' 'TCAP')].
+		spec package: #'ShortMessageCenter-REST' with: [
+			spec requires: #('ShortMessageCenter-Database' 'ZincHTTPComponents' 'OsmoLogging')]].
