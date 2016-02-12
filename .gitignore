@@ -5,3 +5,7 @@ play-cache
 *.sw?
 PharoDebug.log
 *.sources
+debian/files
+debian/osmo-smsc.debhelper.log
+debian/osmo-smsc.substvars
+debian/osmo-smsc/

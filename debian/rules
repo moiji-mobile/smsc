@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# nothing...
+
+override_dh_auto_install:
+	# make install DESTDIR=$(PWD)/debian/tmp/
