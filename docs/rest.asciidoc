@@ -1,0 +1,100 @@
+REST Interface
+--------------
+
+The inserter, management and the delivery nodes have a dedicated REST interface
+that is using the GET, PUT and DELETE verbs. The creation of links and routes are
+idempotent which means creating the same resource will replace the old one. All
+O&M changes made via the REST interface require a restart of the specific node.
+
+In case more than one node is configured for a specific role one should either use
+different databases or at least a different collection for the configuration which
+will require running a different O&M manager as well. Please see the chapter about
+the CLI arguments on how to do that.
+
+
+SMPP Inserter Interface
+~~~~~~~~~~~~~~~~~~~~~~~
+
+One can configure the SMPPConnection (outgoing connection) and the SMPPConnectionManager
+(waiting for one connection of a specific systemId/password) through the REST interface.
+There are operations to list all connections, to create a new one, to look at a specific
+one and to remove one.
+
+
+Listing all connections
+^^^^^^^^^^^^^^^^^^^^^^^
+
+----
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/inserterSMPPLinks
+
+TODO... add example output
+----
+
+Result codes:: Under normal operation only 200 with an JSON array should be returned.
+
+Creating or updating a connection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The SMPPConnection of type "client" can specify the remote hostname and port while the
+SMPPConnectionManager of type "server" allows to specify the port to bind to and from
+which remote IPv4/port the connection should arrive.
+
+----
+$ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME \
+-d '{ \
+	"connectionType" -> "client", \
+	"hostname" -> "nameOfServer", \
+	"port" -> PortNumber, \
+	"systemId" -> "systemId", \
+	"systemType" -> "systemType", \
+	"password" -> "password", \
+}'
+.... TDOO example output
+
+$ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME2 \
+-d '{ \
+	"connectionType" -> "server", \
+	"port" -> PortNumber, \
+	"systemId" -> "systemId", \
+	"systemType" -> "systemType", \
+	"password" -> "password", \
+	"allowedRemoteAddress" -> [127, 0, 0, 1], \
+	"allowedRemotePort" -> aSourcePortNumber \
+}'
+----
+
+Result codes:: In case of invalid JSON a 5XX response will be returned, in case of incomplete document a 5XX will be returned as well, in case no connection can be created a 4XX will be returned
+
+
+Inspect a connection
+^^^^^^^^^^^^^^^^^^^^
+
+Show the settings of one configured SMPP link. This can either be a client or server.
+
+----
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/inserterSMPPLink/NAME
+... TODO example output
+----
+
+Result codes:: In case no connection with than name exists a 404 will be returned, otherwise
+a 200 with the JSON response response will be returned
+
+
+Delete a connection
+^^^^^^^^^^^^^^^^^^^
+
+Remove the configuration of a SMPP link.
+
+----
+$ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/inserterSMPPLink/NAME
+... TODO example output
+----
+
+Result codes:: In case no connection with name exists a 404 will be returned, otherwise a 200 with an EMPTY return will be returned.
+
+
+
+Delivery Interface
+~~~~~~~~~~~~~~~~~~
+
+bla
