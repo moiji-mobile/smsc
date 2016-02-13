@@ -7,7 +7,6 @@ os:
 
 services:
   - mongodb # Essential to what we do
-  - docker
 
 # Target mongodb v3.0 as lowest version
 addons:
@@ -16,15 +15,7 @@ addons:
     - mongodb-3.0-precise
     packages:
     - mongodb-org-server
-    - lib32asound2
-    - lib32z1
-    - lib32bz2-1.0
-    - libssl1.0.0:i386
 
 smalltalk:
   - Pharo-4.0
   - Pharo-5.0
-
-script:
-  - $SMALLTALK_CI_HOME/run.sh
-  - wget -O- http://travis.debian.net/script.sh | sh -
