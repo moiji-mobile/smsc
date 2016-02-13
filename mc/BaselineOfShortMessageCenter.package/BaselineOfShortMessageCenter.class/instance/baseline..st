@@ -11,7 +11,7 @@ baseline: spec
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;
-					versionString: '3';
+					versionString: '4';
 					repository: 'http://smalltalkhub.com/mc/osmocom/SMPP/main/' ].
 		spec project: 'StatsDClient' with: [
 				spec
@@ -31,7 +31,7 @@ baseline: spec
 		spec project: 'TCAP' with: [
 				spec
 					className: #ConfigurationOfTCAP;
-					versionString: '5';
+					versionString: '6';
 					repository: 'http://smalltalkhub.com/mc/osmocom/TCAP/main' ].
 		spec project: 'ASN1' with: [
 				spec
