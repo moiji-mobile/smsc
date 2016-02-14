@@ -21,8 +21,8 @@ There are operations to list all connections, to create a new one, to look at a 
 one and to remove one.
 
 
-Listing all connections
-^^^^^^^^^^^^^^^^^^^^^^^
+Listing all SMPP connections
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/inserterSMPPLinks
@@ -32,8 +32,8 @@ TODO... add example output
 
 Result codes:: Under normal operation only 200 with an JSON array should be returned.
 
-Creating or updating a connection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating or updating a SMPP connection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The SMPPConnection of type "client" can specify the remote hostname and port while the
 SMPPConnectionManager of type "server" allows to specify the port to bind to and from
@@ -66,8 +66,8 @@ $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/insert
 Result codes:: In case of invalid JSON a 5XX response will be returned, in case of incomplete document a 5XX will be returned as well, in case no connection can be created a 4XX will be returned
 
 
-Inspect a connection
-^^^^^^^^^^^^^^^^^^^^
+Inspect a SMPP connection
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Show the settings of one configured SMPP link. This can either be a client or server.
 
@@ -80,8 +80,8 @@ Result codes:: In case no connection with than name exists a 404 will be returne
 a 200 with the JSON response response will be returned
 
 
-Delete a connection
-^^^^^^^^^^^^^^^^^^^
+Delete a SMPP connection
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Remove the configuration of a SMPP link.
 
