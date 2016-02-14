@@ -42,24 +42,24 @@ which remote IPv4/port the connection should arrive.
 ----
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME \
 -d '{ \
-	"connectionType" -> "client", \
-	"hostname" -> "nameOfServer", \
-	"port" -> PortNumber, \
-	"systemId" -> "systemId", \
-	"systemType" -> "systemType", \
-	"password" -> "password", \
+	"connectionType": "client", \
+	"hostname": "nameOfServer", \
+	"port": PortNumber, \
+	"systemId": "systemId", \
+	"systemType": "systemType", \
+	"password": "password", \
 }'
 .... TDOO example output
 
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME2 \
 -d '{ \
-	"connectionType" -> "server", \
-	"port" -> PortNumber, \
-	"systemId" -> "systemId", \
-	"systemType" -> "systemType", \
-	"password" -> "password", \
-	"allowedRemoteAddress" -> [127, 0, 0, 1], \
-	"allowedRemotePort" -> aSourcePortNumber \
+	"connectionType": "server", \
+	"port": PortNumber, \
+	"systemId": "systemId", \
+	"systemType": "systemType", \
+	"password": "password", \
+	"allowedRemoteAddress": [127, 0, 0, 1], \
+	"allowedRemotePort": aSourcePortNumber \
 }'
 ----
 
