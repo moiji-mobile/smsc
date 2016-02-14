@@ -1,0 +1,1 @@
+I create a SS7 link from a description
