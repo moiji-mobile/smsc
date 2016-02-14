@@ -94,7 +94,12 @@ Result codes:: In case no connection with name exists a 404 will be returned, ot
 
 
 
-Delivery Interface
-~~~~~~~~~~~~~~~~~~
+SMPP Delivery Interface
+~~~~~~~~~~~~~~~~~~~~~~~
 
-bla
+It is possible to make deliveries using SMPP. These links are configured independly
+to the inserter interface but follow the same documents as with the inserter, the only
+difference is the URL.
+
+Instead of inserterSMPPLink it is deliverySMPPLink and instead of inserterSMPPLinks it
+will be deliverySMPPLinks.
