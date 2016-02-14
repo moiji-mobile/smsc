@@ -103,3 +103,33 @@ difference is the URL.
 
 Instead of inserterSMPPLink it is deliverySMPPLink and instead of inserterSMPPLinks it
 will be deliverySMPPLinks.
+
+
+SS7 Delivery Interface
+~~~~~~~~~~~~~~~~~~~~~~
+
+The main function of the SMSC Delivery is to deliver using SS7. One needs to configure
+one or multiple network connections to the osmo-stp SCTP/TCP bridge. The configuration
+is very similar to the above routines and supports the same verbs.
+
+
+Listing all SS7 Network Services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+----
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliverySS7Links
+
+TODO... add example output
+----
+
+Creating a SS7 Network Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+----
+$ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/deliverySS7Link/NAME \
+-d '{ \
+	"hostname": "host", \
+	"port": PortNumber, \
+	"token": "Token" \
+}'
+----
