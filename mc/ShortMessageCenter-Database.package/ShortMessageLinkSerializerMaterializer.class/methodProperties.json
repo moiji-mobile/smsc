@@ -1,0 +1,11 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"allLinks" : "HolgerHansPeterFreyther 2/14/2016 17:08",
+		"collection:" : "HolgerHansPeterFreyther 2/14/2016 17:07",
+		"createOrUpdateLink:" : "HolgerHansPeterFreyther 2/14/2016 17:09",
+		"findLink:" : "HolgerHansPeterFreyther 2/14/2016 17:10",
+		"initialize" : "HolgerHansPeterFreyther 2/14/2016 17:08",
+		"materializer:" : "HolgerHansPeterFreyther 2/14/2016 17:07",
+		"removeLink:" : "HolgerHansPeterFreyther 2/14/2016 17:10" } }

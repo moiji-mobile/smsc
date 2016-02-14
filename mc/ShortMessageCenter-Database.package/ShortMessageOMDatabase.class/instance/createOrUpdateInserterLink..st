@@ -1,6 +1,3 @@
-smpp
+inserter
 createOrUpdateInserterLink: aLink
-	collectionForInserter
-		update: { 'connectionName' -> aLink connectionName } asDictionary
-		with: aLink toExternalDictionary
-		flags: UpdateOperation flagUpsert.
+	self inserterHelper createOrUpdateLink: aLink

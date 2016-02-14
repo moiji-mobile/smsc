@@ -1,1 +1,1 @@
-I represent the OM  Database to manage links and other parts
+I represent the OM  Database to manage links and other parts.

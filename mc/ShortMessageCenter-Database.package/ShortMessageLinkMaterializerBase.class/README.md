@@ -1,0 +1,1 @@
+I am the base class for materialization and require >>#materialize: to be implemented

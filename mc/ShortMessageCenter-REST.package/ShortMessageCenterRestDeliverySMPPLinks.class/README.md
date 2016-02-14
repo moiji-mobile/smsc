@@ -1,0 +1,1 @@
+I return all configured delivery SMPP links and assume there are only a handful of them to not use too much memory.

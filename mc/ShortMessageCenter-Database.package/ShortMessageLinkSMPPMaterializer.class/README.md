@@ -1,0 +1,1 @@
+I can materialize from a Dictionary to a SMPPConnection/SMPPConnectionManager object

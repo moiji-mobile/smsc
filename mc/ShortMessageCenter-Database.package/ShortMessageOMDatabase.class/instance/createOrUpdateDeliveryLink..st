@@ -1,0 +1,3 @@
+delivery
+createOrUpdateDeliveryLink: aLink
+	self deliveryHelper createOrUpdateLink: aLink

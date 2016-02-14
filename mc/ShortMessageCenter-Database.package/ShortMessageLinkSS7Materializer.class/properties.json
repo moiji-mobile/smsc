@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Database-SerializerMaterializer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageLinkSS7Materializer",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageLinkMaterializerBase",
+	"type" : "normal" }

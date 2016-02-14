@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-REST",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/14/2016 16:00",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageCenterRestDeliverySS7Link",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageCenterRestBase",
+	"type" : "normal" }

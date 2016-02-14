@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-Database-SerializerMaterializer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/14/2016 17:11",
+	"instvars" : [
+		"collection",
+		"materializer",
+		"logger" ],
+	"name" : "ShortMessageLinkSerializerMaterializer",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,1 @@
+I represent the configuration of a NetworkService/SS7 link for the SMSC

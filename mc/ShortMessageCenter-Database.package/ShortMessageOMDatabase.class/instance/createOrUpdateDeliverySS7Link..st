@@ -1,0 +1,3 @@
+delivery-ss7
+createOrUpdateDeliverySS7Link: aLink
+	self deliverySS7Helper createOrUpdateLink: aLink

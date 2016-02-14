@@ -1,0 +1,1 @@
+I manage SMPP links used by the delivery part of the SMSC.

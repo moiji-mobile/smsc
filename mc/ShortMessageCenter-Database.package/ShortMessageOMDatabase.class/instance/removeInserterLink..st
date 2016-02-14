@@ -1,3 +1,3 @@
-smpp
+inserter
 removeInserterLink: aLink
-	collectionForInserter remove: { 'connectionName' -> aLink connectionName } asDictionary.
+	self inserterHelper removeLink: aLink.

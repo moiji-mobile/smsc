@@ -4,12 +4,14 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 16:35",
+	"commentStamp" : "HolgerHansPeterFreyther 2/14/2016 18:36",
 	"instvars" : [
 		"root",
 		"database",
 		"collectionForInserter",
-		"logger" ],
+		"logger",
+		"collectionForDelivery",
+		"collectionForSS7Delivery" ],
 	"name" : "ShortMessageOMDatabase",
 	"pools" : [
 		 ],
