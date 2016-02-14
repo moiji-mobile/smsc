@@ -1,0 +1,28 @@
+Delivery
+--------
+
+The task of the delivery is to deliver a DeliverSM to its destination. This can
+be done either by using SMPP or using the GSM Mobile Application Part (MAP). The
+delivery will attempt to deliver all SMS that are stored in the database.
+
+The deliver functionality will select the SMS that is scheduled next and then
+will try to find more SMS going to the same destination and will attempt to lock
+them.
+
+For each SMS a routing decision needs to be made. The routing can be based on the
+link (the systemId) the SMS arrived, the source address and the destination. Each
+route can have a list of destinations (e.g. MAPv3, MAPv2, SMPP).
+
+Routing
+~~~~~~~
+
+A route can match on several attributes and the route with the longest matching
+destination number and highest priority is used. There is also the option to mark
+a route as default.
+
+The sorting is done by the database. All non-empty criteria will sort before the
+empty ones. This means a rule with systemId, source address and destination address
+will sort before a rule with the same source address and destination address.
+
+The source and destination address need to have at least two digits. This is to
+help a more quick look-up using an index.
