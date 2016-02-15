@@ -1,0 +1,1 @@
+A ShortMessageDeliveryMethodSS7Test is a test class for testing the behavior of ShortMessageDeliveryMethodSS7

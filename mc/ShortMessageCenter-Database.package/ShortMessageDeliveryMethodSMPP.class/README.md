@@ -1,0 +1,1 @@
+I make a delivery through SMPP. I can select the connectionName.

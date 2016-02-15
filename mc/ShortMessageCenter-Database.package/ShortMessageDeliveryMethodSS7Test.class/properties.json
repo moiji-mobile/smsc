@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Database-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageDeliveryMethodSS7Test",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

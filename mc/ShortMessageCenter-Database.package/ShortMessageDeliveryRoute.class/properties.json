@@ -1,0 +1,19 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/15/2016 09:47",
+	"instvars" : [
+		"systemId",
+		"sourceAddressPrefix",
+		"destinationAddressPrefix",
+		"priority",
+		"default",
+		"methods" ],
+	"name" : "ShortMessageDeliveryRoute",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

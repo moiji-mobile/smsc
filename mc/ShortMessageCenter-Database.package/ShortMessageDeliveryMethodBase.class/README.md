@@ -1,0 +1,1 @@
+I represent the configuration of a specific delivery method. I anticipate my children to be SS7 and SMPP but maybe in the future somebody wants to use SIP as well?

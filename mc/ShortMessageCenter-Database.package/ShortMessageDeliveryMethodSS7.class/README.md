@@ -1,0 +1,1 @@
+I make a delivery through SS7. I can select the connectionName, the source GT, GTI flags and the MAP version

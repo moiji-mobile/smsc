@@ -1,0 +1,19 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/15/2016 09:57",
+	"instvars" : [
+		"connectionName",
+		"globalTitle",
+		"smscNumber",
+		"sendRoutingInfoTranslationType",
+		"forwardSMTranslationType",
+		"mapVersion" ],
+	"name" : "ShortMessageDeliveryMethodSS7",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliveryMethodBase",
+	"type" : "normal" }
