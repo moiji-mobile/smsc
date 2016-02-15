@@ -1,0 +1,11 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"allRoutes" : "HolgerHansPeterFreyther 2/15/2016 14:13",
+		"collection:" : "HolgerHansPeterFreyther 2/15/2016 14:12",
+		"createOrUpdateRoute:" : "HolgerHansPeterFreyther 2/15/2016 14:14",
+		"findRoute:" : "HolgerHansPeterFreyther 2/15/2016 14:14",
+		"initialize" : "HolgerHansPeterFreyther 2/15/2016 14:12",
+		"materializer:" : "HolgerHansPeterFreyther 2/15/2016 14:12",
+		"removeRoute:" : "HolgerHansPeterFreyther 2/15/2016 14:19" } }

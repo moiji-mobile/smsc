@@ -1,6 +1,7 @@
 as yet unclassified
 materializeFrom: aCollection 
 	^self new
+		routeName: (aCollection at: 'routeName');
 		systemId: (aCollection at: 'systemId' ifAbsent: [nil]);
 		priority: (aCollection at: 'priority' ifAbsent: [nil]);
 		default: (aCollection at: 'default' ifAbsent: [nil]);

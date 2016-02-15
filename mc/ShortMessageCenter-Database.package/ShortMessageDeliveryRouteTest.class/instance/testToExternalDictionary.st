@@ -3,6 +3,7 @@ testToExternalDictionary
 	| route external |
 
 	route := ShortMessageDeliveryRoute new.
+	route routeName: 'aRouteName'.
 	route systemId: 'aSystemId'.
 	route sourceAddressPrefix: 'aSourcePrefix'.
 	route destinationAddressPrefix: 'aDestinationPrefix'.
@@ -15,4 +16,4 @@ testToExternalDictionary
 		mapVersion: 2;
 		yourself).
 	external := route toExternalDictionary.
-	self assert: external keys sort equals: #('default' 'destinationAddressPrefix' 'destinationAddressPrefixLength' 'methods' 'priority' 'sourceAddressPrefix' 'sourceAddressPrefixLength' 'systemId').
+	self assert: external keys sort equals: #('default' 'destinationAddressPrefix' 'destinationAddressPrefixLength' 'methods' 'priority' 'routeName' 'sourceAddressPrefix' 'sourceAddressPrefixLength' 'systemId').

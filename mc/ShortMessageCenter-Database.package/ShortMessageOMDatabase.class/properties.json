@@ -11,7 +11,8 @@
 		"collectionForInserter",
 		"logger",
 		"collectionForDelivery",
-		"collectionForSS7Delivery" ],
+		"collectionForSS7Delivery",
+		"collectionForDeliveryRoute" ],
 	"name" : "ShortMessageOMDatabase",
 	"pools" : [
 		 ],

@@ -2,6 +2,7 @@ as yet unclassified
 testMaterialize
 	| route |
 	route := ShortMessageDeliveryRoute materializeFrom: {
+		'routeName' -> 'aRouteName'.
 		'destinationAddressPrefix' -> 'aDestinationPrefix'.
 		'methods' -> {
 			{
@@ -11,6 +12,7 @@ testMaterialize
 		}
 	} asDictionary.
 
+	self assert: route routeName equals: 'aRouteName'.
 	self assert: route systemId equals: nil.
 	self assert: route priority equals: nil.
 	self assert: route default equals: nil.
@@ -22,6 +24,7 @@ testMaterialize
 
 	"Once more with the optional ones being set"
 	route := ShortMessageDeliveryRoute materializeFrom: {
+		'routeName' -> 'aRouteName'.
 		'systemId' -> 'aSystemId'.
 		'priority' -> 99.
 		'default' -> false.

@@ -4,10 +4,10 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "HolgerHansPeterFreyther 2/14/2016 18:50",
+	"commentStamp" : "HolgerHansPeterFreyther 2/15/2016 13:46",
 	"instvars" : [
 		 ],
-	"name" : "ShortMessageLinkSS7Materializer",
+	"name" : "ShortMessageRouteMaterializer",
 	"pools" : [
 		 ],
 	"super" : "ShortMessageMaterializerBase",

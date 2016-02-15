@@ -11,7 +11,8 @@
 		"destinationAddressPrefix",
 		"priority",
 		"default",
-		"methods" ],
+		"methods",
+		"routeName" ],
 	"name" : "ShortMessageDeliveryRoute",
 	"pools" : [
 		 ],

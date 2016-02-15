@@ -9,3 +9,4 @@ setUp
 	omDatabase := ShortMessageOMDatabase withDatabase: database.
 	smppMaterializer := ShortMessageLinkSMPPMaterializer new.
 	ss7Materializer := ShortMessageLinkSS7Materializer new.
+	routeMaterializer := ShortMessageRouteMaterializer new.

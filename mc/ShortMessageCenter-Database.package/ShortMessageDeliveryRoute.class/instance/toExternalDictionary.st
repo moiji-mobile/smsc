@@ -2,6 +2,7 @@ as yet unclassified
 toExternalDictionary
 	| dict |
 	dict := {
+		'routeName' -> routeName.
 		'systemId' -> systemId.
 		'priority' -> priority.
 		'default' -> default.
