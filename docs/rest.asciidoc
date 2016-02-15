@@ -133,3 +133,58 @@ $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/delive
 	"token": "Token" \
 }'
 ----
+
+Routes for Delivery
+~~~~~~~~~~~~~~~~~~~
+
+
+Listing all routes
+^^^^^^^^^^^^^^^^^^
+
+----
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliveryRoutes
+
+TODO... add example output
+----
+
+Result codes:: Under normal operation only 200 with an JSON array should be returned.
+
+Creating or updating a route
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+----
+$ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/deliveryRoute/NAME \
+-d '{ \
+...
+}'
+.... TDOO example output
+
+----
+
+Result codes:: In case of invalid JSON a 5XX response will be returned, in case of incomplete document a 5XX will be returned as well, in case no connection can be created a 4XX will be returned
+
+
+Inspect a route
+^^^^^^^^^^^^^^^
+
+Show the settings of one configured SMPP link. This can either be a client or server.
+
+----
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliveryRoute/NAME
+... TODO example output
+----
+
+Result codes:: In case no connection with than name exists a 404 will be returned, otherwise
+a 200 with the JSON response response will be returned
+
+
+Delete a route
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+----
+$ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/deliveryRoute/NAME
+... TODO example output
+----
+
+Result codes:: In case no connection with name exists a 404 will be returned, otherwise a 200 with an EMPTY return will be returned.
