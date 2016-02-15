@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-REST",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/15/2016 14:03",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageCenterRestDeliveryRoutes",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageCenterRestBase",
+	"type" : "normal" }
