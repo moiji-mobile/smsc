@@ -3,6 +3,7 @@ put
 	| routeName data route |
 	routeName := variables first.
 	data := self jsonRequest.
+	data at: 'routeName' put: routeName.
 
 	"Try to materialize it"
 	route := ShortMessageRouteMaterializer new materialize: data.

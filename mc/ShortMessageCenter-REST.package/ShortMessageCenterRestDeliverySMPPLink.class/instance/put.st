@@ -3,6 +3,7 @@ put
 	| connectionName data link |
 	connectionName := variables first.
 	data := self jsonRequest.
+	data at: 'connectionName' put: connectionName.
 
 	"Try to materialize it"
 	link := ShortMessageLinkSMPPMaterializer new materialize: data.
