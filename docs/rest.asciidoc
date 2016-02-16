@@ -58,7 +58,7 @@ $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/insert
 	"systemId": "systemId", \
 	"systemType": "systemType", \
 	"password": "password", \
-	"allowedRemoteAddress": [127, 0, 0, 1], \
+	"allowedRemoteAddress": "127.0.0.1", \
 	"allowedRemotePort": aSourcePortNumber \
 }'
 ----
