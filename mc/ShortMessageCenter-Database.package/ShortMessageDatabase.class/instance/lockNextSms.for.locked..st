@@ -8,6 +8,8 @@ lockNextSms: aDestMSISDN for: aSystemName locked: aList
 			(item destMSISDN = aDestMSISDN) &
 			(item deliveryTime <= now) &
 			(item _id notIn: aList) ] asMongoQuery.
+		'sort' -> [:item |
+			item creationTime = Mongo ascending ] asMongoQuery.
 		'update' -> {
 			'$set' -> {
 				'lockTime' -> now.

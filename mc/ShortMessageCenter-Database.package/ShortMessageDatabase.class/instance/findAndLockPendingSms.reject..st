@@ -8,6 +8,8 @@ findAndLockPendingSms: aSystemName reject: aMsisdnList
 			(item lock = 0) &
 			(item deliveryTime <= now) &
 			(item destMSISDN notIn: aMsisdnList) ] asMongoQuery.
+		'sort' -> [:item |
+			item creationTime = Mongo ascending ] asMongoQuery.
 		'update' -> {
 			'$set' -> {
 				'lockTime' -> now.
