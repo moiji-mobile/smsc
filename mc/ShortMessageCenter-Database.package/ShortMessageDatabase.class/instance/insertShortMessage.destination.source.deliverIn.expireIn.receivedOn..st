@@ -1,5 +1,5 @@
 notification
-insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration expireIn: anExpirationDuration receivedOn: aSystemId
+insertShortMessage: anEncodedMessage destination: aNumber source: aSourceNumber deliverIn: aDuration expireIn: anExpirationDuration receivedOn: aSystemId
 
 	| record now deliveryTime expirationTime |
 
@@ -9,6 +9,7 @@ insertShortMessage: anEncodedMessage destination: aNumber deliverIn: aDuration e
 	logger logDebug: 'Inserting short message' with: { 'dest' -> aNumber. 'deliverIn' -> aDuration. 'expireIn' -> anExpirationDuration }.
 
 	record := {
+		'sourceMSISDN' -> aSourceNumber.
 		'destMSISDN' -> aNumber.
 		'encodedMessage' -> anEncodedMessage.
 		'creationTime' -> now.

@@ -6,11 +6,11 @@ testLockNextSmsForLocked
 	messages := OrderedCollection new.
 
 	smscDatabase
-		insertShortMessage: 'message 1' destination: '1234567890' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
-		insertShortMessage: 'message 2' destination: '1234567890' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
-		insertShortMessage: 'message 3' destination: '1234567890' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
-		insertShortMessage: 'message 4' destination: '1234567890' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
-		insertShortMessage: 'message 5' destination: '1234567890' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink'.
+		insertShortMessage: 'message 1' destination: '1234567890' source: 'foo' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
+		insertShortMessage: 'message 2' destination: '1234567890' source: 'foo' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
+		insertShortMessage: 'message 3' destination: '1234567890' source: 'foo' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
+		insertShortMessage: 'message 4' destination: '1234567890' source: 'foo' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink';
+		insertShortMessage: 'message 5' destination: '1234567890' source: 'foo' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'testLink'.
 
 	self assert: smscDatabase smsPending.
 	res := smscDatabase findAndLockPendingSms: 'TestSystem' reject: #().
@@ -24,7 +24,7 @@ testLockNextSmsForLocked
 	self assert: count equals: 1.
 
 	smscDatabase
-		insertShortMessage: 'no message' destination: '666666' deliverIn:  0 seconds expireIn: 10 days receivedOn: 'testLink'.
+		insertShortMessage: 'no message' destination: '666666' source: 'foo' deliverIn:  0 seconds expireIn: 10 days receivedOn: 'testLink'.
 
 	self assert: smscDatabase smsPending.
 	res := smscDatabase lockNextSms: (res at: 'destMSISDN') for: 'TestSystem' locked: ids.
