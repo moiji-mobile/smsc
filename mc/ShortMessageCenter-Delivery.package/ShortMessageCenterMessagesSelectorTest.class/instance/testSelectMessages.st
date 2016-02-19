@@ -33,3 +33,17 @@ testSelectMessages
 
 	locks := smscDatabase collectionForLock select: [:each | ].
 	self assert: locks size equals: 1.
+
+	messages := smscDatabase collectionForSms select: [:each | each lock = 0 ].
+	self assert: messages size equals: 3.
+	messages := smscDatabase collectionForSms select: [:each | each lock = 1 ].
+	self assert: messages size equals: 6.
+
+	"See that we can now lock and steal the other SMS"
+	smscDatabase releaseDestination: '1234567890'.
+	self assert: smscDatabase collectionForLock size equals: 0.
+	messages := ShortMessageCenterMessagesSelector new
+						smscDatabase: smscDatabase;
+						workerName: 'worker2';
+						selectMessages.
+	self assert: messages size equals: 6.
