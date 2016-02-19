@@ -17,7 +17,7 @@ selectMessages
 			'workerName' -> workerName. 'dest' -> destMSISDN }.
 
 		"Attempt to lock this target now"
-		destination := self lockDestination: destMSISDN for: workerName.
+		destination := smscDatabase lockDestination: destMSISDN for: workerName.
 		destination isNil
 			ifTrue: [
 				"Somebody tries to deliver there. Let us skip it and try again"

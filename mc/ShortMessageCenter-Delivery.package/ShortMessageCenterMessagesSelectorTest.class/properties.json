@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-SystemTests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"smscDatabase" ],
+	"name" : "ShortMessageCenterMessagesSelectorTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

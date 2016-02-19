@@ -1,0 +1,35 @@
+tests-as yet unclassified
+testSelectMessages
+	| messages locks |
+	smscDatabase
+		insertShortMessage: 'This is a message1' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message2' destination: '1234567890' source: '1235' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link2';
+		insertShortMessage: 'This is a message3' destination: '1234567890' source: '1236' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link3';
+		insertShortMessage: 'This is a message4' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message5' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message6' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message7' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message8' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message9' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1'.
+
+	self assert: smscDatabase collectionForLock size equals: 0.
+
+	messages := ShortMessageCenterMessagesSelector new
+						smscDatabase: smscDatabase;
+						workerName: 'worker1';
+						selectMessages.
+
+	"Check that upto six messages are now selected and locked"
+	self assert: smscDatabase collectionForLock size equals: 1.
+	self assert: messages size equals: 6.
+
+	"The target is still locked.. so try to see what happens if we lock it again"
+	messages := ShortMessageCenterMessagesSelector new
+						smscDatabase: smscDatabase;
+						workerName: 'worker2';
+						selectMessages.
+	self assert: smscDatabase collectionForLock size equals: 1.
+	self assert: messages isNil.
+
+	locks := smscDatabase collectionForLock select: [:each | ].
+	self assert: locks size equals: 1.
