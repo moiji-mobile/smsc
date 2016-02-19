@@ -1,0 +1,25 @@
+{
+	"category" : "ShortMessageCenter-Delivery",
+	"classinstvars" : [
+		"asn1Model" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/19/2016 13:23",
+	"instvars" : [
+		"logger",
+		"smscDatabase",
+		"dbHost",
+		"dbPort",
+		"dbName",
+		"omDatabase",
+		"smppDeliveryLinks",
+		"ss7Links",
+		"routes",
+		"tcapLinks",
+		"workers",
+		"baseWorkerName" ],
+	"name" : "ShortMessageCenterDeliveryCentral",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,1 @@
+A ShortMessageCenterDeliveryWorkerTest is a test class for testing the behavior of ShortMessageCenterDeliveryWorker

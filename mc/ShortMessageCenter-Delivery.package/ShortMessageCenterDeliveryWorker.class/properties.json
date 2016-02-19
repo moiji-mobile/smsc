@@ -1,0 +1,21 @@
+{
+	"category" : "ShortMessageCenter-Delivery",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/19/2016 13:24",
+	"instvars" : [
+		"root",
+		"database",
+		"smscDatabase",
+		"logger",
+		"workerName",
+		"messagesSelector",
+		"omDatabase",
+		"undeliveredMessages" ],
+	"name" : "ShortMessageCenterDeliveryWorker",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

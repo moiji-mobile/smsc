@@ -1,0 +1,1 @@
+I manage the initial configuration, database, load links, etc and then spawn workers

@@ -1,0 +1,15 @@
+{
+	"category" : "ShortMessageCenter-Delivery-SystemTests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"smscDatabase",
+		"omDatabase" ],
+	"name" : "ShortMessageCenterDeliveryWorkerTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

@@ -4,11 +4,12 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "",
+	"commentStamp" : "HolgerHansPeterFreyther 2/19/2016 13:31",
 	"instvars" : [
-		"logger",
-		"smscDatabase" ],
-	"name" : "ShortMessageCenterDeliveryMaster",
+		"smscDatabase",
+		"workerName",
+		"logger" ],
+	"name" : "ShortMessageCenterMessagesSelector",
 	"pools" : [
 		 ],
 	"super" : "Object",

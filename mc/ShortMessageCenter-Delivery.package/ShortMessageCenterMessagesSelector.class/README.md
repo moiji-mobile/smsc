@@ -1,0 +1,1 @@
+I use the ShortMessageDatabase to select a new SMS and after the selectiont try to lock the destination and find more SMS that are due. I am used by the DeliveryWorker.
