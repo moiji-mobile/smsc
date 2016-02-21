@@ -54,7 +54,6 @@ $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/insert
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME2 \
 -d '{ \
 	"connectionType": "server", \
-	"port": PortNumber, \
 	"systemId": "systemId", \
 	"systemType": "systemType", \
 	"password": "password", \
