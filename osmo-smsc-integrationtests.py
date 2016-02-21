@@ -31,6 +31,7 @@ def test_inserter(host, port):
           "systemType": "systemType",
           "password": "password"}
     server={"connectionType": "server",
+          "port": 99,
           "systemId": "systemId",
           "systemType": "systemType",
           "password": "password",
