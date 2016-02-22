@@ -26,3 +26,48 @@ will sort before a rule with the same source address and destination address.
 
 The source and destination address need to have at least two digits. This is to
 help a more quick look-up using an index.
+
+
+Route selection examples
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In case the following four routes are configured we will look at the route selection
+of the system with some specific examples.
+
+Route configuration
++++++++++++++++++++
+
+Default route::
+{ "routeName" : "default", "default": true }
+
+Matching destination::
+{ "routeName" : "destRoute1", "destinationAddressPrefix" : "49177" }
+
+Matching destination::
+{ "routeName" : "destRoute2", "destinationAddressPrefix" : "491772" }
+
+Matching source and destination::
+{ "routeName" : "sourceDestRoute", "sourceAddressPrefix": "49166", "destinationAddressPrefix: "49177" }
+
+Matching systemId, source and destination::
+{ "routeName" " "systemIdRoute", "systemId": "aSystemId", "sourceAddressPrefix" : "49166", "destinationAddressPrefix" : "49177"}
+
+Route selection
++++++++++++++++
+
+Destination 32342435343::
+There is no match of the destinationAddressPrefix and the route called "default" will
+be used.
+
+Destination 4917723435 from 49303424324 on link example::
+There are two routes that match these are "destRoute1" and "destRoute2". The route
+with the longest matching prefix will be chosen and this is "destRoute2"
+
+Destination 4917723435 from 49166233213 on line example::
+In this case the sourceAddressPrefix of "sourceDestRoute" will match in addition to
+the destinationAddressPrefix.
+
+Destination 4917723435 from 49166233213 on line aSystemId::
+In this case we have three rules that match the destination and two rules that match
+the source but only one rule that is matching the systemId. This means the "systemIdRoute"
+rule will be used.
