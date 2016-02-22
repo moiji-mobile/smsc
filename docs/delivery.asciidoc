@@ -55,7 +55,7 @@ Matching source and destination::
 { "routeName" : "sourceDestRoute", "sourceAddressPrefix": "49166", "destinationAddressPrefix: "49177" }
 
 Matching systemId, source and destination::
-{ "routeName" " "systemIdRoute", "systemId": "aSystemId", "sourceAddressPrefix" : "49166", "destinationAddressPrefix" : "49177"}
+{ "routeName" : "systemIdRoute", "systemId": "aSystemId", "sourceAddressPrefix" : "49166", "destinationAddressPrefix" : "49177"}
 
 Route selection
 +++++++++++++++
