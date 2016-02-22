@@ -13,10 +13,11 @@ findRouteForDestination: aDestAddress source: aSourceAddress systemId: aSystemId
 				((route sourceAddressPrefix = {'$regex' -> sourceRegexp} asDictionary) | (route sourceAddressPrefix = nil)) &
 				((route systemId = aSystemId) | (route systemId = nil))
 			) | (route default = true)] asMongoQuery;
-			order: {
-				'destinationAddressPrefixLength' -> Mongo descending.
-				'sourceAddressPrefixLength' -> Mongo descending.
-				'systemId' -> Mongo descending.
-				'default' -> Mongo ascending} asDictionary
+			order: (SmallDictionary new
+						at: 'destinationAddressPrefixLength' put: Mongo descending;
+						at: 'sourceAddressPrefixLength' put: Mongo descending;
+						at: 'systemId' put: Mongo descending;
+						at: 'default' put: Mongo ascending;
+						yourself).
 	].
 	^result
