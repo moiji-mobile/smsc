@@ -16,16 +16,21 @@ route can have a list of destinations (e.g. MAPv3, MAPv2, SMPP).
 Routing
 ~~~~~~~
 
-A route can match on several attributes and the route with the longest matching
-destination number and highest priority is used. There is also the option to mark
-a route as default.
+The system has two kind of routes. One of them is a default route and the other
+is a specific route. Each specific route must have a destinationAddressPrefix and
+can have a sourceAddressPrefix and a systemId. The minimum length for the
+destinationAddressPrefix is two and if the sourceAddressPrefix is present it must
+be at least two digits long as well.
 
-The sorting is done by the database. All non-empty criteria will sort before the
-empty ones. This means a rule with systemId, source address and destination address
-will sort before a rule with the same source address and destination address.
+To determine a route a database query will be used. The result is sorted by the
+length of the destinationAddressPrefix, length of the sourceAddressPrefix, the
+systemId (alphabetically) and if it is a default. The first entry of the result
+will be picked.
 
-The source and destination address need to have at least two digits. This is to
-help a more quick look-up using an index.
+This means the system will not pick a route where most fields match the most but
+the route that has the longest destinationAddressPrefix and from routes the system
+with the longest sourceAddressPrefix and if that is the same the system with the
+matching systemId. The default route will be sorted last.
 
 
 Route selection examples
