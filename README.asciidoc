@@ -1,6 +1,11 @@
 Scalable Smalltalk Short Message Center (SMSC)
 ----------------------------------------------
 
+The work on this software has been sponsored by On-Waves ehf. Commercial
+support for deployment, maintenance and extensions is available through
+sysmocom s.f.m.c. GmbH. Please contact sales@sysmocom.de.
+
+
 Design Goals
 ~~~~~~~~~~~~
 
