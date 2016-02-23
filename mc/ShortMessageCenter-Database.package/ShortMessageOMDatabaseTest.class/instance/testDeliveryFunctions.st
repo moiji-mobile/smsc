@@ -12,6 +12,7 @@ testDeliveryFunctions
 		'systemType' -> nil.
 		'systemId' -> nil.
 		'password' -> nil.
+		'port' -> 2345.
 		'allowedRemoteAddress' -> nil.
 		'allowedRemotePort' -> nil.
 	} asDictionary.
