@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/23/2016 16:13",
+	"instvars" : [
+		"testMode" ],
+	"name" : "ShortMessageTestDelivery",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliveryBase",
+	"type" : "normal" }

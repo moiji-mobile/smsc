@@ -1,0 +1,15 @@
+{
+	"category" : "ShortMessageCenter-Delivery",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/22/2016 15:55",
+	"instvars" : [
+		"messages",
+		"route" ],
+	"name" : "ShortMessageDeliveryGroup",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

@@ -1,0 +1,3 @@
+*ShortMessageCenter-Delivery
+createDelivery
+	self subclassResponsibility

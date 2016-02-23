@@ -16,8 +16,10 @@ start: numJobs
 	1 to: numJobs do: [:each |
 		| proc worker |
 		worker := ShortMessageCenterDeliveryWorker new.
-		worker databaseHost: dbHost port: dbPort name: dbName.
-		worker workerName: baseWorkerName + ' Worker' + each asString.
+		worker
+			databaseHost: dbHost port: dbPort name: dbName;
+			workerName: baseWorkerName + ' Worker' + each asString;
+			deliveryCentral: self.
 		proc := [ worker setup. worker doWork ] newProcess.
 		proc name: 'Worker ', each asString.
 		workers at: each put: proc].

@@ -1,0 +1,17 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 2/23/2016 16:12",
+	"instvars" : [
+		"messages",
+		"deliveryCentral",
+		"smscDatabase",
+		"logger" ],
+	"name" : "ShortMessageDeliveryBase",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

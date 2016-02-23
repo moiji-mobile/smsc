@@ -16,6 +16,6 @@ selectGroupMessages: messages
 			'sourceMSISDN' -> sourceMSISDN.
 			'systemId' -> systemId }.
 
-		(groups at: routeName ifAbsentPut: [OrderedCollection new]) add: each].
+		(groups at: routeName ifAbsentPut: [ShortMessageDeliveryGroup initWithRoute: route]) add: each].
 
 	^groups

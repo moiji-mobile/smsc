@@ -13,7 +13,8 @@
 		"workerName",
 		"messagesSelector",
 		"omDatabase",
-		"undeliveredMessages" ],
+		"undeliveredMessages",
+		"deliveryCentral" ],
 	"name" : "ShortMessageCenterDeliveryWorker",
 	"pools" : [
 		 ],
