@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageDeliveryForwardSMv3",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliveryForwardSMv2",
+	"type" : "normal" }

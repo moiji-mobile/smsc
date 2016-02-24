@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageDeliveryForwardSMv3Test",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

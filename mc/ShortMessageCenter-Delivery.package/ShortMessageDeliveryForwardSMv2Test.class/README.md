@@ -1,0 +1,1 @@
+A ShortMessageDeliveryForwardSMv2Test is a test class for testing the behavior of ShortMessageDeliveryForwardSMv2

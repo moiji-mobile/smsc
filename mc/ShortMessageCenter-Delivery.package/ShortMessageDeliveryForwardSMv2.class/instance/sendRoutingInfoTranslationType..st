@@ -1,0 +1,3 @@
+configuration
+sendRoutingInfoTranslationType: anInteger 
+	sendRoutingInfoTranslationType := anInteger

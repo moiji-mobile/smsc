@@ -1,0 +1,26 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"connectionName",
+		"globalTitle",
+		"smscNumber",
+		"sendRoutingInfoTranslationType",
+		"forwardSMTranslationType",
+		"waitingSemaphore",
+		"tcapLink",
+		"pendingMessages",
+		"imsi",
+		"mscNumber",
+		"deliveryDialogue",
+		"currentSMRPUI",
+		"ssn" ],
+	"name" : "ShortMessageDeliveryForwardSMv2",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliveryBase",
+	"type" : "normal" }
