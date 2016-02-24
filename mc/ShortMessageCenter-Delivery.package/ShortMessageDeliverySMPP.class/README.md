@@ -1,0 +1,1 @@
+I deliver through SMPP

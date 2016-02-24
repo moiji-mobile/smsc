@@ -1,4 +1,4 @@
-as yet unclassified
+result
 deliveredMessage: aMessage
 	logger logNotice: 'Delivered SMS' with: { 'smsId' -> (aMessage at: '_id') }.
 	messages remove: aMessage.
