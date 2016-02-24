@@ -1,6 +1,6 @@
 {
 	"class" : {
-		"materializeFrom:" : "HolgerHansPeterFreyther 2/15/2016 10:36" },
+		"materializeFrom:" : "HolgerHansPeterFreyther 2/24/2016 22:01" },
 	"instance" : {
 		"connectionName" : "HolgerHansPeterFreyther 2/15/2016 10:21",
 		"connectionName:" : "HolgerHansPeterFreyther 2/15/2016 10:02",
@@ -14,4 +14,6 @@
 		"sendRoutingInfoTranslationType:" : "HolgerHansPeterFreyther 2/15/2016 10:03",
 		"smscNumber" : "HolgerHansPeterFreyther 2/15/2016 10:21",
 		"smscNumber:" : "HolgerHansPeterFreyther 2/15/2016 10:03",
-		"toExternalDictionary" : "HolgerHansPeterFreyther 2/15/2016 10:07" } }
+		"ssn" : "HolgerHansPeterFreyther 2/24/2016 22:03",
+		"ssn:" : "HolgerHansPeterFreyther 2/24/2016 22:03",
+		"toExternalDictionary" : "HolgerHansPeterFreyther 2/24/2016 22:01" } }

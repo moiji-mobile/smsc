@@ -11,7 +11,8 @@
 		"smscNumber",
 		"sendRoutingInfoTranslationType",
 		"forwardSMTranslationType",
-		"mapVersion" ],
+		"mapVersion",
+		"ssn" ],
 	"name" : "ShortMessageDeliveryMethodSS7",
 	"pools" : [
 		 ],
