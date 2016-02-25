@@ -2,9 +2,9 @@ forward
 signalForwardSuccess
 	| lastMessage |
 	"One ROS invocation succeeded. Move forward by taking the"
-	lastMessage := pendingMessages removeFirst.
+	lastMessage := pendingMessages first.
 
-	pendingMessages isEmpty
+	pendingMessages size = 1
 		ifTrue: [
 			deliveryDialogue terminate.
 			deliveryDialogue := nil.

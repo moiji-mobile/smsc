@@ -35,4 +35,4 @@ createNewForwardDialogue
 	deliveryDialogue
 		requestTcBeginDestinationAddress: self remoteSCCPAddressForForward
 		originatingAddress: self localSCCPAddress
-		applicationContextName: (deliveryDialogue applicationContextOidForOperationNamed:  self class forwardSMName).
+		applicationContextName: (deliveryDialogue applicationContextOidForOperationNamed: self class forwardSMName).
