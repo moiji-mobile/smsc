@@ -17,33 +17,21 @@ sendRoutingInfoForSM
 
 	tcapDialogue
 		onPAbort: [
-			logger logError: 'SRIForSM p-aborted' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages];
+			self signalRoutingInfoFailure: 'on-pabort'];
 		onUAbort: [
-			logger logError: 'SRIForSM u-aborted' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages].
+			self signalRoutingInfoFailure: 'on-uabort'].
 	invoke := tcapDialogue
 				requestTcInvokeNamed: operationName parameters:  param
 				class: 1 timeout: 60.
 	invoke
 		onReturn: [
-			logger logError: 'SRIForSM on-return' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages];
+			self signalRoutingInfoFailure: 'on-return'];
 		onError: [
-			logger logError: 'SRIForSM on-error' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages];
+			self signalRoutingInfoFailure: 'on-error'];
 		onReject: [
-			logger logError: 'SRIForSM on-reject' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages];
+			self signalRoutingInfoFailure: 'on-reject'];
 		onLCancel: [
-			logger logError: 'SRIForSM on-cancel' with: {
-				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN') }.
-			self failAllMessages];
+			self signalRoutingInfoFailure: 'on-cancel'];
 		onReturnLast: [:result | self handleSRIForSMResult: result].
 	tcapDialogue
 		requestTcBeginDestinationAddress: self remoteSCCPAddressForSRIForSM
