@@ -17,10 +17,20 @@ addons:
     packages:
     - mongodb-org-server
 
+before_install:
+  - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef" docker-engine
+
 smalltalk:
   - Pharo-4.0
   - Pharo-5.0
 
 script:
-  - $SMALLTALK_CI_HOME/run.sh
-  - wget -O- http://travis.debian.net/script.sh | sh -
+  - $SMALLTALK_CI_HOME/run.sh .smalltalk.ston
+  - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
+  - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
+  - bash docker/docker-image.sh
+  - bash integration-tests/integration-tests.sh
+  #- wget -O- http://travis.debian.net/script.sh | sh -
+
+after_failure:
+  - bash integration-tests/after_failure.sh
