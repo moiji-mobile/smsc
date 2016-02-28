@@ -30,7 +30,7 @@ script:
   - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
   - bash docker/docker-image.sh
   - bash integration-tests/integration-tests.sh
-  #- wget -O- http://travis.debian.net/script.sh | sh -
+  - sh ./docker/debian-build.sh
 
 after_failure:
   - bash integration-tests/after_failure.sh
