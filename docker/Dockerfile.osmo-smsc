@@ -1,0 +1,23 @@
+FROM debian
+
+RUN dpkg --add-architecture i386 && \
+    DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget make
+
+RUN mkdir -p /tmp/osmo-smsc
+
+ADD ./ /tmp/osmo-smsc
+
+RUN make -C /tmp/osmo-smsc/ install-rdepends install && rm -rf /tmp/osmo-smsc
+
+RUN ln -s /usr/lib/i386-linux-gnu/libcrypto.so.1.0.0 /usr/share/osmo-smsc/links/libcrypto.so && \
+ln -s /usr/share/osmo-smsc/scripts/inserter /usr/share/osmo-smsc/template/inserter/launch.d/99-inserter
+
+ADD ./docker/osmo-smsc-docker.sh /usr/local/bin/osmo-smsc
+RUN chmod 755 /usr/local/bin/osmo-smsc
+RUN sed -i -e "s/--db-host=127.0.0.1/--db-host=mongodb/g" /usr/share/osmo-smsc/template/inserter/image-launch.conf
+
+ENTRYPOINT ["/usr/local/bin/osmo-smsc"]
+CMD ["osmo-smsc","inserter"]
+
+EXPOSE 1700

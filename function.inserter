@@ -1,0 +1,34 @@
+| root hostname mongoPort database smscDatabase rootOM databaseOM smscOMDatabase port server |
+
+hostname := 'localhost'.
+self optionAt: 'db-host' ifPresent: [:dbHost |
+    hostname := dbHost].
+
+mongoPort := 27017.
+self optionAt: 'db-port' ifPresent: [:mongoPortString |
+    mongoPort := mongoPortString asNumber].
+
+port := 1700.
+self optionAt: 'rest-port' ifPresent: [:portString |
+    port := portString asNumber].
+
+"The database connection for "
+root := Mongo host: hostname port: mongoPort.
+        root open.
+database := MongoDatabase root: root name: 'smsc'.
+smscDatabase := ShortMessageDatabase withDatabase: database.
+
+rootOM := Mongo host: hostname port: mongoPort.
+        rootOM open.
+databaseOM := MongoDatabase root: rootOM name: 'smscOM'.
+smscOMDatabase := ShortMessageOMDatabase withDatabase: databaseOM.
+
+
+"Start the REST server"
+server := ZnServer startOn: port.
+server delegate: (ZnJSONRestServerDelegate new
+        uriSpace: (ShortMessageCenterRestUriSpace new
+                        smscDatabase: smscDatabase;
+                        omDatabase: smscOMDatabase;
+                        yourself);
+        yourself).
