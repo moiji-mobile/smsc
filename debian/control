@@ -7,6 +7,14 @@ Standards-Version: 3.9.5
 
 Package: osmo-smsc
 Architecture: any
-Depends: ${misc:Depends}, image-launch, runit, pharo-vm-core [!amd64], pharo-vm-core:i386 [amd64], pharo-sources-files
+Depends: ${misc:Depends}, image-launch, pharo-vm-core [!amd64], pharo-vm-core:i386 [amd64],
+  pharo-sources-files, mongodb-server
 Description: osmo-smsc
+ Contains the pharo images for osmo-smsc.
 
+Package: osmo-smsc-inserter
+Architecture: any
+Depends: ${misc:Depends}, osmo-smsc (=1)
+Description: osmo-smsc-inserter
+ Starts the inserter for osmo-smsc
+ via runit.
