@@ -3,8 +3,9 @@ Inserter
 
 The inserter is responsible for receiving SMPP DeliverSM and SMPP SubmitSM
 messages and storing them in the database. Right now no billing is done but
-it would be done when inserting a message. The main purpose is to take the
-SMPP message and store a DeliverSM in the database.
+it would be done before inserting a message. The main purpose is to take the
+SMPP message and store a DeliverSM in the database. The SubmitSM will be
+converted to a DeliverSM before storing it in the database.
 
 Scaling can occur by configuring multiple SMPP interfaces and by starting
 multiple instances of the inserter.
