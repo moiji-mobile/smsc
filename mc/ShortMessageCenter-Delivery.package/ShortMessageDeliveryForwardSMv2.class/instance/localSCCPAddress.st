@@ -1,6 +1,6 @@
 sccp
 localSCCPAddress
-	^ (SCCPAddress createForSSN: ssn)
+	^ (SCCPAddress createWith: ssn)
 		routedOnSSN: false;
 		gtiFromAddr:  (SCCPGlobalTitleTranslation new
 							nature: SCCPGlobalTitle naiInternationalNumber;

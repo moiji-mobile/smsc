@@ -22,6 +22,7 @@ testSelectMessages
 	"Check that upto six messages are now selected and locked"
 	self assert: smscDatabase collectionForLock size equals: 1.
 	self assert: messages size equals: 6.
+	self assert: messages class equals: OrderedCollection.
 
 	"The target is still locked.. so try to see what happens if we lock it again"
 	messages := ShortMessageCenterMessagesSelector new

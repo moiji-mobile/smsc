@@ -1,10 +1,9 @@
 tests-forward
 testFormatMessage
-	| forwarder smppMessage formatedMessage parsedMessage |
-	smppMessage := SMPPMessage readFrom: SMPPMessageTest new exampleDeliverSM readStream.
+	| forwarder formatedMessage parsedMessage |
 	forwarder := ShortMessageDeliveryForwardSMv2 new.
 	forwarder messages: {
-		{ 'encodedMessage' -> smppMessage body toMessage asByteArray } asDictionary}.
+		{ 'encodedMessage' -> self exampleEncodedMessage. } asDictionary}.
 	forwarder instVarNamed: #pendingMessages put: (forwarder instVarNamed: #messages) copy.
 
 	formatedMessage := forwarder formatMessage.

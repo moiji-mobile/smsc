@@ -4,12 +4,11 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "<historical>",
+	"commentStamp" : "",
 	"instvars" : [
-		"testEndPoint",
-		"smscEndPoint" ],
-	"name" : "ShortMessageDeliveryForwardSMv2Test",
+		"operations" ],
+	"name" : "ShortMessageDeliveryMockDatabase",
 	"pools" : [
 		 ],
-	"super" : "TestCase",
+	"super" : "Object",
 	"type" : "normal" }

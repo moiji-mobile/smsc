@@ -2,5 +2,8 @@
 	"class" : {
 		 },
 	"instance" : {
+		"exampleEncodedMessage" : "HolgerHansPeterFreyther 2/29/2016 10:46",
+		"setUp" : "HolgerHansPeterFreyther 2/29/2016 10:33",
 		"testCreation" : "HolgerHansPeterFreyther 2/24/2016 22:04",
-		"testFormatMessage" : "HolgerHansPeterFreyther 2/25/2016 20:10" } }
+		"testFormatMessage" : "HolgerHansPeterFreyther 2/29/2016 10:46",
+		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 2/29/2016 12:16" } }
