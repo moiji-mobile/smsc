@@ -1,0 +1,10 @@
+.dockerignore
+.git
+.gitignore
+integrations-test
+docker/Dockerfile*
+PharoDebug.log
+play-cache
+Readme.docker
+.smalltalk.ston
+.travis.yml

@@ -1,2 +1,3 @@
-#/usr/share/image-launch/scripts/restore-ui-manager etc/image-launch/images/osmo-smsc/launch.d/01-restore-ui-manager
-#/usr/share/image-launch/scripts/rfb-vnc-server etc/image-launch/images/osmos-smsc/launch.d/02-rfb-vnc-server
+/usr/lib/i386-linux-gnu/libcrypto.so.1.0.0 /usr/share/osmo-smsc/links/libcrypto.so
+/usr/share/osmo-smsc/scripts/inserter-syslog /usr/share/osmo-smsc/template/inserter/launch.d/01-inserter-syslog
+/usr/share/osmo-smsc/scripts/inserter /usr/share/osmo-smsc/template/inserter/launch.d/99-inserter

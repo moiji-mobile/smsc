@@ -1,0 +1,9 @@
+self optionAt: 'syslog' ifPresent: [:name |
+    | syslog |
+    syslog := LogTargetSyslog openlog: name option: 0 facility: LogTargetSyslog LOG_USER.
+    syslog prefix: ''.
+    LogManager default target: syslog.
+
+    "Reduce the amount of log messages generated"
+    (LogManager default findArea: #smscInserter, #smscDelivery, #smscOm) minLevel: LogLevel info.
+]
