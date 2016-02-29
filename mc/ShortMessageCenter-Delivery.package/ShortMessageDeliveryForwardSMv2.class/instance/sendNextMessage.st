@@ -5,5 +5,12 @@ sendNextMessage
 
 	deliveryDialogue ifNil: [
 		^self createNewForwardDialogue].
+
+	(deliveryDialogue state respondsTo: #requestTcContinue) ifFalse: [
+		"Dialogue is going to end.. and the tcap stack does not tell us yet. OW#1583 has been
+		filed for this."
+		deliveryDialogue := nil.
+		^self createNewForwardDialogue].
+
 	self forwardMessage.
 	deliveryDialogue requestTcContinue.
