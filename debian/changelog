@@ -1,5 +1,12 @@
-osmo-smsc (1) UNRELEASED; urgency=medium
+osmo-smsc (2) stable; urgency=medium
 
+  * test
+
+ --  <henning@rhein2>  Tue, 01 Mar 2016 13:46:30 +0100
+
+osmo-smsc (1) stable; urgency=medium
+
+  [ Holger Hans Peter Freyther ]
   * Initial release.
 
- -- Holger Hans Peter Freyther <holger@freyther.de>  Tue, 09 Feb 2016 18:30:23 +0100
+ --  <henning@rhein2>  Tue, 01 Mar 2016 13:45:52 +0100

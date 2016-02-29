@@ -2,12 +2,12 @@ language: smalltalk
 sudo: required
 
 os:
-  - linux
+- linux
 #  - osx OSX doesn't come with a mongodb service
 
 services:
-  - mongodb # Essential to what we do
-  - docker
+- mongodb # Essential to what we do
+- docker
 
 # Target mongodb v3.0 as lowest version
 addons:
@@ -18,19 +18,26 @@ addons:
     - mongodb-org-server
 
 before_install:
-  - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef" docker-engine
+- sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
+  docker-engine osc rpm-common rpm
 
 smalltalk:
-  - Pharo-4.0
-  - Pharo-5.0
+- Pharo-4.0
+- Pharo-5.0
 
 script:
-  - $SMALLTALK_CI_HOME/run.sh .smalltalk.ston
-  - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
-  - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
-  - bash docker/docker-image.sh
-  - bash integration-tests/integration-tests.sh
-  - sh ./docker/debian-build.sh
+- $SMALLTALK_CI_HOME/run.sh .smalltalk.ston
+- cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
+- cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
+- bash docker/docker-image.sh
+- bash integration-tests/integration-tests.sh
+- sh ./docker/debian-build.sh
+- bash deploy/deploy.sh
 
 after_failure:
-  - bash integration-tests/after_failure.sh
+- bash integration-tests/after_failure.sh
+
+env:
+  global:
+   - secure: woCInPWqxPle4lntZg7VgVrh1vLAG/6cOKX9+CTUR4ty3WqTvLEW6SLnZSdqPzjc/cAThgW7f2oDZPboc+fOEvUIp1dsdXCOppQUyYaADkqUY3J2cbrZoObp7tHnrgVrODi6VBO0apZyVvRVMleL6qwGIjFZ9L7cUAvJdzaaBEoUlXp9tjnbsFtPrmQ/ubWGNN9mPca0X5xgwlN/4g/SIghgBl0ejpfTJxXuTXW6ljFTGEnIbyuhbrhbVU2FOPIb+BByHVWPt4pXZ1vvB+91FPLUuFgzGoMt4IuZOPunuaGaSNqGSzTgwu/5EcJQiIcQyK+8o0x6Vv2xid7aTG5ly+PYx74cZcEj04pJydMYKqCqnaKPFuPTkjNwkLPgRc2mdwdddZswh0sNWjbzvy07HL4k6XZnA0JP/Uku7RoetWk14P3pwRB3QRGQnJee9WXcNKgDFKeAHO5Fnkx5TPQz7L15rg8PgYftOUrJSePY7Q/D6PHLdKb9ixDBXqYyZL8xOpht94540CCpX5PwZaLFg7ExAo9a+mNm8YZtNjaDmhqNoLMGIAjVozZS4LipHiDgB/hxicNU+eT85qsJfBz0Waxl/ZmYkFiBOo8VMY/Pk6i9iv5vvHb6QRp7beLgf06c1Gm8wHhLMrHlOuR/kP3Jy5oI/V/HrUr9T6g+TbWDhpY=
+   - secure: a5YwP4l/hgA8jzZWjgeLptFmMnSsPmRMnvyW9KpmfgZJMDzK7tFKDManY0pt6EW7itTkL1JRivoOrgfMfKcRwlXRlG7z/94VXEAVKliaPI6wI8cqRxjmpDjWrJE/XvPHP2G3WRJim7sI1Up29Cib1LtOSz2rY6gpSP6EAt0XR4Z3BJiGNgAPTyDOjredl7Xl5uJLer/5hFTp5XJ4n0Fumbun/PErWP5HjxrcPT6fmvA1Am62iJyNMlN391k/a8anXlKIWSqFkLVicPAN0YwKzUKw+ly2n4JocZvX1g2BYoU5LcVw/SL2+tm4Um9hNywHkucW0K6rJjYhZan+zX3rWCozSEUmRYygyjy5XdnYGxrxaqWia+mmuk149YEgxRiNghjX1rYigxHwjtVnZ+IklDQxVlvmmEHjjzXrwVzEeb0iuiaPZKIJDzZ34GRCbeaRrLd6q1F9qyI9Zc7d18v7bor/9WZLt/UkS5jwH7ABFATkxXoOQ4Co6z9M3LUvOuCW1bTQC22/7QQCi1N4Ig6MZ8otXD6R1NA8M7qsxVI3YyFMs96O3osTQ2DbE0rzGvResLpMKMwZT+SidYmd0F67c2lZvn6eYaMCEF9s4momNSNl7qA7Q7zL50Ikh7ZOxZExsD+XdYINrAkCfb475PUdEILfESbQbkAXk44/tDjdR0M=

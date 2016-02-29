@@ -35,10 +35,11 @@ Error () {
 
 SOURCE="$(dpkg-parsechangelog --show-field Source)"
 VERSION="$(dpkg-parsechangelog --show-field Version)"
+GIT_COMMIT="$(git rev-parse --short HEAD)"
 
 Info "Starting build of ${SOURCE} using travis.debian.net"
 
-TRAVIS_DEBIAN_MIRROR="${TRAVIS_DEBIAN_MIRROR:-http://ftp.de.debian.org/debian}"
+TRAVIS_DEBIAN_MIRROR="${TRAVIS_DEBIAN_MIRROR:-http://httpredir.debian.org/debian}"
 TRAVIS_DEBIAN_BUILD_DIR="${TRAVIS_DEBIAN_BUILD_DIR:-/build}"
 TRAVIS_DEBIAN_TARGET_DIR="${TRAVIS_DEBIAN_TARGET_DIR:-../}"
 TRAVIS_DEBIAN_NETWORK_ENABLED="${TRAVIS_DEBIAN_NETWORK_ENABLED:-false}"
@@ -130,23 +131,22 @@ Info "Increment version number: ${TRAVIS_DEBIAN_INCREMENT_VERSION_NUMBER}"
 Info "DEB_BUILD_OPTIONS: ${DEB_BUILD_OPTIONS:-<not set>}"
 
 
-## Increment version number ###################################################
-
-if [ "${TRAVIS_DEBIAN_INCREMENT_VERSION_NUMBER}" = true ]
-then
-	cat >debian/changelog.new <<EOF
-${SOURCE} (${VERSION}+travis${TRAVIS_BUILD_NUMBER}) UNRELEASED; urgency=medium
+cat >debian/changelog.new <<EOF
+${SOURCE} (${VERSION}.$(date +%Y%m%d).${TRAVIS_BUILD_NUMBER}) UNRELEASED; urgency=medium
 
   * Automatic build.
+  * build from git commit ${GIT_COMMIT}
 
  -- travis.debian.net <nobody@nobody>  $(date --utc -R)
 
 EOF
-	cat <debian/changelog >>debian/changelog.new
-	mv debian/changelog.new debian/changelog
-	git add debian/changelog
-	git commit -m "Incrementing version number."
-fi
+
+cat <debian/changelog >>debian/changelog.new
+mv debian/changelog.new debian/changelog
+git config --global user.email "holger@freyther.de"
+git config --global user.name "Holger Freyther"
+git add debian/changelog
+git commit -m "Incrementing version number."
 
 ## Build ######################################################################
 

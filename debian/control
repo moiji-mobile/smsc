@@ -14,7 +14,7 @@ Description: osmo-smsc
 
 Package: osmo-smsc-inserter
 Architecture: any
-Depends: ${misc:Depends}, osmo-smsc (=1)
+Depends: ${misc:Depends}, osmo-smsc (=2)
 Description: osmo-smsc-inserter
  Starts the inserter for osmo-smsc
  via runit.
