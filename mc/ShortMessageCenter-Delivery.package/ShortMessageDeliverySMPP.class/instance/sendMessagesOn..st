@@ -1,4 +1,4 @@
 as yet unclassified
 sendMessagesOn: aConnection
-	pendingMessages do: [:each |
+	pendingMessages copy do: [:each |
 		self sendMessage: each on: aConnection].

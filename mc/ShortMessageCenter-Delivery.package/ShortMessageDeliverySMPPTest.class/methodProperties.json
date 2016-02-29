@@ -2,4 +2,6 @@
 	"class" : {
 		 },
 	"instance" : {
-		 } }
+		"exampleEncodedMessage" : "HolgerHansPeterFreyther 2/29/2016 20:14",
+		"testSendingDualMessageStart" : "HolgerHansPeterFreyther 2/29/2016 20:19",
+		"testSendingSingleMessageStart" : "HolgerHansPeterFreyther 2/29/2016 20:17" } }
