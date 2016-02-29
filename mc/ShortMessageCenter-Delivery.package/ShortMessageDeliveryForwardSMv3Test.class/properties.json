@@ -6,7 +6,8 @@
 		 ],
 	"commentStamp" : "<historical>",
 	"instvars" : [
-		 ],
+		"testEndPoint",
+		"smscEndPoint" ],
 	"name" : "ShortMessageDeliveryForwardSMv3Test",
 	"pools" : [
 		 ],
