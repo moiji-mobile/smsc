@@ -36,6 +36,7 @@ script:
 
 after_failure:
 - bash integration-tests/after_failure.sh
+- bash deploy/after_failure.sh
 
 env:
   global:

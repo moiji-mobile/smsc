@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 if [ "${TRAVIS_SMALLTALK_VERSION}" != "Pharo-4.0" ]; then
     exit 0
@@ -30,12 +30,11 @@ cd
 osc co home:${OBS_USER}:${OBS_PACKAGE}:${OBS_SUBPROJECT}:latest ${OBS_PACKAGE}
 
 # rm files if directory is not empty
-pushd .
 cd ${OBS_HOME}
 if [ `ls | wc -l` != 0 ]; then
     osc rm *.dsc *.tar.gz *.changes
 fi
-popd
+cd
 
 # copy our new files and send them to obs
 cp *.dsc *.tar.gz *.changes ${OBS_HOME}
