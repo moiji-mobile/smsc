@@ -1,0 +1,2 @@
+/usr/share/osmo-smsc/scripts/syslog etc/image-launch/images/osmo-smsc-inserter/launch.d/01-syslog
+/usr/share/osmo-smsc/scripts/inserter etc/image-launch/images/osmo-smsc-inserter/launch.d/99-inserter

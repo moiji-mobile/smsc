@@ -1,0 +1,4 @@
+#!/bin/sh
+# make libcrypto.so resolvable
+export LD_LIBRARY_PATH=/usr/share/osmo-smsc/links
+exec /usr/bin/start-image /etc/image-launch/images/REPLACE_ME

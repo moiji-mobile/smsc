@@ -1,11 +1,12 @@
 package-cache
 play-cache
-*.image
-*.changes
 *.sw?
 PharoDebug.log
 *.sources
 debian/files
-debian/osmo-smsc.debhelper.log
-debian/osmo-smsc.substvars
-debian/osmo-smsc/
+debian/*.debhelper.log
+debian/*.substvars
+debian/osmo-smsc
+debian/osmo-smsc-inserter
+debian/osmo-smsc-delivery
+debian/tmp

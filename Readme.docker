@@ -1,0 +1,10 @@
+building
+ sudo docker build -t pharo_prepare -f Dockerfile.prepare .
+ sudo docker build -t osmo-smsc -f Dockerfile.osmo-smsc .
+
+running
+sudo docker run -d --add-host mongodb:`sudo docker network inspect bridge | jq -r ".[] | .IPAM | .Config[] | .Gateway"` -p 1700:1700 --name osmo-smsc osmo-smsc
+
+debug
+sudo docker run -it --add-host mongodb:172.17.0.1 -p 1700:1700 --name osmo-smsc-bash osmo-smsc /bin/bash
+sudo docker exec -it osmo-smsc /bin/bash
