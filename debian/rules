@@ -8,8 +8,8 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	make install DESTDIR=$(PWD)/debian/tmp
-	mkdir -p debian/tmp/etc/image-launch/images/osmo-smsc-inserter/
-	install -m 644 inserter.launch debian/tmp/etc/image-launch/images/osmo-smsc-inserter/image-launch.conf
-	mkdir -p debian/tmp/etc/service/osmo-smsc-inserter
-	sed -e "s/REPLACE_ME/osmo-smsc-inserter/" template.runit > debian/tmp/etc/service/osmo-smsc-inserter/run
-	chmod 755 debian/tmp/etc/service/osmo-smsc-inserter/run
+	mkdir -p debian/tmp/etc/image-launch/images/osmo-smsc-om/
+	install -m 644 om.launch debian/tmp/etc/image-launch/images/osmo-smsc-om/image-launch.conf
+	mkdir -p debian/tmp/etc/service/osmo-smsc-om
+	sed -e "s/REPLACE_ME/osmo-smsc-om/" template.runit > debian/tmp/etc/service/osmo-smsc-om/run
+	chmod 755 debian/tmp/etc/service/osmo-smsc-om/run

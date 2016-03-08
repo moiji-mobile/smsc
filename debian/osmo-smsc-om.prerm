@@ -19,7 +19,7 @@ set -e
 
 case "$1" in
     remove)
-        sv stop osmo-smsc-inserter
+        sv stop osmo-smsc-om
     ;;
 
     deconfigure|upgrade|failed-upgrade)

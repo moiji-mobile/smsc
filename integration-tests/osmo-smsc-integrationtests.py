@@ -19,10 +19,10 @@ import tortilla
 import argparse
 import sys
 
-def test_inserter(host, port):
-    inserter_collection_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(host, port), format='json')
-    inserter_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLink'.format(host, port), format='json')
-    inserter_api.config.headers = {'Content-Type': 'application/json'}
+def test_om(host, port):
+    om_collection_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(host, port), format='json')
+    om_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLink'.format(host, port), format='json')
+    om_api.config.headers = {'Content-Type': 'application/json'}
 
     client={"connectionType": "client",
           "hostname": "127.0.0.1",
@@ -38,27 +38,27 @@ def test_inserter(host, port):
           "allowedRemoteAddress": "127.0.0.1",
           "allowedRemotePort": 99}
 
-    inserter_api("client").put(data=client)
-    inserter_api("client").get()
-    inserter_api("server").put(data=server)
-    inserter_api("server").get()
-    inserter_collection_api.get()
+    om_api("client").put(data=client)
+    om_api("client").get()
+    om_api("server").put(data=server)
+    om_api("server").get()
+    om_collection_api.get()
 
     # test update
     client['port'] = 99
-    inserter_api("client").put(data=client)
-    client_answer = inserter_api("client").get()
+    om_api("client").put(data=client)
+    client_answer = om_api("client").get()
     if not client_answer['port'] == 99:
         sys.exit(1)
 
     server['allowedRemotePort'] = 101
-    inserter_api("server").put(data=server)
-    server_answer = inserter_api("server").get()
+    om_api("server").put(data=server)
+    server_answer = om_api("server").get()
     if not server_answer['allowedRemotePort'] == 101:
         sys.exit(1)
 
-    inserter_api("client").delete()
-    inserter_api("server").delete()
+    om_api("client").delete()
+    om_api("server").delete()
 
 def check_arg(args=None):
     parser = argparse.ArgumentParser(description='runs integration tests against the osmo-smsc restapi')
@@ -75,6 +75,6 @@ def check_arg(args=None):
 
 def main():
     host, port = check_arg(sys.argv[1:])
-    test_inserter(host, port)
+    test_om(host, port)
 
 main()

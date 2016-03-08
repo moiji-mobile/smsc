@@ -7,5 +7,5 @@ if [ x"${TRAVIS_SMALLTALK_VERSION}" != x"Pharo-4.0" ]; then
 fi
 
 docker ps
-docker logs osmo-smsc
+docker logs osmo-smsc-om
 docker logs mongodb

@@ -1,12 +1,19 @@
+osmo-smsc (3) stable; urgency=medium
+
+  * refactor naming of inserter to om
+  * fix changelog, added the correct E-mail address
+
+ -- Holger Hans Peter Freyther <holger@freyther.de>  Tue, 08 Mar 2016 18:31:49 +0100
+
 osmo-smsc (2) stable; urgency=medium
 
-  * test
+  * bump release for update test
 
- --  <henning@rhein2>  Tue, 01 Mar 2016 13:46:30 +0100
+ -- Holger Hans Peter Freyther <holger@freyther.de>  Tue, 01 Mar 2016 13:46:30 +0100
 
 osmo-smsc (1) stable; urgency=medium
 
   [ Holger Hans Peter Freyther ]
   * Initial release.
 
- --  <henning@rhein2>  Tue, 01 Mar 2016 13:45:52 +0100
+ -- Holger Hans Peter Freyther <holger@freyther.de>  Tue, 01 Mar 2016 13:45:52 +0100

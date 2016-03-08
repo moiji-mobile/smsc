@@ -7,6 +7,6 @@ debian/files
 debian/*.debhelper.log
 debian/*.substvars
 debian/osmo-smsc
-debian/osmo-smsc-inserter
+debian/osmo-smsc-om
 debian/osmo-smsc-delivery
 debian/tmp
