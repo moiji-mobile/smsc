@@ -14,7 +14,14 @@ Description: osmo-smsc
 
 Package: osmo-smsc-om
 Architecture: any
-Depends: ${misc:Depends}, osmo-smsc (=3)
+Depends: ${misc:Depends}, osmo-smsc (=${binary:Version})
 Description: osmo-smsc-om
  Starts the webserver for O&M
+ via runit.
+
+Package: osmo-smsc-inserter
+Architecture: any
+Depends: ${misc:Depends}, osmo-smsc (=${binary:Version})
+Description: osmo-smsc-inserter
+ Starts the inserter
  via runit.

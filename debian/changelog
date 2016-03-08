@@ -1,3 +1,10 @@
+osmo-smsc (4) stable; urgency=medium
+
+  * add the starting infrastructure
+    for the real inserter
+
+ -- Holger Hans Peter Freyther <holger@freyther.de>  Tue, 08 Mar 2016 20:03:09 +0100
+
 osmo-smsc (3) stable; urgency=medium
 
   * refactor naming of inserter to om
