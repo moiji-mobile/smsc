@@ -12,9 +12,9 @@ Depends: ${misc:Depends}, image-launch, pharo-vm-core [!amd64], pharo-vm-core:i3
 Description: osmo-smsc
  Contains the pharo images for osmo-smsc.
 
-Package: osmo-smsc-inserter
+Package: osmo-smsc-om
 Architecture: any
-Depends: ${misc:Depends}, osmo-smsc (=2)
-Description: osmo-smsc-inserter
- Starts the inserter for osmo-smsc
+Depends: ${misc:Depends}, osmo-smsc (=3)
+Description: osmo-smsc-om
+ Starts the webserver for O&M
  via runit.

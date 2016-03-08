@@ -21,11 +21,11 @@ set -e
 
 case "$1" in
     purge|disappear)
-        rm -rf /etc/image-launch/images/osmo-smsc-inserter
-        rm -rf /etc/services/osmo-smsc-inserter
+        rm -rf /etc/image-launch/images/osmo-smsc-om
+        rm -rf /etc/services/osmo-smsc-om
     ;;
     remove)
-        rm -rf /etc/service/osmo-smsc-inserter
+        rm -rf /etc/service/osmo-smsc-om
     ;;
     upgrade|failed-upgrade|abort-install|abort-upgrade)
     ;;
