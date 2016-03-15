@@ -4,7 +4,7 @@ set -e
 export LD_LIBRARY_PATH=/usr/share/osms-smsc/links
 
 fail_and_message() {
-    printf "Please use 'om' as second parameter, when running as osmo-smsc\n"
+    printf "Please use 'om' or 'inserter' as second parameter, when running as osmo-smsc\n"
     exit 5
 }
 
@@ -16,6 +16,10 @@ if [ "${1}" = "osmo-smsc" ]; then
 
     fail_second_parameter=1
     if [ "${1}" = "om" ]; then
+        fail_second_parameter=0
+    fi
+
+    if [ "${1}" = "inserter" ]; then
         fail_second_parameter=0
     fi
 

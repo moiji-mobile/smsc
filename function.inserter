@@ -1,0 +1,27 @@
+| hostname mongoPort root database smscDatabase rootOM databaseOM smscOMDatabase inserter |
+
+hostname := 'localhost'.
+self optionAt: 'db-host' ifPresent: [:dbHost |
+    hostname := dbHost].
+
+mongoPort := 27017.
+self optionAt: 'db-port' ifPresent: [:mongoPortString |
+    mongoPort := mongoPortString asNumber].
+
+root := Mongo host: hostname port: mongoPort.
+        root open.
+database := MongoDatabase root: root name: 'smsc'.
+smscDatabase := ShortMessageDatabase withDatabase: database.
+
+rootOM := Mongo host: hostname port: mongoPort.
+        rootOM open.
+databaseOM := MongoDatabase root: rootOM name: 'smscOM'.
+smscOMDatabase := ShortMessageOMDatabase withDatabase: databaseOM.
+
+
+"Start the inserter"
+inserter := ShortMessageCenterInserter new
+                smscDatabase: smscDatabase;
+                omDatabase: smscOMDatabase;
+                yourself.
+inserter start.
