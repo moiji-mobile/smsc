@@ -15,10 +15,12 @@ testDeliveryFunctions
 		'port' -> 2345.
 		'allowedRemoteAddress' -> nil.
 		'allowedRemotePort' -> nil.
+		'role' -> #mc.
 	} asDictionary.
 	omDatabase createOrUpdateDeliveryLink: link.
 	self assert: omDatabase allDeliveryLinks size equals: 1.
 	self assert: (omDatabase findDeliveryLink: 'bla') isNil.
+	self assert: link role equals: #mc.
 
 
 	link := omDatabase findDeliveryLink: 'TestConnection'.

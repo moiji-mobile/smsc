@@ -14,10 +14,12 @@ testInserterFunctions
 		'systemType' -> nil.
 		'systemId' -> nil.
 		'password' -> nil.
+		'role' -> #esme.
 	} asDictionary.
 	omDatabase createOrUpdateInserterLink: link.
 	self assert: omDatabase allInserterLinks size equals: 1.
 	self assert: (omDatabase findInserterLink: 'bla') isNil.
+	self assert: link role equals: #esme.
 
 
 	link := omDatabase findInserterLink: 'TestConnection'.
