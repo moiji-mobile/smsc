@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"converter" ],
+	"name" : "ShortMessageCenterConverterTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

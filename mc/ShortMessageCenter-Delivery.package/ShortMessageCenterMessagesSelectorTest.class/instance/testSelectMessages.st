@@ -2,15 +2,15 @@ tests-as yet unclassified
 testSelectMessages
 	| messages locks |
 	smscDatabase
-		insertShortMessage: 'This is a message1' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message2' destination: '1234567890' source: '1235' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link2';
-		insertShortMessage: 'This is a message3' destination: '1234567890' source: '1236' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link3';
-		insertShortMessage: 'This is a message4' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message5' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message6' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message7' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message8' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
-		insertShortMessage: 'This is a message9' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1'.
+		insertShortMessage: 'This is a message1' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message2' messageType: '123' destination: '1234567890' source: '1235' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link2';
+		insertShortMessage: 'This is a message3' messageType: '123' destination: '1234567890' source: '1236' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link3';
+		insertShortMessage: 'This is a message4' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message5' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message6' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message7' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message8' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1';
+		insertShortMessage: 'This is a message9' messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1'.
 
 	self assert: smscDatabase collectionForLock size equals: 0.
 

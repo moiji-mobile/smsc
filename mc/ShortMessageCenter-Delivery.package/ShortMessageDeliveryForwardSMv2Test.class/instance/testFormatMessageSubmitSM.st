@@ -1,12 +1,13 @@
-as yet unclassified
-testFormatMessage
+tests-forward
+testFormatMessageSubmitSM
 	| forwarder formatedMessage parsedMessage |
-	forwarder := ShortMessageDeliveryForwardSMv3 new.
+	forwarder := ShortMessageDeliveryForwardSMv2 new.
 	forwarder messages: {
-		{ 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM'. } asDictionary}.
+		{ 'encodedMessage' -> self exampleSubmitSMEncodedMessage.
+		  'encodedMessageType' -> 'SMPPSubmitSM'. } asDictionary}.
 	forwarder instVarNamed: #pendingMessages put: (forwarder instVarNamed: #messages) copy.
 
 	formatedMessage := forwarder formatMessage.
 	parsedMessage := ShortMessageTPDUHelper extractDeliverFrom: formatedMessage readStream.
 	self assert: formatedMessage class equals: ByteArray.
-	self assert: (parsedMessage at: 'TP-OA') equals: '888817024782276'.
+	self assert: (parsedMessage at: 'TP-OA') equals: '9225001'.

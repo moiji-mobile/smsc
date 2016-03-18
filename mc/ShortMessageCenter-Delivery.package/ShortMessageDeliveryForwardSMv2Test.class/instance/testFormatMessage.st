@@ -3,7 +3,8 @@ testFormatMessage
 	| forwarder formatedMessage parsedMessage |
 	forwarder := ShortMessageDeliveryForwardSMv2 new.
 	forwarder messages: {
-		{ 'encodedMessage' -> self exampleEncodedMessage. } asDictionary}.
+		{ 'encodedMessage' -> self exampleEncodedMessage.
+		  'encodedMessageType' -> 'SMPPDeliverSM'. } asDictionary}.
 	forwarder instVarNamed: #pendingMessages put: (forwarder instVarNamed: #messages) copy.
 
 	formatedMessage := forwarder formatMessage.

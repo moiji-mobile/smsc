@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageCenterConverter",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

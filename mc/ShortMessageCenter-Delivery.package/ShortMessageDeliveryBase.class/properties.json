@@ -9,7 +9,8 @@
 		"messages",
 		"deliveryCentral",
 		"smscDatabase",
-		"logger" ],
+		"logger",
+		"converter" ],
 	"name" : "ShortMessageDeliveryBase",
 	"pools" : [
 		 ],

@@ -11,7 +11,7 @@ testSendingSingleMessageStart
 		smscDatabase: mockDatabase;
 		connectionName: 'testSmpp';
 		deliveryCentral: central;
-		messages: {{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary} asOrderedCollection.
+		messages: {{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM' } asDictionary.} asOrderedCollection.
 	forwarder blockingExecute.
 
 	self assert: mockDatabase operations size equals: 1.

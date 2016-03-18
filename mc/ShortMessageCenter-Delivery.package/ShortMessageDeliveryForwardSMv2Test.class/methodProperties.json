@@ -3,9 +3,11 @@
 		 },
 	"instance" : {
 		"exampleEncodedMessage" : "HolgerHansPeterFreyther 2/29/2016 10:46",
+		"exampleSubmitSMEncodedMessage" : "HolgerHansPeterFreyther 3/18/2016 17:19",
 		"setUp" : "HolgerHansPeterFreyther 2/29/2016 10:33",
 		"testCreation" : "HolgerHansPeterFreyther 2/24/2016 22:04",
-		"testFormatMessage" : "HolgerHansPeterFreyther 2/29/2016 10:46",
-		"testSuccessfulDualWithContinueSmsDelivery" : "HolgerHansPeterFreyther 2/29/2016 13:07",
-		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 2/29/2016 12:59",
-		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 2/29/2016 12:16" } }
+		"testFormatMessage" : "HolgerHansPeterFreyther 3/18/2016 17:18",
+		"testFormatMessageSubmitSM" : "HolgerHansPeterFreyther 3/18/2016 17:35",
+		"testSuccessfulDualWithContinueSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36",
+		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36",
+		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36" } }

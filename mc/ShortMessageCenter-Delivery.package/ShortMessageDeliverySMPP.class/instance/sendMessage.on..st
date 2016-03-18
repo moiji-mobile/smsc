@@ -1,9 +1,10 @@
 as yet unclassified
 sendMessage: aMessage on: aConnection
-	| command |
+	| command deliverSM |
+	deliverSM := converter converMessageToDeliverSM: aMessage.
 	command := SMPPBinaryCommand
-					initWith: (aMessage at: 'encodedMessage')
-					messageType: SMPPDeliverSM messageType.
+					initWith: deliverSM toMessage asByteArray
+					messageType: deliverSM class messageType.
 	command
 		setTimeout: 5;
 		onTimeout: [

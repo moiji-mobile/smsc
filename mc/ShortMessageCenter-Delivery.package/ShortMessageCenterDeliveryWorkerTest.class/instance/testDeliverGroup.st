@@ -3,7 +3,7 @@ testDeliverGroup
 
 	| route message group |
 	smscDatabase
-		insertShortMessage: SMPPMessageTest new exampleDeliverSM destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1'.
+		insertShortMessage: SMPPMessageTest new exampleDeliverSM messageType: '123' destination: '1234567890' source: '1234' deliverIn: 0 seconds expireIn: 10 days receivedOn: 'link1'.
 
 	"Add routes"
 	omDatabase

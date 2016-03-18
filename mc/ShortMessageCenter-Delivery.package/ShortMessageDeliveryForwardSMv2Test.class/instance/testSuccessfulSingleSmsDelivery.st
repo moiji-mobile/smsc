@@ -12,7 +12,7 @@ testSuccessfulSingleSmsDelivery
 		smscNumber: '66666';
 		globalTitle: '66666';
 		ssn: 7;
-		messages: {{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary} asOrderedCollection.
+		messages: {{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM'. } asDictionary} asOrderedCollection.
 		
 	"Configure our response script"
 	testEndPoint

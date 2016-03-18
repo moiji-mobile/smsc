@@ -12,8 +12,8 @@ testSendingDualMessageStart
 		connectionName: 'testSmpp';
 		deliveryCentral: central;
 		messages: {
-			{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary.
-			{ '_id' -> '45678'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary.} asOrderedCollection.
+			{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM' } asDictionary.
+			{ '_id' -> '45678'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM' } asDictionary.} asOrderedCollection.
 	forwarder blockingExecute.
 
 	self assert: mockDatabase operations size equals: 2.

@@ -1,7 +1,6 @@
 forward
 formatMessage
-	| data deliverSM tpdu |
-	data := pendingMessages first at: 'encodedMessage'.
-	deliverSM := SMPPDeliverSM new readFrom: data readStream.
+	|  deliverSM tpdu |
+	deliverSM := converter converMessageToDeliverSM: pendingMessages first.
 	tpdu := deliverSM toDeliverTPDUDictionary.
 	^ShortMessageTPDUHelper encodeDeliver: tpdu.

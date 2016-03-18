@@ -13,8 +13,8 @@ testSuccessfulDualWithContinueSmsDelivery
 		globalTitle: '66666';
 		ssn: 7;
 		messages: {
-			{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary.
-			{ '_id' -> '45678'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage } asDictionary.} asOrderedCollection.
+			{ '_id' -> '1234'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM'. } asDictionary.
+			{ '_id' -> '45678'. 'destMSISDN' -> '491667334522'. 'encodedMessage' -> self exampleEncodedMessage. 'encodedMessageType' -> 'SMPPDeliverSM'. } asDictionary.} asOrderedCollection.
 		
 	"Configure our response script"
 	count := 0.
