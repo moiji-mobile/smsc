@@ -41,4 +41,4 @@ popd
 cp *.dsc *.tar.gz *.changes ${OBS_HOME}
 cd ${OBS_HOME}
 osc add *.dsc *.tar.gz *.changes
-osc ci -m "new build"
+osc ci -m "new build ${TRAVIS_COMMIT_RANGE}"
