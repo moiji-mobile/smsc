@@ -16,7 +16,7 @@
 		"findAndLockPendingSms:reject:" : "HolgerHansPeterFreyther 2/17/2016 12:39",
 		"incrementDeliveryAttempt:" : "HolgerHansPeterFreyther 2/23/2016 18:37",
 		"initialize" : "HolgerHansPeterFreyther 2/8/2016 16:02",
-		"insertShortMessage:destination:source:deliverIn:expireIn:receivedOn:" : "HolgerHansPeterFreyther 2/18/2016 16:07",
+		"insertShortMessage:messageType:destination:source:deliverIn:expireIn:receivedOn:" : "HolgerHansPeterFreyther 3/16/2016 18:07",
 		"lockDestination:for:" : "HolgerHansPeterFreyther 2/7/2016 19:10",
 		"lockNextSms:for:locked:" : "HolgerHansPeterFreyther 2/17/2016 12:39",
 		"nextSms" : "HolgerHansPeterFreyther 2/7/2016 21:20",

@@ -1,5 +1,5 @@
 notification
-insertShortMessage: anEncodedMessage destination: aNumber source: aSourceNumber deliverIn: aDuration expireIn: anExpirationDuration receivedOn: aSystemId
+insertShortMessage: anEncodedMessage messageType: aType destination: aNumber source: aSourceNumber deliverIn: aDuration expireIn: anExpirationDuration receivedOn: aSystemId
 
 	| record now deliveryTime expirationTime |
 
@@ -12,6 +12,7 @@ insertShortMessage: anEncodedMessage destination: aNumber source: aSourceNumber 
 		'sourceMSISDN' -> aSourceNumber.
 		'destMSISDN' -> aNumber.
 		'encodedMessage' -> anEncodedMessage.
+		'encodedMessageType' -> aType.
 		'creationTime' -> now.
 		'lastAttemptTime' -> nil.
 		'deliveryTime' -> deliveryTime.
