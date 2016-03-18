@@ -10,7 +10,7 @@ Design Goals
 ~~~~~~~~~~~~
 
 * Receive to be delivered SMS by SMPP from multiple connections.
-* Deal with SubmitSM and DeliverSM and convert to DeliverSM.
+* Store DeliverSM, SubmitSM or MAP T-PDU (Submit or Deliver)
 * Be able to have multiple delivery processes.
 
 Design Ideas
@@ -33,7 +33,7 @@ atomic update of a document and the write concern for replication.
 SMS/SMPP Record
 +++++++++++++++
 
-One record will be a single SMPP DeliverSM with meta information.
+One record will be a single message with meta information.
 Most of the information will be extracted for some queries. Most
 notable the following fields need to be there:
 
@@ -45,7 +45,7 @@ notable the following fields need to be there:
 * Retry counter
 * Scheduled re-transmit time
 * Locking information (state + time)
-* SMPP DeliverSM message
+* Payload being either SMPP DeliverSM, SubmitSM or MAP T-PDU
 
 Event structure
 +++++++++++++++
@@ -55,15 +55,15 @@ one to use a tailable mongo cursor that blocks until an entry has been
 inserted into the collection.
 
 
-Inserter
-^^^^^^^^
+SMPP Inserter
+^^^^^^^^^^^^^
 
 Receive SMPP SubmitSM/DeliverSM and store in the database for store and
 forward. Multiple inserters must be able to run in parallel.
 
 * Use existing Smalltalk SMPP framework to open or listen to connections
-* Convert SubmitSM to DeliverSM (this is losing some info...)
-* After the content has been inserted add an event
+* After the content has been inserted add an event (which will lead to the
+delivery agents waking up)
 
 
 Delivery
@@ -91,6 +91,9 @@ for delivery on the same TCAP session.
 We might decide to put the delivery history (attempts, timestamps, info) into
 the record as well to help with debugging.
 
+On delivery the encoded data might need to be converted. This can lead to
+conversion from any format to any other format. This might resolve in SMPP to
+GSM and Deliver to Submit.
 
 Clean-up
 ^^^^^^^^

@@ -1,7 +1,7 @@
 Delivery
 --------
 
-The task of the delivery is to deliver a DeliverSM to its destination. This can
+The task of the delivery is to deliver (or submit) a message. This can
 be done either by using SMPP or using the GSM Mobile Application Part (MAP). The
 delivery will attempt to deliver all SMS that are stored in the database.
 
