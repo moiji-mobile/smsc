@@ -24,7 +24,7 @@ testLockNextSmsForLocked
 	self assert: count equals: 1.
 
 	smscDatabase
-		insertShortMessage: 'no message' destination: '666666' source: 'foo' deliverIn:  0 seconds expireIn: 10 days receivedOn: 'testLink'.
+		insertShortMessage: 'no message' messageType: '123' destination: '666666' source: 'foo' deliverIn:  0 seconds expireIn: 10 days receivedOn: 'testLink'.
 
 	self assert: smscDatabase smsPending.
 	res := smscDatabase lockNextSms: (res at: 'destMSISDN') for: 'TestSystem' locked: ids.
