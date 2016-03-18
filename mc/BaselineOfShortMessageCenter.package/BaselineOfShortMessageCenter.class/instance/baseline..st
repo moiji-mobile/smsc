@@ -11,7 +11,7 @@ baseline: spec
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;
-					versionString: '8';
+					versionString: '9';
 					repository: 'http://smalltalkhub.com/mc/osmocom/SMPP/main/' ].
 		spec project: 'StatsDClient' with: [
 				spec
