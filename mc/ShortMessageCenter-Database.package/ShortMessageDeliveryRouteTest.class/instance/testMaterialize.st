@@ -8,6 +8,7 @@ testMaterialize
 			{
 				'class' -> 'ShortMessageDeliveryMethodSMPP'.
 				'connectionName' -> 'aConnectionName'.
+				'messageType' -> 'deliverSM'.
 			} asDictionary.
 		}
 	} asDictionary.
@@ -34,6 +35,7 @@ testMaterialize
 			{
 				'class' -> 'ShortMessageDeliveryMethodSMPP'.
 				'connectionName' -> 'aConnectionName'.
+				'messageType' -> 'deliverSM'.
 			} asDictionary.
 		}
 	} asDictionary.

@@ -13,6 +13,7 @@ testDeliveryRouteFunctions
 			{
 				'class' -> 'ShortMessageDeliveryMethodSMPP'.
 				'connectionName' -> 'aConnectionName'.
+				'messageType' -> 'deliverSM'.
 			} asDictionary.
 		}
 	} asDictionary.

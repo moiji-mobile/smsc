@@ -4,4 +4,4 @@ testSimpleCreation
 	method := ShortMessageDeliveryMethodSMPP new.
 	method connectionName: 'aConnectionName'.
 	external := method toExternalDictionary.
-	self assert: external keys sort equals: #('class' 'connectionName').
+	self assert: external keys sort equals: #('class' 'connectionName' 'messageType').

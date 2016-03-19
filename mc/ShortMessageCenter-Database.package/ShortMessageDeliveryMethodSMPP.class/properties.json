@@ -6,7 +6,8 @@
 		 ],
 	"commentStamp" : "HolgerHansPeterFreyther 2/15/2016 10:32",
 	"instvars" : [
-		"connectionName" ],
+		"connectionName",
+		"messageType" ],
 	"name" : "ShortMessageDeliveryMethodSMPP",
 	"pools" : [
 		 ],
