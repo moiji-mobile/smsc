@@ -11,3 +11,4 @@ debian/osmo-smsc-om
 debian/osmo-smsc-inserter
 debian/osmo-smsc-delivery
 debian/tmp
+pharo-vm/
