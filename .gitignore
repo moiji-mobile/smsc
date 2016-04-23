@@ -12,3 +12,9 @@ debian/osmo-smsc-inserter
 debian/osmo-smsc-delivery
 debian/tmp
 pharo-vm/
+integration-tests/.cache
+integration-tests/__pycache__
+integration-tests/*.pyc
+integration-tests/it-tests
+integration-tests/results.xml
+integration-tests/junitxml

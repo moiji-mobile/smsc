@@ -16,65 +16,83 @@
 
 
 import tortilla
-import argparse
-import sys
+import pytest
 
-def test_om(host, port):
-    om_collection_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(host, port), format='json')
-    om_api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLink'.format(host, port), format='json')
-    om_api.config.headers = {'Content-Type': 'application/json'}
+CLIENT_NAME = "client"
+SERVER_NAME = "server"
 
-    client={"connectionType": "client",
-          "hostname": "127.0.0.1",
-          "port": 88,
-          "systemId": "systemId",
-          "systemType": "systemType",
-          "password": "password"}
-    server={"connectionType": "server",
-          "port": 99,
-          "systemId": "systemId",
-          "systemType": "systemType",
-          "password": "password",
-          "allowedRemoteAddress": "127.0.0.1",
-          "allowedRemotePort": 99}
+@pytest.fixture
+def om_rest_api(om_server, om_server_port):
+    api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLink'.format(om_server, om_server_port), format='json')
+    api.config.headers = {'Content-Type': 'application/json'}
+    return api
 
-    om_api("client").put(data=client)
-    om_api("client").get()
-    om_api("server").put(data=server)
-    om_api("server").get()
-    om_collection_api.get()
+@pytest.fixture
+def om_rest_collection_api(om_server, om_server_port):
+    return tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(om_server, om_server_port), format='json')
 
-    # test update
-    client['port'] = 99
-    om_api("client").put(data=client)
-    client_answer = om_api("client").get()
-    if not client_answer['port'] == 99:
-        sys.exit(1)
+@pytest.fixture
+def client_data(request, om_rest_api):
+    def delete_client_data():
+       om_rest_api(CLIENT_NAME).delete()
 
-    server['allowedRemotePort'] = 101
-    om_api("server").put(data=server)
-    server_answer = om_api("server").get()
-    if not server_answer['allowedRemotePort'] == 101:
-        sys.exit(1)
+    request.addfinalizer(delete_client_data)
 
-    om_api("client").delete()
-    om_api("server").delete()
+    return {"connectionType": CLIENT_NAME,
+            "hostname": "127.0.0.1",
+            "port": 88,
+            "systemId": "systemId",
+            "systemType": "systemType",
+            "password": "password"}
 
-def check_arg(args=None):
-    parser = argparse.ArgumentParser(description='runs integration tests against the osmo-smsc restapi')
-    parser.add_argument('-H', '--host',
-                        help='host ip',
-                        default='localhost')
-    parser.add_argument('-p', '--port',
-                        help='port of the rest api server',
-                        default='1700')
+@pytest.fixture
+def server_data(request, om_rest_api):
+    def delete_server_data():
+        om_rest_api(SERVER_NAME).delete()
 
-    results = parser.parse_args(args)
-    return (results.host,
-            results.port)
+    request.addfinalizer(delete_server_data)
 
-def main():
-    host, port = check_arg(sys.argv[1:])
-    test_om(host, port)
+    return {"connectionType": SERVER_NAME,
+            "port": 99,
+            "systemId": "systemId",
+            "systemType": "systemType",
+            "password": "password",
+            "allowedRemoteAddress": "127.0.0.1",
+            "allowedRemotePort": 99}
 
-main()
+@pytest.fixture
+def client_entry(client_data, om_rest_api):
+    om_rest_api(CLIENT_NAME).put(data=client_data)
+    return client_data
+
+@pytest.fixture
+def server_entry(server_data, om_rest_api):
+    om_rest_api(SERVER_NAME).put(data=server_data)
+    return server_data
+
+@pytest.fixture
+def collection_entries(client_entry, server_entry):
+    return [client_data, server_data]
+
+def test_client_insert(client_data, om_rest_api):
+    om_rest_api(CLIENT_NAME).put(data=client_data)
+    om_rest_api(CLIENT_NAME).get()
+
+def test_server_insert(server_data, om_rest_api):
+    om_rest_api(SERVER_NAME).put(data=server_data)
+    om_rest_api(SERVER_NAME).get()
+
+def test_collection_api(collection_entries, om_rest_collection_api):
+    om_rest_collection_api.get()
+
+def test_client_update(client_entry, om_rest_api):
+    client_entry['port'] = 99
+    om_rest_api(CLIENT_NAME).put(data=client_entry)
+    client_answer = om_rest_api(CLIENT_NAME).get()
+    assert client_answer['port'] == 99
+
+def test_server_update(server_entry, om_rest_api):
+    server_entry['allowedRemotePort'] = 101
+    om_rest_api(SERVER_NAME).put(data=server_entry)
+    server_answer = om_rest_api(SERVER_NAME).get()
+    assert server_answer['allowedRemotePort'] == 101
