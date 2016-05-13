@@ -15,21 +15,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import tortilla
 import pytest
 
 CLIENT_NAME = "client"
 SERVER_NAME = "server"
-
-@pytest.fixture
-def om_rest_api(om_server, om_server_port):
-    api = tortilla.wrap('http://{}:{}/v1/inserterSMPPLink'.format(om_server, om_server_port), format='json')
-    api.config.headers = {'Content-Type': 'application/json'}
-    return api
-
-@pytest.fixture
-def om_rest_collection_api(om_server, om_server_port):
-    return tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(om_server, om_server_port), format='json')
 
 @pytest.fixture
 def client_data(request, om_rest_api):
