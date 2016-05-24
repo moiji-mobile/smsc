@@ -19,7 +19,7 @@ docker build -t integration-tests -f integration-tests/Dockerfile integration-te
 
 docker network create integration-tests
 mkdir mongo-it
-docker run -d --net integration-tests -v "$(pwd)/mongo-it":/data --name mongodb -h ${DOCKER_MONGODB_NAME} mongo:3.0.6 mongod --smallfiles
+docker run -d --net integration-tests -v "$(pwd)/mongo-it":/data --name mongodb -h ${DOCKER_MONGODB_NAME} mongo:3.2 mongod --smallfiles
 sleep 5
 docker run -d --net integration-tests --name ${DOCKER_OSMO_SMSC_OM_NAME} osmo-smsc
 sleep 5
