@@ -15,6 +15,7 @@ lockDestination: aDestination for: aSystemName
 			} asDictionary.
 			'new' -> true.
 			'upsert' -> true.
+			'writeConcern' -> self writeConcern.
 		} asDictionary) at: 'value'.
 	] on: MongoCommandError do: [:err |
 		"Access the reply and check for E11000 to see if it failed?"

@@ -21,3 +21,4 @@ unlockAndReschedule: aMessageID increaseAttempt: doIncrease
 	collectionForSms
 		update: { '_id' -> aMessageID } asDictionary
 		with: updates.
+	self checkLastError.

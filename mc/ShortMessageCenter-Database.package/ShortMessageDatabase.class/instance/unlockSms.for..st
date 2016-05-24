@@ -13,5 +13,6 @@ unlockSms: aSmsOID for: aSystem
 			} asDictionary.
 		} asDictionary.
 		'new' -> true.
+		'writeConcern' -> self writeConcern.
 	} asDictionary.
 	^res ifNotNil: [res at: 'value'].

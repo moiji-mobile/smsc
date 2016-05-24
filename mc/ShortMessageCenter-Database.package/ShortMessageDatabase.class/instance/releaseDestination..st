@@ -6,5 +6,6 @@ releaseDestination: aDestination
 		'findAndModify' -> collectionForLock name.
 		'query' -> [:item | (item destMSISDN = aDestination) ] asMongoQuery.
 		'remove' -> true.
+		'writeConcern' -> self writeConcern.
 	} asDictionary.
 	^res ifNotNil: [res at: 'value'].

@@ -5,4 +5,5 @@ incrementDeliveryAttempt: aMessageId
 		with: {
 			'$inc' -> { 'attempts' -> 1} asDictionary.
 			'$set' -> { 'lastAttemptTime' -> DateAndTime now } asDictionary
-		} asDictionary
+		} asDictionary.
+	self checkLastError

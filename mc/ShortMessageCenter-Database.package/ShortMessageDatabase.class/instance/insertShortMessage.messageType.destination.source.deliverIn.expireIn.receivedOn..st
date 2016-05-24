@@ -22,4 +22,5 @@ insertShortMessage: anEncodedMessage messageType: aType destination: aNumber sou
 		'receivedOn' -> aSystemId.
 	} asDictionary.
 	collectionForSms add: record.
+	self checkLastError.
 	self addNewShortMessageNotification: 'New message for ', aNumber.

@@ -18,6 +18,7 @@ findAndLockPendingSms: aSystemName reject: aMsisdnList
 			} asDictionary.
 		} asDictionary.
 		'new' -> true.
+		'writeConcern' -> self writeConcern.
 	} asDictionary.
 	logger logDebug: 'Find and lock pending' with: { 'res nil' -> res isNil. 'systemName' -> aSystemName }.
 	^res ifNotNil: [res at: 'value'].
