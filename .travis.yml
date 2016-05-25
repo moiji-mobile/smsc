@@ -21,6 +21,9 @@ before_install:
 - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
   docker-engine osc rpm-common rpm
 
+install:
+- "sudo pip install -r ./integration-tests/requirements.txt"
+
 smalltalk:
 - Pharo-5.0
 - Pharo-6.0
