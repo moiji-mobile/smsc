@@ -8,3 +8,4 @@ requests==2.9.1
 six==1.10.0
 tortilla==0.4.1
 wsgiref==0.1.2
+git+git://github.com/podshumok/python-smpplib@ee4a65351669aa3db28aae87824c742716c39056#python-smpplib
