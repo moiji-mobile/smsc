@@ -37,8 +37,6 @@ def smpp_client(request, inserter_server, inserter_server_port, inserter_system_
     request.addfinalizer(disconnect_client)
 
     # Print when obtain message_id
-    client.set_message_sent_handler(
-        lambda pdu: sys.stdout.write('sent {} {}\n'.format(pdu.sequence, pdu.message_id)))
     client.set_message_received_handler(
         lambda pdu: sys.stdout.write('delivered {}\n'.format(pdu.receipted_message_id)))
 
@@ -63,6 +61,8 @@ def mongo_client(request, mongodb_server, mongodb_server_port):
 
 def send_message(source, destination, message, smpp_client):
 
+    # be some form of mutable to be accessible by the inner function
+    sent = {'sent': 0}
     parts, encoding_flag, msg_type_flag = smpplib.gsm.make_parts(message)
 
     for part in parts:
@@ -79,6 +79,22 @@ def send_message(source, destination, message, smpp_client):
             esm_class=smpplib.consts.SMPP_MSGMODE_FORWARD,
             registered_delivery=False,
         )
+
+    def sent_message(pdu):
+        """
+        Once we have receive the number of callbacks expected, let's break
+        out the listen loop that was entered below. With more time we can
+        have a better approach.
+        """
+        sent['sent'] = sent['sent'] + 1
+        if len(parts) == sent['sent']:
+            raise Exception("Break the loop")
+
+    smpp_client.set_message_sent_handler(sent_message)
+    try:
+        smpp_client.listen()
+    except:
+        pass
 
 @pytest.fixture
 def sms_parts(smpp_client):
