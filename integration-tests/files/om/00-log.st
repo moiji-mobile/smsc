@@ -1,0 +1,1 @@
+(NonInteractiveTranscript onFileNamed: #stdout) install.
