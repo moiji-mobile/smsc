@@ -25,13 +25,13 @@ docker run -d --net integration-tests --name ${DOCKER_OSMO_SMSC_OM_NAME} osmo-sm
 sleep 5
 
 # om restapi test
-docker run --rm --net integration-tests -v $PWD/integration-tests:/integration-tests --name integration-tests integration-tests python2 -m pytest --junitxml=junitxml/osmo-smsc-om-restapi-integrationtests.xml --om-server ${DOCKER_OSMO_SMSC_OM_NAME} osmo-smsc-om-restapi-integrationtests.py
+docker run --rm --net integration-tests -v $PWD/integration-tests:/integration-tests --name integration-tests integration-tests python2 -m pytest --junitxml=junitxml/om_rest_test.xml --om-server ${DOCKER_OSMO_SMSC_OM_NAME} om_rest_test.py
 
 # inserter test
 docker run --rm --net integration-tests --name integration-tests integration-tests curl -s -S -H 'Content-Type: application/json' -XPUT http://${DOCKER_OSMO_SMSC_OM_NAME}:1700/v1/inserterSMPPLink/insertertest -d '{"connectionType": "server", "port": 9000, "systemId": "inserter-test", "systemType": "systemType", "password": "pass", "allowedRemoteAddress": null, "allowedRemotePort": null}'
 docker run -d --security-opt seccomp:unconfined --net integration-tests --name ${DOCKER_OSMO_SMSC_INSERTER_NAME} osmo-smsc osmo-smsc inserter
 sleep 5
-docker run --rm --security-opt seccomp:unconfined --net integration-tests -v $PWD/integration-tests:/integration-tests --name integration-tests integration-tests python2 -m pytest --junitxml=junitxml/osmo-smsc-inserter-integrationtests.xml --inserter-server ${DOCKER_OSMO_SMSC_INSERTER_NAME} --inserter-server-port ${INSERTER_PORT} --inserter-system-id ${INSERTER_SYSTEM_ID} --inserter-password ${INSERTER_PASSWORD} --mongodb-server ${DOCKER_MONGODB_NAME} osmo-smsc-inserter-integrationtests.py
+docker run --rm --security-opt seccomp:unconfined --net integration-tests -v $PWD/integration-tests:/integration-tests --name integration-tests integration-tests python2 -m pytest --junitxml=junitxml/inserter_test.xml ${DOCKER_OSMO_SMSC_INSERTER_NAME} --inserter-server-port ${INSERTER_PORT} --inserter-system-id ${INSERTER_SYSTEM_ID} --inserter-password ${INSERTER_PASSWORD} --mongodb-server ${DOCKER_MONGODB_NAME} inserter_test.py
 
 # cleanup inserter test
 docker stop ${DOCKER_OSMO_SMSC_INSERTER_NAME}
