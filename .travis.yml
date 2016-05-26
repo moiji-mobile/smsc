@@ -26,6 +26,7 @@ install:
 
 smalltalk:
 - Pharo-5.0
+- Pharo-6.0
 
 script:
 - $SMALLTALK_CI_HOME/run.sh
