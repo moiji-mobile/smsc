@@ -107,18 +107,19 @@ def sms_parts(smpp_client):
 
     return source, destination, message
 
-def test_inserter_server(sms_parts, mongo_client):
+class TestInserter:
+    def test_inserter_server(self, sms_parts, mongo_client):
 
-    source, destination, message = sms_parts
+        source, destination, message = sms_parts
 
-    # database will be create when send_message is called
-    db = mongo_client.smsc
+        # database will be create when send_message is called
+        db = mongo_client.smsc
 
-    assert db.smsQueue.count() == 1
+        assert db.smsQueue.count() == 1
 
-    cursor = db.smsQueue.find()
+        cursor = db.smsQueue.find()
 
-    for sms in cursor:
-        assert sms['sourceMSISDN'] == source
-        assert sms['destMSISDN'] == destination
-        assert sms['encodedMessageType'] == 'SMPPSubmitSM'
+        for sms in cursor:
+            assert sms['sourceMSISDN'] == source
+            assert sms['destMSISDN'] == destination
+            assert sms['encodedMessageType'] == 'SMPPSubmitSM'

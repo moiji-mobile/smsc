@@ -63,25 +63,27 @@ def server_entry(server_data, om_rest_api):
 def collection_entries(client_entry, server_entry):
     return [client_data, server_data]
 
-def test_client_insert(client_data, om_rest_api):
-    om_rest_api(CLIENT_NAME).put(data=client_data)
-    om_rest_api(CLIENT_NAME).get()
+class TestOM:
 
-def test_server_insert(server_data, om_rest_api):
-    om_rest_api(SERVER_NAME).put(data=server_data)
-    om_rest_api(SERVER_NAME).get()
+    def test_client_insert(self, client_data, om_rest_api):
+        om_rest_api(CLIENT_NAME).put(data=client_data)
+        om_rest_api(CLIENT_NAME).get()
 
-def test_collection_api(collection_entries, om_rest_collection_api):
-    om_rest_collection_api.get()
+    def test_server_insert(self, server_data, om_rest_api):
+        om_rest_api(SERVER_NAME).put(data=server_data)
+        om_rest_api(SERVER_NAME).get()
 
-def test_client_update(client_entry, om_rest_api):
-    client_entry['port'] = 99
-    om_rest_api(CLIENT_NAME).put(data=client_entry)
-    client_answer = om_rest_api(CLIENT_NAME).get()
-    assert client_answer['port'] == 99
+    def test_collection_api(self, collection_entries, om_rest_collection_api):
+        om_rest_collection_api.get()
 
-def test_server_update(server_entry, om_rest_api):
-    server_entry['allowedRemotePort'] = 101
-    om_rest_api(SERVER_NAME).put(data=server_entry)
-    server_answer = om_rest_api(SERVER_NAME).get()
-    assert server_answer['allowedRemotePort'] == 101
+    def test_client_update(self, client_entry, om_rest_api):
+        client_entry['port'] = 99
+        om_rest_api(CLIENT_NAME).put(data=client_entry)
+        client_answer = om_rest_api(CLIENT_NAME).get()
+        assert client_answer['port'] == 99
+
+    def test_server_update(self, server_entry, om_rest_api):
+        server_entry['allowedRemotePort'] = 101
+        om_rest_api(SERVER_NAME).put(data=server_entry)
+        server_answer = om_rest_api(SERVER_NAME).get()
+        assert server_answer['allowedRemotePort'] == 101
