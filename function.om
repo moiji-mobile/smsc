@@ -1,4 +1,4 @@
-| root hostname mongoPort database smscDatabase rootOM databaseOM smscOMDatabase port server |
+| root hostname mongoPort database smscDatabase rootOM databaseOM smscOMDatabase port server smscDatabaseName omDatabaseName |
 
 hostname := 'localhost'.
 self optionAt: 'db-host' ifPresent: [:dbHost |
@@ -12,15 +12,22 @@ port := 1700.
 self optionAt: 'rest-port' ifPresent: [:portString |
     port := portString asNumber].
 
+smscDatabaseName := 'smsc'.
+self optionAt: 'smscdb-name' ifPresent: [:name |
+    smscDatabaseName := name].
+omDatabaseName := 'smscOM'.
+self optionAt: 'omdb-name' ifPresent: [:name |
+    omDatabaseName := name].
+
 "The database connection for "
 root := Mongo host: hostname port: mongoPort.
         root open.
-database := MongoDatabase root: root name: 'smsc'.
+database := MongoDatabase root: root name: smscDatabaseName.
 smscDatabase := ShortMessageDatabase withDatabase: database.
 
 rootOM := Mongo host: hostname port: mongoPort.
         rootOM open.
-databaseOM := MongoDatabase root: rootOM name: 'smscOM'.
+databaseOM := MongoDatabase root: rootOM name: omDatabaseName.
 smscOMDatabase := ShortMessageOMDatabase withDatabase: databaseOM.
 
 
