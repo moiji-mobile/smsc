@@ -29,7 +29,6 @@ smalltalk:
 - Pharo-6.0
 
 script:
-- set -e
 - $SMALLTALK_CI_HOME/run.sh
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
@@ -37,7 +36,6 @@ script:
 - bash integration-tests/integration-tests.sh
 - sh ./docker/debian-build.sh
 - bash deploy/deploy.sh
-- set +e
 
 after_failure:
 - bash integration-tests/after_failure.sh
