@@ -1,72 +1,30 @@
 import pytest
 import tortilla
+import os
+import subprocess
+from pymongo import MongoClient
 
 def pytest_addoption(parser):
-    parser.addoption("--om-server", action="store", default="localhost",
-        help="dns name or IP of the osmo-smsc-om server")
-    parser.addoption("--om-server-port", action="store", default=1700,
-        help="dns name or IP of the osmo-smsc-om server")
+    parser.addoption("--pharo-vm", action="store", default="pharo",
+        help="Pharo VM name")
+    parser.addoption("--pharo-image", action="store", default="OsmoSmsc.image",
+        help="Smalltalk image to use")
+    parser.addoption("--image-launch", action="store",
+        default="/usr/share/image-launch/bootstrap.st", help="Image launch")
 
-    parser.addoption("--inserter-server", action="store", default="localhost",
-        help="dns name or IP of the osmo-smsc-inserter server")
-    parser.addoption("--inserter-server-port", action="store", default=1700,
-        help="Port where the osmo-smsc-inserter server runs")
-    parser.addoption("--inserter-system-id", action="store", default="system_id",
-        help="The system id set into the om inserterlink")
-    parser.addoption("--inserter-password", action="store", default="password",
-        help="The password set into the om inserterlink")
 
-    parser.addoption("--inserter-client", action="store", default="localhost",
-        help="dns name or IP of the osmo-smsc-inserter client")
-    parser.addoption("--inserter-client-port", action="store", default=1700,
-        help="Port where the osmo-smsc-inserter client runs")
-
-    parser.addoption("--mongodb-server", action="store", default="localhost",
-        help="dns name or IP of the mongodb server")
-    parser.addoption("--mongodb-server-port", action="store", default=27017,
-        help="Port where the mongodb server runs")
-
+@pytest.fixture(scope="session")
+def mongo_client():
+    mongo_dbhost = "127.0.0.1:27017"
+    return MongoClient([mongo_dbhost])
 
 @pytest.fixture(scope="session")
 def om_server(request):
-    return request.config.getoption("--om-server")
+    return "localhost"
 
 @pytest.fixture(scope="session")
 def om_server_port(request):
-    return request.config.getoption("--om-server-port")
-
-@pytest.fixture(scope="session")
-def inserter_server(request):
-    return request.config.getoption("--inserter-server")
-
-@pytest.fixture(scope="session")
-def inserter_server_port(request):
-    return request.config.getoption("--inserter-server-port")
-
-@pytest.fixture(scope="session")
-def inserter_system_id(request):
-    return request.config.getoption("--inserter-system-id")
-
-@pytest.fixture(scope="session")
-def inserter_password(request):
-    return request.config.getoption("--inserter-password")
-
-@pytest.fixture(scope="session")
-def inserter_client(request):
-    return request.config.getoption("--inserter-client")
-
-@pytest.fixture(scope="session")
-def inserter_client_port(request):
-    return request.config.getoption("--inserter-client-port")
-
-@pytest.fixture(scope="session")
-def mongodb_server(request):
-    return request.config.getoption("--mongodb-server")
-
-@pytest.fixture(scope="session")
-def mongodb_server_port(request):
-    return request.config.getoption("--mongodb-server-port")
-
+    return 1700
 
 @pytest.fixture(scope="session")
 def om_rest_api(om_server, om_server_port):
@@ -74,7 +32,76 @@ def om_rest_api(om_server, om_server_port):
     api.config.headers = {'Content-Type': 'application/json'}
     return api
 
+@pytest.fixture
+def om_database(mongo_client):
+    """Drop the database to start with a fresh one"""
+    name = "om-test"
+    print("Dropping database %s" % name)
+    mongo_client.drop_database(name)
+    return name
+
+@pytest.fixture
+def smsc_database(mongo_client):
+    """Drop the database to start with a fresh one"""
+    name = "smsc-test"
+    print("Dropping database %s" % name)
+    mongo_client.drop_database(name)
+    return name
+
 @pytest.fixture(scope="session")
 def om_rest_collection_api(om_server, om_server_port):
     return tortilla.wrap('http://{}:{}/v1/inserterSMPPLinks'.format(om_server, om_server_port), format='json')
 
+def waitForPort(port):
+    """Linux specific to listen"""
+    port_str = ":%.4X 00000000:0000" % port
+    while True:
+        with open("/proc/net/tcp", "r") as f:
+            c = f.read()
+            if port_str in c:
+                print("Listening now..")
+                return None
+        import time
+        time.sleep(1)
+
+def launch_image(request, files, extra_args):
+    pharo_vm = request.config.getoption("--pharo-vm")
+    pharo_image = request.config.getoption("--pharo-image")
+    image_launch = request.config.getoption("--image-launch")
+    cmd = [
+                pharo_vm,
+                "--nodisplay", pharo_image, image_launch,
+                "--imagelaunch-dir=" + os.path.join(os.path.abspath(os.path.dirname(__file__)), "files/" + files + "/")] + extra_args
+
+    print("Starting %s" % " ".join(cmd))
+    proc = subprocess.Popen(cmd)
+    def stop_process():
+        print("Killing %s" % files)
+        proc.kill()
+        proc.wait()
+    request.addfinalizer(stop_process)
+    return proc
+
+
+@pytest.fixture
+def om_image(om_database, smsc_database, request):
+    """Start a image and have a fresh database ready"""
+    proc = launch_image(request, "om", ["--smscdb-name=" + smsc_database, "--omdb-name=" + om_database])
+    waitForPort(1700)
+    return proc
+
+@pytest.fixture
+def smsc_inserter_image(om_database, smsc_database, om_image, om_rest_api, request):
+    """Start SMSC inserter"""
+    # Configure a link that will listen for our data
+    om_rest_api("serverLink").put(data={
+                                        "connectionType" : "server",
+                                        "port": 9000,
+                                        "systemId": "inserter-test",
+                                        "systemType": "systemType",
+                                        "password": "pass",
+                                        "allowedRemoteAddress": None,
+                                        "allowedRemotePort": None})
+    proc = launch_image(request, "inserter", ["--smscdb-name=" + smsc_database, "--omdb-name=" + om_database])
+    waitForPort(9000)
+    return proc

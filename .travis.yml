@@ -22,7 +22,7 @@ before_install:
   docker-engine osc rpm-common rpm
 
 install:
-- "sudo pip install -r ./integration-tests/requirements.txt"
+- "sudo /opt/python/2.7.10/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
 
 smalltalk:
 - Pharo-5.0
@@ -31,8 +31,8 @@ script:
 - $SMALLTALK_CI_HOME/run.sh
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
-- bash docker/docker-image.sh
 - bash integration-tests/integration-tests.sh
+- bash docker/docker-image.sh
 - sh ./docker/debian-build.sh
 - bash deploy/deploy.sh
 

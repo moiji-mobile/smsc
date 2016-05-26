@@ -21,12 +21,7 @@ CLIENT_NAME = "client"
 SERVER_NAME = "server"
 
 @pytest.fixture
-def client_data(request, om_rest_api):
-    def delete_client_data():
-       om_rest_api(CLIENT_NAME).delete()
-
-    request.addfinalizer(delete_client_data)
-
+def client_data(request):
     return {"connectionType": CLIENT_NAME,
             "hostname": "127.0.0.1",
             "port": 88,
@@ -35,12 +30,7 @@ def client_data(request, om_rest_api):
             "password": "password"}
 
 @pytest.fixture
-def server_data(request, om_rest_api):
-    def delete_server_data():
-        om_rest_api(SERVER_NAME).delete()
-
-    request.addfinalizer(delete_server_data)
-
+def server_data(request):
     return {"connectionType": SERVER_NAME,
             "port": 99,
             "systemId": "systemId",
@@ -63,6 +53,7 @@ def server_entry(server_data, om_rest_api):
 def collection_entries(client_entry, server_entry):
     return [client_data, server_data]
 
+@pytest.mark.usefixtures("om_image")
 class TestOM:
 
     def test_client_insert(self, client_data, om_rest_api):

@@ -22,13 +22,10 @@ import smpplib.gsm
 import smpplib.client
 import smpplib.consts
 
-from pymongo import MongoClient
-
-
 @pytest.fixture
-def smpp_client(request, inserter_server, inserter_server_port, inserter_system_id, inserter_password):
+def smpp_client(request, smsc_inserter_image):
 
-    client = smpplib.client.Client(inserter_server, inserter_server_port)
+    client = smpplib.client.Client("127.0.0.1", 9000)
 
     def disconnect_client():
         client.unbind()
@@ -41,21 +38,7 @@ def smpp_client(request, inserter_server, inserter_server_port, inserter_system_
         lambda pdu: sys.stdout.write('delivered {}\n'.format(pdu.receipted_message_id)))
 
     client.connect()
-    client.bind_transceiver(system_id=inserter_system_id, password=inserter_password)
-
-    return client
-
-@pytest.fixture
-def mongo_client(request, mongodb_server, mongodb_server_port):
-
-    mongo_dbhost = "%s:%s" % (mongodb_server, mongodb_server_port)
-    client = MongoClient([mongo_dbhost])
-
-    def delete_smsc_db():
-        client.drop_database("smsc")
-        print ("finalizing mongodb")
-
-    request.addfinalizer(delete_smsc_db)
+    client.bind_transceiver(system_id="inserter-test", password="pass")
 
     return client
 
@@ -107,13 +90,14 @@ def sms_parts(smpp_client):
 
     return source, destination, message
 
+@pytest.mark.usefixtures("smsc_inserter_image")
 class TestInserter:
-    def test_inserter_server(self, sms_parts, mongo_client):
+    def test_inserter_server(self, sms_parts, mongo_client, smsc_database):
 
         source, destination, message = sms_parts
 
         # database will be create when send_message is called
-        db = mongo_client.smsc
+        db = mongo_client[smsc_database]
 
         assert db.smsQueue.count() == 1
 
