@@ -5,5 +5,7 @@ self optionAt: 'syslog' ifPresent: [:name |
     LogManager default target: syslog.
 
     "Reduce the amount of log messages generated"
-    (LogManager default findArea: #smscInserter, #smscDelivery, #smscOm) minLevel: LogLevel info.
+    (LogManager default findArea: #smscInserter) minLevel: LogLevel info.
+    (LogManager default findArea: #smscDelivery) minLevel: LogLevel info.
+    (LogManager default findArea: #smscOm) minLevel: LogLevel info.
 ]
