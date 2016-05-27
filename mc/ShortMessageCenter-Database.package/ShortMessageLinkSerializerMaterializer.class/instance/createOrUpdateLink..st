@@ -4,3 +4,4 @@ createOrUpdateLink: aLink
 		update: { 'connectionName' -> aLink connectionName } asDictionary
 		with: aLink toExternalDictionary
 		flags: UpdateOperation flagUpsert.
+	self checkLastError.
