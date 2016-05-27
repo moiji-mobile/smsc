@@ -6,9 +6,8 @@ put
 	data at: 'connectionName' put: connectionName.
 
 	"Try to materialize it"
-	omDatabasePool withDatabase: [:db |
-		| omDatabase link |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| link |
 		link := ShortMessageLinkSS7Materializer new materialize: data.
 		link ifNil: [
 			logger logNotice: 'Can not materialize delivery SS7  connection' with: { 'connectionName' -> connectionName }.

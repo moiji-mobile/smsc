@@ -4,9 +4,8 @@ get
 	connectionName := variables first.
 
 	"Try to materialize it"
-	omDatabasePool withDatabase: [:db |
-		| omDatabase link |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| link |
 		link := omDatabase findDeliveryLink: connectionName.
 		link ifNil: [
 			logger logNotice: 'Can not find delivery SMPP connection' with: { 'connectionName' -> connectionName}.

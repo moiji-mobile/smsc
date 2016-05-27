@@ -4,9 +4,8 @@ delete
 	routeName := variables first.
 
 	"Try to materialize it"
-	omDatabasePool withDatabase: [:db |
-		| omDatabase route |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| route |
 		route := omDatabase findDeliveryRoute: routeName.
 		route ifNil: [
 			logger logNotice: 'Can not find delivery route' with: { 'routeName' -> routeName }.

@@ -4,9 +4,8 @@ delete
 	connectionName := variables first.
 
 	"Try to materialize it"
-	omDatabasePool withDatabase: [:db |
-		| omDatabase link |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| link |
 		link := omDatabase findInserterLink: connectionName.
 		link ifNil: [
 			logger logNotice: 'Can not find inserter SMPP connection' with: { 'connectionName' -> connectionName }.

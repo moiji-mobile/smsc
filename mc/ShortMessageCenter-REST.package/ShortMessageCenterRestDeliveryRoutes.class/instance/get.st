@@ -1,8 +1,7 @@
 as yet unclassified
 get
-	omDatabasePool withDatabase: [:db |
-		| omDatabase links |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| links |
 		links := omDatabase allDeliveryRoutes.
 		links := links collect: [:each | each toExternalDictionary ].
 		self jsonResponse: links].

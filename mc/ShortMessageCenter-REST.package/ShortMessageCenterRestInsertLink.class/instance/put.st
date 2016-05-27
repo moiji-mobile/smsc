@@ -6,9 +6,8 @@ put
 	data at: 'connectionName' put: connectionName.
 
 	"Try to materialize it"
-	omDatabasePool withDatabase: [:db |
-		| omDatabase link |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
+		| link |
 		link := ShortMessageLinkSMPPMaterializer new materialize: data.
 		link ifNil: [
 			logger logNotice: 'Can not materialize inserter SMPP connection' with: { 'connectionName' -> connectionName }.

@@ -12,8 +12,6 @@ put
 		^self notFound].
 
 	link connectionName: connectionName.
-	omDatabasePool withDatabase: [:db |
-		| omDatabase |
-		omDatabase := ShortMessageOMDatabase withDatabase: db.
+	omDatabasePool withSmscOmDatabase: [:omDatabase |
 		omDatabase createOrUpdateDeliveryLink: link].
 	self emptyOkResponse
