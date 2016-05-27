@@ -9,7 +9,8 @@
 		"omDatabase",
 		"smppMaterializer",
 		"ss7Materializer",
-		"routeMaterializer" ],
+		"routeMaterializer",
+		"pool" ],
 	"name" : "ShortMessageOMDatabaseTest",
 	"pools" : [
 		 ],
