@@ -3,6 +3,8 @@ baseline: spec
 	<baseline>
 
 	spec for: #'common' do: [
+		spec baseline: 'VoyageMongo' with: [
+				spec repository: 'github://estebanlm/voyage/mc'].
 		spec project: 'MongoTalk' with: [
 				spec
 					className: #ConfigurationOfMongoTalk;
@@ -46,7 +48,7 @@ baseline: spec
 					repository: 'http://mc.stfx.eu/ZincHTTPComponents' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
-			spec requires: #('MongoTalk' 'OsmoLogging') ].
+			spec requires: #('VoyageMongo' 'MongoTalk' 'OsmoLogging') ].
 		spec package: #'ShortMessageCenter-Inserter' with: [
 			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging')].
 		spec package: #'ShortMessageCenter-Delivery' with: [
