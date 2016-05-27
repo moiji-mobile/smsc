@@ -1,4 +1,4 @@
-| hostname mongoPort root database smscDatabase rootOM databaseOM smscOMDatabase inserter smscDatabaseName omDatabaseName |
+| hostname mongoPort omPool smscPool inserter smscDatabaseName omDatabaseName |
 
 hostname := 'localhost'.
 self optionAt: 'db-host' ifPresent: [:dbHost |
@@ -15,20 +15,14 @@ omDatabaseName := 'smscOM'.
 self optionAt: 'omdb-name' ifPresent: [:name |
     omDatabaseName := name].
 
-root := Mongo host: hostname port: mongoPort.
-        root open.
-database := MongoDatabase root: root name: smscDatabaseName.
-smscDatabase := ShortMessageDatabase withDatabase: database.
+omPool := VOMongoSessionPool host: hostname port: mongoPort database: omDatabaseName username: nil password: nil.
 
-rootOM := Mongo host: hostname port: mongoPort.
-        rootOM open.
-databaseOM := MongoDatabase root: rootOM name: omDatabaseName.
-smscOMDatabase := ShortMessageOMDatabase withDatabase: databaseOM.
+smscPool := VOMongoSessionPool host: hostname port: mongoPort database: smscDatabaseName username: nil password: nil.
 
 
 "Start the inserter"
 inserter := ShortMessageCenterInserter new
-                smscDatabase: smscDatabase;
-                omDatabase: smscOMDatabase;
+                smscDatabasePool: smscPool;
+                omDatabasePool: omPool;
                 yourself.
 inserter start.

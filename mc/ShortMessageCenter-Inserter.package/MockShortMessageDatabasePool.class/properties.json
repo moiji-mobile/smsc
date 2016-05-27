@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Inserter-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"database" ],
+	"name" : "MockShortMessageDatabasePool",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

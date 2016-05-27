@@ -4,4 +4,4 @@ setUp
 	smscDatabase := MockShortMessageDatabase new.
 	smscInserter := ShortMessageCenterInserter new.
 	smscInserter addConnection: mockConnection.
-	smscInserter smscDatabase: smscDatabase.
+	smscInserter smscDatabasePool: (MockShortMessageDatabasePool withDatabase: smscDatabase).

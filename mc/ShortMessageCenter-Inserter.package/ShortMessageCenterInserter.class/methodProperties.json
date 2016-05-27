@@ -6,9 +6,9 @@
 		"handleDeliverSM:handler:" : "HolgerHansPeterFreyther 3/16/2016 17:28",
 		"handleSubmitSM:handler:" : "HolgerHansPeterFreyther 3/16/2016 17:28",
 		"initialize" : "HolgerHansPeterFreyther 2/11/2016 20:50",
-		"omDatabase:" : "HolgerHansPeterFreyther 2/11/2016 20:50",
+		"omDatabasePool:" : "HolgerHansPeterFreyther 5/27/2016 18:47",
 		"smppCommand:from:" : "HolgerHansPeterFreyther 2/8/2016 14:47",
 		"smppReturnSuccessOn:for:" : "HolgerHansPeterFreyther 2/9/2016 09:21",
-		"smscDatabase:" : "HolgerHansPeterFreyther 2/8/2016 16:02",
-		"start" : "HolgerHansPeterFreyther 2/11/2016 20:53",
-		"storeSM:from:" : "HolgerHansPeterFreyther 3/18/2016 15:21" } }
+		"smscDatabasePool:" : "HolgerHansPeterFreyther 5/27/2016 18:48",
+		"start" : "HolgerHansPeterFreyther 5/27/2016 19:31",
+		"storeSM:from:" : "HolgerHansPeterFreyther 5/27/2016 19:32" } }
