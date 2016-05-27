@@ -12,5 +12,8 @@ put
 		^self notFound].
 
 	route routeName: routeName.
-	omDatabase createOrUpdateDeliveryRoute: route.
+	omDatabasePool withDatabase: [:db |
+		| omDatabase |
+		omDatabase := ShortMessageOMDatabase withDatabase: db.
+		omDatabase createOrUpdateDeliveryRoute: route].
 	self emptyOkResponse

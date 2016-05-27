@@ -1,6 +1,9 @@
 as yet unclassified
 get
-	| links |
-	links := omDatabase allInserterLinks.
-	links := links collect: [:each | each toExternalDictionary ].
-	self jsonResponse: links
+	omDatabasePool withDatabase: [:db |
+		| omDatabase links |
+		omDatabase := ShortMessageOMDatabase withDatabase: db.
+
+		links := omDatabase allInserterLinks.
+		links := links collect: [:each | each toExternalDictionary ].
+		self jsonResponse: links]

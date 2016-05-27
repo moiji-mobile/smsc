@@ -8,7 +8,7 @@ match: request
 			ifNotNil: [ :variables |
 				^ each new
 					variables: variables;
-					omDatabase: omDatabase;
-					smscDatabase: smscDatabase;
+					omDatabasePool: omDatabasePool;
+					smscDatabasePool: smscDatabasePool;
 					yourself ] ].
 	^ nil  

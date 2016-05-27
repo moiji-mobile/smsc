@@ -6,8 +6,8 @@
 		 ],
 	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 10:03",
 	"instvars" : [
-		"omDatabase",
-		"smscDatabase" ],
+		"smscDatabasePool",
+		"omDatabasePool" ],
 	"name" : "ShortMessageCenterRestUriSpace",
 	"pools" : [
 		 ],

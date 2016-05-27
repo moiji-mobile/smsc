@@ -6,9 +6,9 @@
 		 ],
 	"commentStamp" : "HolgerHansPeterFreyther 2/11/2016 09:59",
 	"instvars" : [
-		"omDatabase",
-		"smscDatabase",
-		"logger" ],
+		"logger",
+		"omDatabasePool",
+		"smscDatabasePool" ],
 	"name" : "ShortMessageCenterRestBase",
 	"pools" : [
 		 ],

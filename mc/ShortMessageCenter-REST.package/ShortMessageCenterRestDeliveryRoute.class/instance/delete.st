@@ -1,13 +1,17 @@
 as yet unclassified
 delete
-	| routeName route |
+	| routeName |
 	routeName := variables first.
 
 	"Try to materialize it"
-	route := omDatabase findDeliveryRoute: routeName.
-	route ifNil: [
-		logger logNotice: 'Can not find delivery route' with: { 'routeName' -> routeName }.
-		^self notFound].
+	omDatabasePool withDatabase: [:db |
+		| omDatabase route |
+		omDatabase := ShortMessageOMDatabase withDatabase: db.
+		route := omDatabase findDeliveryRoute: routeName.
+		route ifNil: [
+			logger logNotice: 'Can not find delivery route' with: { 'routeName' -> routeName }.
+			^self notFound].
 
-	omDatabase removeDeliveryRoute: route.
-	self emptyOkResponse.
+		omDatabase removeDeliveryRoute: route.
+		self emptyOkResponse.
+	].

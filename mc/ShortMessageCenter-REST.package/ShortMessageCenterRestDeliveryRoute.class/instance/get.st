@@ -1,12 +1,15 @@
 as yet unclassified
 get
-	| routeName route |
+	| routeName |
 	routeName := variables first.
 
 	"Try to materialize it"
-	route := omDatabase findDeliveryRoute: routeName.
-	route ifNil: [
-		logger logNotice: 'Can not find delivery route' with: { 'routeName' -> routeName }.
-		^self notFound].
+	omDatabasePool withDatabase: [:db |
+		| omDatabase route |
+		omDatabase := ShortMessageOMDatabase withDatabase: db.
+		route := omDatabase findDeliveryRoute: routeName.
+		route ifNil: [
+			logger logNotice: 'Can not find delivery route' with: { 'routeName' -> routeName }.
+			^self notFound].
 
-	^self jsonResponse: route toExternalDictionary.
+		^self jsonResponse: route toExternalDictionary]
