@@ -26,8 +26,29 @@ Listing all SMPP connections
 
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/inserterSMPPLinks
-
-TODO... add example output
+[
+	{
+		"connectionType" : "client",
+		"systemType" : "systemType",
+		"password" : "password",
+		"role" : null,
+		"port" : 4444,
+		"hostname" : "nameOfServer",
+		"systemId" : "systemId",
+		"connectionName" : "NAME"
+	},
+	{
+		"connectionType" : "server",
+		"systemType" : "systemType",
+		"allowedRemotePort" : 6666,
+		"allowedRemoteAddress" : "127.0.0.1",
+		"password" : "password",
+		"port" : 5555,
+		"role" : null,
+		"systemId" : "systemId",
+		"connectionName" : "NAME2"
+	}
+]
 ----
 
 Result codes:: Under normal operation only 200 with an JSON array should be returned.
@@ -41,26 +62,27 @@ which remote IPv4/port the connection should arrive.
 
 ----
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME \
--d '{ \
-	"connectionType": "client", \
-	"hostname": "nameOfServer", \
-	"port": PortNumber, \
-	"systemId": "systemId", \
-	"systemType": "systemType", \
-	"password": "password", \
+-d '{
+	"connectionType": "client",
+	"hostname": "nameOfServer",
+	"port": PortNumber,
+	"systemId": "systemId",
+	"systemType": "systemType",
+	"password": "password"
 }'
-.... TDOO example output
+"OK"
 
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/inserterSMPPLink/NAME2 \
--d '{ \
-	"connectionType": "server", \
-	"port": PortNumber, \
-	"systemId": "systemId", \
-	"systemType": "systemType", \
-	"password": "password", \
-	"allowedRemoteAddress": "127.0.0.1", \
-	"allowedRemotePort": aSourcePortNumber \
+-d '{
+	"connectionType": "server",
+	"port": PortNumber,
+	"systemId": "systemId",
+	"systemType": "systemType",
+	"password": "password",
+	"allowedRemoteAddress": "127.0.0.1",
+	"allowedRemotePort": aSourcePortNumber
 }'
+"OK"
 ----
 
 Result codes:: In case of invalid JSON a 5XX response will be returned, in case of incomplete document a 5XX will be returned as well, in case no connection can be created a 4XX will be returned
@@ -73,7 +95,16 @@ Show the settings of one configured SMPP link. This can either be a client or se
 
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/inserterSMPPLink/NAME
-... TODO example output
+{
+	"connectionType" : "client",
+	"systemType" : "systemType",
+	"password" : "password",
+	"role" : null,
+	"port" : 4444,
+	"hostname" : "nameOfServer",
+	"systemId" : "systemId",
+	"connectionName" : "NAME"
+}
 ----
 
 Result codes:: In case no connection with than name exists a 404 will be returned, otherwise
@@ -87,7 +118,7 @@ Remove the configuration of a SMPP link.
 
 ----
 $ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/inserterSMPPLink/NAME
-... TODO example output
+"OK"
 ----
 
 Result codes:: In case no connection with name exists a 404 will be returned, otherwise a 200 with an EMPTY return will be returned.
@@ -102,7 +133,15 @@ to the inserter interface but follow the same documents as with the inserter, th
 difference is the URL.
 
 Instead of inserterSMPPLink it is deliverySMPPLink and instead of inserterSMPPLinks it
-will be deliverySMPPLinks.
+is deliverySMPPLinks.
+
+---
+Parameters same as with the inserter
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliverySMPPLinks
+$ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/deliverSMPPLink/NAME
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliverSMPPLink/NAME
+$ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/deliverSMPPLink/NAME
+...
 
 
 SS7 Delivery Interface
@@ -118,8 +157,15 @@ Listing all SS7 Network Services
 
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliverySS7Links
-
-TODO... add example output
+[
+	{
+		"class" : "SCCPNetworkServiceOsmoDirect",
+		"token" : "Token",
+		"port" : 12345,
+		"connectionName" : "NAME",
+		"hostname" : "host"
+	}
+]
 ----
 
 Creating a SS7 Network Service
@@ -127,16 +173,45 @@ Creating a SS7 Network Service
 
 ----
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/deliverySS7Link/NAME \
--d '{ \
-	"hostname": "host", \
-	"port": PortNumber, \
-	"token": "Token" \
+-d '{
+	"hostname": "host",
+	"port": PortNumber,
+	"token": "Token"
 }'
+"OK"
+----
+
+Inpect a SS7 Network Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Show the settings of one configured SS7 delivery link.
+
+---
+$ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliverySS7Link/NAME
+{
+	"class" : "SCCPNetworkServiceOsmoDirect",
+	"token" : "Token",
+	"port" : 12345,
+	"connectionName" : "NAME",
+	"hostname" : "host"
+}
+---
+
+Delete a SS7 Network Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Delete a configured SS7 delivery link.
+
+----
+$ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/deliverySS7Link/NAME
+"OK"
 ----
 
 Routes for Delivery
 ~~~~~~~~~~~~~~~~~~~
 
+A route is looked-up before the delivery of a SMS is attempted. The next sections list
+commands to query and manipulate routes.
 
 Listing all routes
 ^^^^^^^^^^^^^^^^^^
@@ -144,7 +219,35 @@ Listing all routes
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliveryRoutes
 
-TODO... add example output
+[
+    {
+        "systemId" : "OptionalSystemdIdMatch",
+        "default" : false,
+        "destinationAddressPrefixLength" : 4,
+        "priority" : 100,
+        "destinationAddressPrefix" : "1234",
+        "sourceAddressPrefix" : "4567",
+        "methods" : [
+            {
+                "connectionName" : "NAME",
+                "class" : "ShortMessageDeliveryMethodSMPP",
+                "messageType" : "deliverSM"
+            },
+            {
+                "class" : "ShortMessageDeliveryMethodSS7",
+                "ssn" : 7,
+                "globalTitle" : "49111111",
+                "sendRoutingInfoTranslationType" : 2,
+                "smscNumber" : "49111111",
+                "forwardSMTranslationType" : 0,
+                "connectionName" : "NAME",
+                "mapVersion" : 2
+            }
+        ],
+        "routeName" : "NAME",
+        "sourceAddressPrefixLength" : 4
+    }
+]
 ----
 
 Result codes:: Under normal operation only 200 with an JSON array should be returned.
@@ -155,12 +258,34 @@ Creating or updating a route
 
 ----
 $ curl -H "Content-Type: application/json" -XPUT http://localhost:1700/v1/deliveryRoute/NAME \
--d '{ \
-...
+-d '{
+    "systemId": "OptionalSystemdIdMatch",
+    "priority": OptionalNumberPriority,
+    "default": OptionalBooleanDefault,
+    "destinationAddressPrefix": "OptionalDestinationPrefix",
+    "sourceAddressPrefix": "OptionalSourceAddressPrefix",
+    "methods": [
+        {
+            "class": "ShortMessageDeliveryMethodSMPP",
+            "connectionName": "aSMPPDeliveryLinkName",
+            "messageType": "SMPPMessageTypeToUse"
+        },
+        {
+            "class": "ShortMessageDeliveryMethodSS7",
+            "connectionName": "aSS7DeliveryLinkName",
+            "globalTitle": "CallingGT to use",
+            "ssn": aCallingSsnNumber,
+            "smscNumber": "aSMSCGTNumber",
+            "sendRoutingInfoTranslationType": aGTTranslationType,
+            "forwardSMTranslationType": aGTTtranslationType,
+            "mapVersion": aVersionNumber
+        }
+    ]
 }'
-.... TDOO example output
-
+"OK"
 ----
+
+messageType:: Either deliverSM or submitSM are valid for class ShortMessageDeliveryMethodSMPP.
 
 Result codes:: In case of invalid JSON a 5XX response will be returned, in case of incomplete document a 5XX will be returned as well, in case no connection can be created a 4XX will be returned
 
@@ -172,7 +297,33 @@ Show the settings of one configured SMPP link. This can either be a client or se
 
 ----
 $ curl -H "Content-Type: application/json" -XGET http://localhost:1700/v1/deliveryRoute/NAME
-... TODO example output
+{
+    "systemId" : "OptionalSystemdIdMatch",
+    "default" : false,
+    "destinationAddressPrefixLength" : 4,
+    "priority" : 100,
+    "destinationAddressPrefix" : "1234",
+    "sourceAddressPrefix" : "4567",
+    "methods" : [
+        {
+            "connectionName" : "NAME",
+            "class" : "ShortMessageDeliveryMethodSMPP",
+            "messageType" : "deliverSM"
+        },
+        {
+            "class" : "ShortMessageDeliveryMethodSS7",
+            "ssn" : 7,
+            "globalTitle" : "49111111",
+            "sendRoutingInfoTranslationType" : 2,
+            "smscNumber" : "49111111",
+            "forwardSMTranslationType" : 0,
+            "connectionName" : "NAME",
+            "mapVersion" : 2
+        }
+    ],
+    "routeName" : "NAME",
+    "sourceAddressPrefixLength" : 4
+}
 ----
 
 Result codes:: In case no connection with than name exists a 404 will be returned, otherwise
@@ -184,7 +335,7 @@ Delete a route
 
 ----
 $ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/deliveryRoute/NAME
-... TODO example output
+"OK"
 ----
 
 Result codes:: In case no connection with name exists a 404 will be returned, otherwise a 200 with an EMPTY return will be returned.
