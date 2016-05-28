@@ -180,7 +180,7 @@ a 200 with the JSON response response will be returned
 
 
 Delete a route
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 ----
 $ curl -H "Content-Type: application/json" -XDELETE http://localhost:1700/v1/deliveryRoute/NAME

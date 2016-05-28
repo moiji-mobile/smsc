@@ -13,6 +13,35 @@ For each SMS a routing decision needs to be made. The routing can be based on th
 link (the systemId) the SMS arrived, the source address and the destination. Each
 route can have a list of destinations (e.g. MAPv3, MAPv2, SMPP).
 
+=== Links
+
+SMPP links can be configured as with the inserter. In addition SS7 links to
+the osmo-stp can be configured.
+
+Lifetime
+~~~~~~~~
+
+The SMS entry in the database contains various fields that control the lifetime.
+The first is when to expire the SMS and give up. This field will be set by the
+inserter on insert. The next field is the time the SMS should be delivered. The
+SMS will be attempted to be submitted/delivered around that time and in the
+success case will be removed from the database. In the failure case the system
+will:
+
+* Increase the attempts counter.
+* Set a new deliveryTime. Currently this is 30 minutes from now. There is no
+increasing penalty.
+
+Scaling
+~~~~~~~
+
+Scaling occurs by setting the number of worker threads that determine how many
+SMS will be tried to submitted/delivered at the same time and by starting multiple
+instances of the delivery system. The database access is modeled to have only
+one system to submit/deliver to a given destination at the same time. This will
+be enforced by a locking scheme in the database and will work with multiple
+delivery processes.
+
 Routing
 ~~~~~~~
 

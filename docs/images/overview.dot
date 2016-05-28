@@ -1,14 +1,18 @@
 digraph G {
   smpprouter [label="SMPP Router"];
   smscinsert [label="SMSC Inserter"];
-  smsdb      [label="SMSC MongoDB"];
+  smsdb      [label="MongoDBs"];
   smscdeliv  [label="SMSC delivery"];
-  osmostp    [label="TCP/SCTP M3UA converter"];
-  network    [label="SCTP edge"];
+  ss7        [label="SS7 link"];
+  smppdel    [label="SMPP delivery"];
+  om         [label="O&M interface"];
+  gc         [label="Expiry"];
 
+  om         -> smsdb;
+  gc         -> smsdb;
   smpprouter -> smscinsert [label="DeliverSM/SubmitSM"];
   smscinsert -> smsdb      [label="Store in DB"];
-  smscdeliv  -> smsdb      [label="Fetch from DB"];
-  smscdeliv  -> osmostp    [label="SS7 request"];
-  osmostp    -> network    [label="Route to remote network"];
+  smscdeliv  -> smsdb      [label="Fetch"];
+  smscdeliv  -> ss7        [label="MAP"];
+  smscdeliv  -> smppdel    [label="SMPP"];
 }

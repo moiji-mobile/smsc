@@ -6,5 +6,30 @@ messages and storing them in the database. Right now no billing is done but
 it would be done before inserting a message. The message will be re-encoded
 and stored as such. Conversion will occur on delivery.
 
-Scaling can occur by configuring multiple SMPP interfaces and by starting
-multiple instances of the inserter.
+=== Links
+
+One SMPP inserter link can be configured to have a role (ESME or MC) and if
+it should be a listener or a client connection. The handling of role is not
+fully implemented at this point in time.
+
+The links will be activated when the inserter application is started, there
+is no monitoring of changes of the link configuration. For client connections
+they will be connected and re-connected. If a DNS name is used the hostname
+will be resolved in a blocking manner. For servers multiple connections for
+the same systemId are allowed. The SMPP Submit_SM/Deliver_SM response will
+be sent on the link that initiated the message.
+
+
+=== Lifetime
+
+The lifetime of a SMS will be hardcoded to 10 days. The time inside the SMPP
+message will be ignored. The first delivery will be set to now.
+
+=== Scaling
+
+Scaling can occur by configuring multiple SMPP links. This way a SMPP message
+can be decoded while another process is currently waiting for a response of
+the database. The other approach is to run multiple inserter processes.
+
+Different instances would use the same SMSC Database but a dedicated O&M database
+to allow the configuration of different links.

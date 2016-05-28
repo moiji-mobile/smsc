@@ -1,0 +1,18 @@
+Expiring messages and Cleaning up
+---------------------------------
+
+SMS might not succeed to be delivered. Either because the subscriber is
+not reachable anymore or the delivery might have been interrupted. Either
+by an administrator restarting the system or a software issue.
+
+=== Expiring messages
+
+When inserting a SMS the expiration time will be set. The GC application
+will make a DB query to remove expired SMS atomically. There will be no
+log statement about which SMS got removed.
+
+=== Cleaning up
+
+A destination might end-up in a locked state. This can be due a software
+glitch on delivery or administrator restart. If a destination is locked
+for more than 30 minutes it will be released.

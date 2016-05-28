@@ -16,6 +16,8 @@ addons:
     - mongodb-3.0-precise
     packages:
     - mongodb-org-server
+    - asciidoc
+    - dblatex
 
 before_install:
 - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
@@ -33,6 +35,7 @@ script:
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
 - bash integration-tests/integration-tests.sh
+- make -C docs
 - bash docker/docker-image.sh
 - sh ./docker/debian-build.sh
 - bash deploy/deploy.sh
