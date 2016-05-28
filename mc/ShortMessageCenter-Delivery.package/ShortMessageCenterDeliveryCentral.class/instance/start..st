@@ -18,7 +18,7 @@ start: numJobs
 		worker := ShortMessageCenterDeliveryWorker new.
 		worker
 			databaseHost: dbHost port: dbPort name: smscDatabaseName;
-			workerName: baseWorkerName + ' Worker' + each asString;
+			workerName: baseWorkerName , ' Worker', each asString;
 			deliveryCentral: self.
 		proc := [ worker setup. worker doWork ] newProcess.
 		proc name: 'Worker ', each asString.
