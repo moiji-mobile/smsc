@@ -25,3 +25,10 @@ Depends: ${misc:Depends}, osmo-smsc (=${binary:Version})
 Description: osmo-smsc-inserter
  Starts the inserter
  via runit.
+
+Package: osmo-smsc-delivery
+Architecture: any
+Depends: ${misc:Depends}, osmo-smsc (=${binary:Version})
+Description: osmo-smsc-delivery
+ Starts delivery
+ via runit.

@@ -22,6 +22,7 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/osmo-smsc/scripts
 	mkdir -p $(DESTDIR)/usr/share/osmo-smsc/template/om/launch.d
 	mkdir -p $(DESTDIR)/usr/share/osmo-smsc/template/inserter/launch.d
+	mkdir -p $(DESTDIR)/usr/share/osmo-smsc/template/delivery/launch.d
 	mkdir -p $(DESTDIR)/var/lib/pharo-images
 
 	# install the image
@@ -32,7 +33,9 @@ install:
 	install -m 0644 function.om $(DESTDIR)/usr/share/osmo-smsc/scripts/om
 	install -m 0644 function.inserter $(DESTDIR)/usr/share/osmo-smsc/scripts/inserter
 	install -m 0644 function.syslog $(DESTDIR)/usr/share/osmo-smsc/scripts/syslog
+	install -m 0644 function.delivery $(DESTDIR)/usr/share/osmo-smsc/scripts/delivery
 
 	# launch examples
 	install -m 0644 om.launch $(DESTDIR)/usr/share/osmo-smsc/template/om/image-launch.conf
 	install -m 0644 inserter.launch $(DESTDIR)/usr/share/osmo-smsc/template/inserter/image-launch.conf
+	install -m 0644 delivery.launch $(DESTDIR)/usr/share/osmo-smsc/template/delivery/image-launch.conf

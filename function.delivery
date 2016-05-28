@@ -1,0 +1,26 @@
+| hostname mongoPort omPool smscPool central jobs smscDatabaseName omDatabaseName |
+
+hostname := 'localhost'.
+self optionAt: 'db-host' ifPresent: [:dbHost |
+    hostname := dbHost].
+
+mongoPort := 27017.
+self optionAt: 'db-port' ifPresent: [:mongoPortString |
+    mongoPort := mongoPortString asNumber].
+
+smscDatabaseName := 'smsc'.
+self optionAt: 'smscdb-name' ifPresent: [:name |
+    smscDatabaseName := name].
+omDatabaseName := 'smscOM'.
+self optionAt: 'omdb-name' ifPresent: [:name |
+    omDatabaseName := name].
+jobs := 10.
+self optionAt: 'jobs' ifPresent: [:num |
+    jobs := num asInteger].
+
+"Start the inserter"
+central := ShortMessageCenterDeliveryCentral new.
+central
+    databaseHost: hostname port: mongoPort omName: omDatabaseName smscName: smscDatabaseName;
+    start: jobs.
+

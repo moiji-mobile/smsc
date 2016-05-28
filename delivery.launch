@@ -1,0 +1,5 @@
+VM_BIN=/usr/bin/pharo-vm-nox
+VM_ARGUMENTS=
+IMAGE_ARGS="--vncport=3 --vncpassword=CHANGE --db-host=127.0.0.1 --jobs=13"
+IMAGE=/var/lib/pharo-images/OsmoSmsc.image
+PIDFILE=/var/run/OsmoSmsc-delivery.pid
