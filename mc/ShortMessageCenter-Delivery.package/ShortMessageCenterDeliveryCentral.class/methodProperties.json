@@ -6,10 +6,8 @@
 		"reset" : "HolgerHansPeterFreyther 2/15/2016 15:49" },
 	"instance" : {
 		"baseWorkerName:" : "HolgerHansPeterFreyther 2/15/2016 16:40",
-		"databaseHost:port:name:" : "HolgerHansPeterFreyther 2/15/2016 15:01",
 		"databaseHost:port:omName:smscName:" : "HolgerHansPeterFreyther 5/28/2016 23:01:38",
 		"initialize" : "HolgerHansPeterFreyther 2/15/2016 16:39",
-		"loadRoutes" : "HolgerHansPeterFreyther 2/15/2016 15:28",
 		"smppLinkByName:" : "HolgerHansPeterFreyther 2/23/2016 22:44",
 		"start:" : "HolgerHansPeterFreyther 5/28/2016 23:01:38",
 		"startSS7Links" : "HolgerHansPeterFreyther 5/28/2016 23:01:38",
