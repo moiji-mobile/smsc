@@ -15,6 +15,8 @@ omDatabaseName := 'smscOM'.
 self optionAt: 'omdb-name' ifPresent: [:name |
     omDatabaseName := name].
 
+"Allow to have many Sockets and such"
+Smalltalk vm maxExternalSemaphoresSilently: 512.
 omPool := VOMongoSessionPool host: hostname port: mongoPort database: omDatabaseName username: nil password: nil.
 omPool size: 2.
 

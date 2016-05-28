@@ -19,12 +19,15 @@ omDatabaseName := 'smscOM'.
 self optionAt: 'omdb-name' ifPresent: [:name |
     omDatabaseName := name].
 
+"Allow to have many Sockets and such"
+Smalltalk vm maxExternalSemaphoresSilently: 512.
+
 "The database connection for "
 omPool := VOMongoSessionPool host: hostname port: mongoPort database: omDatabaseName username: nil password: nil.
 omPool size: 20.
 
 smscPool := VOMongoSessionPool host: hostname port: mongoPort database: smscDatabaseName username: nil password: nil.
-smscPool size: 5.
+smscPool size: 10.
 
 "Start the REST server"
 server := ZnServer startOn: port.
