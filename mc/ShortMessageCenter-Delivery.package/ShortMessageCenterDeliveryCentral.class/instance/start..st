@@ -4,11 +4,10 @@ start: numJobs
 
 	"Open the DB and "
 	root := Mongo host: dbHost port: dbPort.
-	database := MongoDatabase root: root name: dbName.
+	database := MongoDatabase root: root name: omDatabaseName.
 	root open.
 
 	omDatabase := ShortMessageOMDatabase withDatabase: database.
-	self loadRoutes.
 	self startSmppLinks.
 	self startSS7Links.
 
@@ -17,7 +16,7 @@ start: numJobs
 		| proc worker |
 		worker := ShortMessageCenterDeliveryWorker new.
 		worker
-			databaseHost: dbHost port: dbPort name: dbName;
+			databaseHost: dbHost port: dbPort name: smscDatabaseName;
 			workerName: baseWorkerName + ' Worker' + each asString;
 			deliveryCentral: self.
 		proc := [ worker setup. worker doWork ] newProcess.
