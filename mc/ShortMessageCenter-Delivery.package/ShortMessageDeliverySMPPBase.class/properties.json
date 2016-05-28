@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 3/19/2016 15:03",
+	"instvars" : [
+		"connectionName",
+		"pendingMessages",
+		"waitingSemaphore" ],
+	"name" : "ShortMessageDeliverySMPPBase",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliveryBase",
+	"type" : "normal" }

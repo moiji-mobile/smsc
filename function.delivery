@@ -18,6 +18,9 @@ jobs := 10.
 self optionAt: 'jobs' ifPresent: [:num |
     jobs := num asInteger].
 
+"Allow to have many Sockets and such"
+Smalltalk vm maxExternalSemaphoresSilently: 512.
+
 "Start the inserter"
 central := ShortMessageCenterDeliveryCentral new.
 central

@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 3/19/2016 15:03",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageDeliverySMPPDeliverSM",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliverySMPPBase",
+	"type" : "normal" }

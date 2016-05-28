@@ -1,0 +1,1 @@
+I am a base class to be used for SubmitSM or DeliverSM.

@@ -1,0 +1,14 @@
+{
+	"category" : "ShortMessageCenter-Delivery-Method",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ShortMessageDeliverySMPPSubmitSM",
+	"pools" : [
+		 ],
+	"super" : "ShortMessageDeliverySMPPBase",
+	"type" : "normal" }

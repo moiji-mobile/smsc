@@ -3,5 +3,7 @@
 		 },
 	"instance" : {
 		"exampleEncodedMessage" : "HolgerHansPeterFreyther 2/29/2016 20:14",
-		"testSendingDualMessageStart" : "HolgerHansPeterFreyther 3/18/2016 17:49",
-		"testSendingSingleMessageStart" : "HolgerHansPeterFreyther 3/18/2016 17:50" } }
+		"exampleEncodedSubmitMessage" : "HolgerHansPeterFreyther 3/19/2016 18:01",
+		"testSendingDualMessageStart" : "HolgerHansPeterFreyther 3/19/2016 18:00",
+		"testSendingSingleMessageStart" : "HolgerHansPeterFreyther 3/19/2016 15:07",
+		"testSendingSingleSubmitSMMessageStart" : "HolgerHansPeterFreyther 3/19/2016 18:01" } }

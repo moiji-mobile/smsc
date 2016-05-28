@@ -1,5 +1,9 @@
 *ShortMessageCenter-Delivery
 createDelivery
-	^ShortMessageDeliverySMPP new
+	| class |
+	class := messageType = 'submitSM'
+					ifTrue: [ ShortMessageDeliverySMPPSubmitSM ]
+					ifFalse: [ ShortMessageDeliverySMPPDeliverSM ].
+	^class new
 		connectionName: connectionName;
 		yourself
