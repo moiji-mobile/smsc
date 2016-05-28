@@ -1,5 +1,8 @@
 as yet unclassified
 waitForMessages
-	| nextSms |
+	| nextSms wakeUpTime |
 	nextSms := smscDatabase nextSms.
-	smscDatabase waitUntil: (nextSms at: 'deliveryTime').
+	wakeUpTime := nextSms isNil
+							ifTrue: [DateAndTime now + sleepTime]
+							ifFalse: [nextSms at: 'deliveryTime'].
+	smscDatabase waitUntil: wakeUpTime.

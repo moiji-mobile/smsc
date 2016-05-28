@@ -14,7 +14,8 @@
 		"messagesSelector",
 		"omDatabase",
 		"undeliveredMessages",
-		"deliveryCentral" ],
+		"deliveryCentral",
+		"sleepTime" ],
 	"name" : "ShortMessageCenterDeliveryWorker",
 	"pools" : [
 		 ],
