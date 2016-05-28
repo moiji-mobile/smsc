@@ -3,6 +3,7 @@
 		 },
 	"instance" : {
 		"setUp" : "HolgerHansPeterFreyther 5/27/2016 15:49",
+		"tearDown" : "HolgerHansPeterFreyther 5/28/2016 12:16",
 		"testDeliveryFunctions" : "HolgerHansPeterFreyther 5/27/2016 16:29",
 		"testDeliveryRouteFunctions" : "HolgerHansPeterFreyther 5/27/2016 16:31",
 		"testDeliverySS7Functions" : "HolgerHansPeterFreyther 5/27/2016 16:32",
