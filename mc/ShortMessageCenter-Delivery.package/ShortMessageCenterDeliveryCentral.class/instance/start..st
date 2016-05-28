@@ -10,6 +10,7 @@ start: numJobs
 	omDatabase := ShortMessageOMDatabase withDatabase: database.
 	self startSmppLinks.
 	self startSS7Links.
+	root close.
 
 	workers := Array new: numJobs.
 	1 to: numJobs do: [:each |

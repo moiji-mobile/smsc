@@ -7,13 +7,10 @@
 	"commentStamp" : "HolgerHansPeterFreyther 2/19/2016 13:23",
 	"instvars" : [
 		"logger",
-		"smscDatabase",
 		"dbHost",
 		"dbPort",
 		"omDatabase",
 		"smppDeliveryLinks",
-		"ss7Links",
-		"routes",
 		"tcapLinks",
 		"workers",
 		"baseWorkerName",

@@ -1,5 +1,7 @@
 as yet unclassified
 startSS7Links
+	| ss7Links |
+
 	ss7Links := omDatabase allDeliverySS7Links.
 
 	ss7Links do: [:link |
