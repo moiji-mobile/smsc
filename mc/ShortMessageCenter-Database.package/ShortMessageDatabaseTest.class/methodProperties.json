@@ -4,7 +4,7 @@
 	"instance" : {
 		"setUp" : "HolgerHansPeterFreyther 2/7/2016 18:58",
 		"tearDown" : "HolgerHansPeterFreyther 5/28/2016 12:16",
-		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 2/5/2016 19:08",
+		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 5/29/2016 15:52",
 		"testFindAndLockPendingSmsReject" : "HolgerHansPeterFreyther 3/18/2016 15:13",
 		"testInsertShortMessageMessageTypeDestinationSourceDeliverInExpireInReceivedOn" : "HolgerHansPeterFreyther 3/16/2016 18:08",
 		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 2/7/2016 20:21",
