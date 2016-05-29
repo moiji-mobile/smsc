@@ -105,3 +105,22 @@ def smsc_inserter_image(om_database, smsc_database, om_image, om_rest_api, reque
     proc = launch_image(request, "inserter", ["--smscdb-name=" + smsc_database, "--omdb-name=" + om_database])
     waitForPort(9000)
     return proc
+
+@pytest.fixture
+def smsc_delivery_image(om_database, smsc_database, om_image, om_server, om_server_port, request):
+    """Start the delivery image with a SS7 link and a SMPP link"""
+    smppLink = tortilla.wrap('http://{}:{}/v1/deliverySMPPLink'.format(om_server, om_server_port), format='json')
+    ss7Link = tortilla.wrap('http://{}:{}/v1/deliverySS7Link'.format(om_server, om_server_port), format='json')
+
+    smppLink("smppClientLink").put(data={
+                                        "connectionType" : "client",
+                                        "hostname": "localhost",
+                                        "port": 8888,
+                                        "systemId": "inserter-test",
+                                        "systemType": "systemType",
+                                        "password": "pass"})
+    ss7Link("ss7ClientLink").put(data={
+                                        "hostname": "localhost",
+                                        "port": 9999,
+                                        "token": "test"})
+    proc = launch_image(request, "delivery", ["--smscdb-name=" + smsc_database, "--omdb-name=" + om_database])

@@ -26,4 +26,12 @@ python2 -m pytest \
     --pharo-image=$(dirname $0)/../OsmoSmsc.image \
     --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
 
+# delivery test
+python2 -m pytest \
+    $(dirname $0)/delivery_test.py \
+    --junitxml=junitxml/delivery_test.xml \
+    --pharo-vm=$SMALLTALK_CI_HOME/_cache/vms/${TRAVIS_SMALLTALK_VERSION}/pharo-vm/pharo \
+    --pharo-image=$(dirname $0)/../OsmoSmsc.image \
+    --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
+
 print_results $(dirname $0)/junitxml/
