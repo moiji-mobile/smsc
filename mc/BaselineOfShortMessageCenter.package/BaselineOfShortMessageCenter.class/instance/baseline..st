@@ -33,7 +33,7 @@ baseline: spec
 		spec project: 'TCAP' with: [
 				spec
 					className: #ConfigurationOfTCAP;
-					versionString: '7';
+					versionString: '8';
 					repository: 'http://smalltalkhub.com/mc/osmocom/TCAP/main' ].
 		spec project: 'ASN1' with: [
 				spec
