@@ -7,6 +7,5 @@ deliverGroup: aGroup
 		| messages |
 		messages := aGroup messages.
 		messages copy do: [:msg |
-			"Remove messages?"
-			smscDatabase unlockAndReschedule: (msg at: '_id') increaseAttempt: false.
+			self rescheduleOrRemove: msg.
 			messages remove: msg]]

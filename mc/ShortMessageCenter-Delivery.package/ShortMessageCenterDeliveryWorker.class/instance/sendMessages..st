@@ -11,6 +11,7 @@ sendMessages: messages
 	] ensure: [
 		logger logNotice: 'Releasing destination lock' with: { 'worker' -> workerName. 'dest' -> destMSISDN. 'messagesSize' -> messages size}.
 		messages do: [:each |
-			smscDatabase unlockAndReschedule: (each at: '_id') increaseAttempt: false].
+			"Only unroutable messages or on grouping errors"
+			self rescheduleOrRemove: each].
 		smscDatabase releaseDestination: destMSISDN.
 	]
