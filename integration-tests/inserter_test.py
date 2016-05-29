@@ -1,4 +1,4 @@
-#    runs integration tests against the osmo-smsc restapi
+#    runs integration tests against the osmo-smsc inserter
 #    Copyright (C) 2016  Henning Heinold <henning@itconsulting-heinold.de>
 #
 #    This program is free software: you can redistribute it and/or modify
