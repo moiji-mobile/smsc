@@ -1,0 +1,49 @@
+Command Line Interface
+----------------------
+
+The system installs templates that combined with the Pharo
+image-launch allows to configure and start the images in
+the right configuration.
+
+
+Common options
+~~~~~~~~~~~~~~
+
+--db-host:: The hostname of the mongo database system
+
+--db-port:: The port of the mongo database system
+
+--statsd-host:: The hostname/IPv4 address to use for statsd.
+
+--statsd-port:: Use if --statsd-host has been supplied and
+determines the target address for the statsD server.
+
+--smscdb-name:: The name of the SMSC database to use
+
+--omdb-name:: The name of the O&M database to use
+
+
+O&M image
+~~~~~~~~~
+
+--rest-port:: The port to use to expose the REST interface
+
+
+Inserter image
+~~~~~~~~~~~~~~
+
+No specific options.
+
+
+
+Delivery image
+~~~~~~~~~~~~~~
+
+--jobs:: The number of jobs that process and send SMS. This controls
+the concurrency of the delivery.
+
+
+GC image
+~~~~~~~~
+
+TODO

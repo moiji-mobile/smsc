@@ -40,3 +40,4 @@ include::gc.asciidoc[]
 
 include::rest.asciidoc[]
 
+include::cli.asciidoc[]
