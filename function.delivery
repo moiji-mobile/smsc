@@ -1,4 +1,4 @@
-| hostname mongoPort omPool smscPool central jobs smscDatabaseName omDatabaseName |
+| hostname mongoPort mongo central jobs smscDatabaseName omDatabaseName |
 
 hostname := 'localhost'.
 self optionAt: 'db-host' ifPresent: [:dbHost |
@@ -20,6 +20,14 @@ self optionAt: 'jobs' ifPresent: [:num |
 
 "Allow to have many Sockets and such"
 Smalltalk vm maxExternalSemaphoresSilently: 512.
+
+"Initialize the capped collection"
+mongo := Mongo host: hostname port: mongoPort.
+mongo open.
+[
+    ShortMessageDatabase createInsertNotificationCollection: (mongo databaseNamed: smscDatabaseName).
+] on: MongoCollectionAlreadyExists do: [].
+mongo close.
 
 "Start the inserter"
 central := ShortMessageCenterDeliveryCentral new.
