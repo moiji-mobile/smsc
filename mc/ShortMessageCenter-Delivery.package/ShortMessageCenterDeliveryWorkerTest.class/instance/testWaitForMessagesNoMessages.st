@@ -1,7 +1,6 @@
 tests-as yet unclassified
 testWaitForMessagesNoMessages
-	ShortMessageCenterDeliveryWorker new
-		smscDatabase: smscDatabase;
+	worker
 		sleepTime: 0 seconds;
 		waitForMessages.
 

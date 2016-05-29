@@ -6,5 +6,7 @@ setUp
 	database := MongoDatabase root: root name: 'smscTest'.
 	"Remove the database before we start"
 	database drop.
-	omDatabase := ShortMessageOMDatabase withDatabase: database.
-	smscDatabase := ShortMessageDatabase withDatabase: database.
+	root close.
+	worker := ShortMessageCenterDeliveryWorker new
+					workerName: 'TestCaseWorker';
+					databaseHost: 'localhost' port: 27017 omName: 'smscTest' smscName: 'smscTest'. 
