@@ -11,6 +11,6 @@ sendMessages: messages
 	] ensure: [
 		logger logNotice: 'Releasing destination lock' with: { 'worker' -> workerName. 'dest' -> destMSISDN. 'messagesSize' -> messages size}.
 		messages do: [:each |
-			smscDatabase unlockSms: (each at: '_id') for: workerName].
+			smscDatabase unlockAndReschedule: (each at: '_id') increaseAttempt: false].
 		smscDatabase releaseDestination: destMSISDN.
 	]
