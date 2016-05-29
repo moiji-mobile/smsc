@@ -31,7 +31,7 @@ testSelectGroupMessages
 		groups := ShortMessageCenterDeliveryWorker new
 							omDatabase: omDatabase;
 							selectGroupMessages: messages.
-		self assert: messages size equals: 5.
+		self assert: messages size equals: 0.
 		self assert: groups size equals: 3.
 		self assert: groups keys sort equals: #('r1' 'r2' 'r3').
 		self assert: (groups at: 'r2') size equals: 3.
