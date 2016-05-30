@@ -21,8 +21,7 @@ sendRoutingInfoForSM
 		onUAbort: [
 			self signalRoutingInfoFailure: 'on-uabort'].
 	invoke := tcapDialogue
-				requestTcInvokeNamed: operationName parameters:  param
-				class: 1 timeout: 60.
+				requestTcInvokeNamed: operationName parameters:  param class: 1 timeout: timerM.
 	invoke
 		onReturn: [
 			self signalRoutingInfoFailure: 'on-return'];

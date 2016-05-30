@@ -18,7 +18,9 @@
 		"mscNumber",
 		"deliveryDialogue",
 		"currentSMRPUI",
-		"ssn" ],
+		"ssn",
+		"timerM",
+		"maxSMRPUISize" ],
 	"name" : "ShortMessageDeliveryForwardSMv2",
 	"pools" : [
 		 ],

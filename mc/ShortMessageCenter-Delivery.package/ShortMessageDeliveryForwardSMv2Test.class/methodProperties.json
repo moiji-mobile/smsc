@@ -2,12 +2,15 @@
 	"class" : {
 		 },
 	"instance" : {
-		"exampleEncodedMessage" : "HolgerHansPeterFreyther 2/29/2016 10:46",
-		"exampleSubmitSMEncodedMessage" : "HolgerHansPeterFreyther 3/18/2016 17:19",
-		"setUp" : "HolgerHansPeterFreyther 2/29/2016 10:33",
-		"testCreation" : "HolgerHansPeterFreyther 2/24/2016 22:04",
-		"testFormatMessage" : "HolgerHansPeterFreyther 3/18/2016 17:18",
-		"testFormatMessageSubmitSM" : "HolgerHansPeterFreyther 3/18/2016 17:35",
-		"testSuccessfulDualWithContinueSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36",
-		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36",
-		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 3/18/2016 17:36" } }
+		"exampleEncodedMessage" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"exampleSubmitSMEncodedMessage" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"setUp" : "HolgerHansPeterFreyther 5/30/2016 17:12",
+		"testCreation" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"testFormatMessage" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"testFormatMessageSubmitSM" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"testNoReponseToBigSMSForwardSM" : "HolgerHansPeterFreyther 5/30/2016 18:26",
+		"testNoResponseToSRIForSM" : "HolgerHansPeterFreyther 5/30/2016 16:39",
+		"testNoResultToSRIForSM" : "HolgerHansPeterFreyther 5/30/2016 16:41",
+		"testSuccessfulDualWithContinueSmsDelivery" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 5/29/2016 22:58:33",
+		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 5/29/2016 22:58:33" } }

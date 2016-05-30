@@ -21,7 +21,7 @@ createNewForwardDialogue
 			confirmed ifFalse: [
 				self signalForwardFailure: 'dialogue-uabort']].
 
-	currentSMRPUI size > 100
+	currentSMRPUI size > maxSMRPUISize
 		ifTrue: [
 			deliveryDialogue
 			onContinue: [
