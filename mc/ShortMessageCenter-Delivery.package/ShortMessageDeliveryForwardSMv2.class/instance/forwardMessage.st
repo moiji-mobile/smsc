@@ -18,8 +18,5 @@ forwardMessage
 
 	invoke := deliveryDialogue requestTcInvokeNamed: operationName parameters: param class: 1 timeout: timerM.
 	invoke
-		onReturn: [self signalForwardFailure: 'return'];
-		onError: [self signalForwardFailure: 'error'];
-		onReject: [self signalForwardFailure: 'reject'];
-		onLCancel: [self signalForwardFailure: 'cancel'];
+		defaultHandler: [self signalForwardFailure: 'unspecific error'];
 		onReturnLast: [:res | self signalForwardSuccess].

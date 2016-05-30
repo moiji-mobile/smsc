@@ -23,14 +23,7 @@ sendRoutingInfoForSM
 	invoke := sriSMDialogue
 				requestTcInvokeNamed: operationName parameters:  param class: 1 timeout: timerM.
 	invoke
-		onReturn: [
-			self signalRoutingInfoFailure: 'on-return'];
-		onError: [
-			self signalRoutingInfoFailure: 'on-error'];
-		onReject: [
-			self signalRoutingInfoFailure: 'on-reject'];
-		onLCancel: [
-			self signalRoutingInfoFailure: 'on-cancel'];
+		defaultHandler: [self signalRoutingInfoFailure: 'unknown handler'];
 		onReturnLast: [:result | self handleSRIForSMResult: result].
 	sriSMDialogue
 		requestTcBeginDestinationAddress: self remoteSCCPAddressForSRIForSM
