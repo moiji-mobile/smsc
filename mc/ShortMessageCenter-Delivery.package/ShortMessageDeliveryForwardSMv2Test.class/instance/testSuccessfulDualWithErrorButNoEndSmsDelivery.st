@@ -1,11 +1,13 @@
 as yet unclassified
-testSuccessfulDualWithEndSmsDelivery
+testSuccessfulDualWithErrorButNoEndSmsDelivery
 	| forwarder central mapReqSRI mapReqFwd mockDatabase |
 	mockDatabase := ShortMessageDeliveryMockDatabase new.
 	central := ShortMessageCenterDeliveryCentral new.
 	central instVarNamed: #tcapLinks put: { 'test' -> smscEndPoint  } asDictionary.
 	forwarder := ShortMessageDeliveryForwardSMv2 new.
 	forwarder
+		timerM: 0.1;
+		timerML: 0.1;
 		smscDatabase: mockDatabase;
 		connectionName: 'test';
 		deliveryCentral: central;
@@ -33,16 +35,16 @@ testSuccessfulDualWithEndSmsDelivery
 					diag requestTcEnd: false].
 				isFwdSM ifTrue: [
 					mapReqFwd := tcapNotify invocation.
-					tcapNotify returnResultLast: nil.
-					diag requestTcEnd: false]]].		
+					tcapNotify returnErrorNamed: 'systemFailure'.
+					diag requestTcContinue]]].		
 		
 
 	forwarder blockingExecute.
 	self assert: mockDatabase operations size equals: 2.
-	self assert: mockDatabase operations first key equals: #remove.
+	self assert: mockDatabase operations first key equals: #deliveryAttempt.
 	self assert: mockDatabase operations first value equals: '1234'.
-	self assert: mockDatabase operations second key equals: #remove.
+	self assert: mockDatabase operations second key equals: #deliveryAttempt.
 	self assert: mockDatabase operations second value equals: '45678'.
 
 	self assert: smscEndPoint dialoguesAndTransactions size equals: 0.
-	self assert: testEndPoint dialoguesAndTransactions size equals: 0.
+	self assert: testEndPoint dialoguesAndTransactions size equals: 2.

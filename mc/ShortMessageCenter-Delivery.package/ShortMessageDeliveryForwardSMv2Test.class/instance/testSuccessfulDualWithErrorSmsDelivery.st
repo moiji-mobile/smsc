@@ -1,5 +1,5 @@
 as yet unclassified
-testSuccessfulDualWithEndSmsDelivery
+testSuccessfulDualWithErrorSmsDelivery
 	| forwarder central mapReqSRI mapReqFwd mockDatabase |
 	mockDatabase := ShortMessageDeliveryMockDatabase new.
 	central := ShortMessageCenterDeliveryCentral new.
@@ -33,16 +33,15 @@ testSuccessfulDualWithEndSmsDelivery
 					diag requestTcEnd: false].
 				isFwdSM ifTrue: [
 					mapReqFwd := tcapNotify invocation.
-					tcapNotify returnResultLast: nil.
+					tcapNotify returnErrorNamed: 'systemFailure'.
 					diag requestTcEnd: false]]].		
 		
 
 	forwarder blockingExecute.
 	self assert: mockDatabase operations size equals: 2.
-	self assert: mockDatabase operations first key equals: #remove.
+	self assert: mockDatabase operations first key equals: #deliveryAttempt.
 	self assert: mockDatabase operations first value equals: '1234'.
-	self assert: mockDatabase operations second key equals: #remove.
+	self assert: mockDatabase operations second key equals: #deliveryAttempt.
 	self assert: mockDatabase operations second value equals: '45678'.
 
 	self assert: smscEndPoint dialoguesAndTransactions size equals: 0.
-	self assert: testEndPoint dialoguesAndTransactions size equals: 0.

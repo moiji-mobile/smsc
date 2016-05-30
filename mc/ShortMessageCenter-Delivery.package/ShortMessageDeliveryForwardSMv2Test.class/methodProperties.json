@@ -14,5 +14,7 @@
 		"testNoResponseToSRIForSM" : "HolgerHansPeterFreyther 5/30/2016 20:16",
 		"testNoResultToSRIForSM" : "HolgerHansPeterFreyther 5/30/2016 20:16",
 		"testSuccessfulDualWithContinueSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 20:16",
-		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 20:16",
+		"testSuccessfulDualWithEndSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 23:39",
+		"testSuccessfulDualWithErrorButNoEndSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 23:38",
+		"testSuccessfulDualWithErrorSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 23:33",
 		"testSuccessfulSingleSmsDelivery" : "HolgerHansPeterFreyther 5/30/2016 20:16" } }
