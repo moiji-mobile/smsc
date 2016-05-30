@@ -23,7 +23,8 @@
 		"maxSMRPUISize",
 		"dialogueTimer",
 		"dialogueConfirmed",
-		"sriSMDialogue" ],
+		"sriSMDialogue",
+		"timerML" ],
 	"name" : "ShortMessageDeliveryForwardSMv2",
 	"pools" : [
 		 ],

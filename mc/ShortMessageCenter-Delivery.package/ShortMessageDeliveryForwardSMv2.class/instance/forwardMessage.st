@@ -16,7 +16,7 @@ forwardMessage
 	pendingMessages size > 1 ifTrue: [
 		param at: 'moreMessagesToSend' put: nil].
 
-	invoke := deliveryDialogue requestTcInvokeNamed: operationName parameters: param class: 1 timeout: timerM.
+	invoke := deliveryDialogue requestTcInvokeNamed: operationName parameters: param class: 1 timeout: timerML.
 	invoke
 		defaultHandler: [self signalForwardFailure: 'unspecific error'];
 		onReturnLast: [:res | self signalForwardSuccess].
