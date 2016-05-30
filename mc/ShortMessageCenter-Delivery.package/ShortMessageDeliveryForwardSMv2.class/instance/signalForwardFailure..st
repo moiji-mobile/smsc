@@ -5,7 +5,6 @@ signalForwardFailure: aLogMessage
 
 	logger logError: 'SignalForwardFailure' with: { 'imsi' -> imsi. 'msg' -> aLogMessage }.
 
-	self cancelDialogueTimer.
 	deliveryDialogue smscDiscardAllAndTerminate.
 	deliveryDialogue := nil.
 

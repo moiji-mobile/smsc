@@ -8,6 +8,7 @@ testNoReponseToBigSMSForwardSM
 	forwarder := ShortMessageDeliveryForwardSMv2 new.
 	forwarder
 		timerM: 0.1;
+		timerML: 0.1;
 		maxSMRPUISize: 1;
 		smscDatabase: mockDatabase;
 		connectionName: 'test';
