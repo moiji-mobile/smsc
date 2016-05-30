@@ -20,7 +20,10 @@
 		"currentSMRPUI",
 		"ssn",
 		"timerM",
-		"maxSMRPUISize" ],
+		"maxSMRPUISize",
+		"dialogueTimer",
+		"dialogueConfirmed",
+		"sriSMDialogue" ],
 	"name" : "ShortMessageDeliveryForwardSMv2",
 	"pools" : [
 		 ],

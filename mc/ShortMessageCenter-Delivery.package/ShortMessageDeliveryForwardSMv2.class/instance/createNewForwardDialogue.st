@@ -1,35 +1,38 @@
 forward
 createNewForwardDialogue
-	| confirmed |
-	"Create dialogue.. send it.. on _first_ continue call forwardMessage again...
-	on end and abort..fail the rest"
-	confirmed := false.
+	deliveryDialogue ifNotNil: [
+		self logError: 'deliveryDialogue should have been cleared' with: {'imsi' -> imsi}.
+		self cancelDialogueTimer].
+
+	dialogueConfirmed := false.
 	deliveryDialogue := tcapLink newDialogue.
 	deliveryDialogue
 		onEnd: [
-			deliveryDialogue := nil.
 			"We wanted to do sometning but never heard back. For all other
 			operations we have a ROS invocation that will work"
-			confirmed ifFalse: [
+			dialogueConfirmed ifFalse: [
 				self signalForwardFailure: 'dialogue-end']];
 		onPAbort: [
-			deliveryDialogue := nil.
-			confirmed ifFalse: [
+			dialogueConfirmed ifFalse: [
 				self signalForwardFailure: 'dialogue-pabort']];
 		onUAbort: [
-			deliveryDialogue := nil.
-			confirmed ifFalse: [
+			dialogueConfirmed ifFalse: [
 				self signalForwardFailure: 'dialogue-uabort']].
 
 	currentSMRPUI size > maxSMRPUISize
 		ifTrue: [
 			deliveryDialogue
-			onContinue: [
-				confirmed ifFalse: [
-					confirmed := true.
-					self sendNextMessage]]]
+				onContinue: [
+					dialogueConfirmed ifFalse: [
+						dialogueConfirmed := true.
+						self cancelDialogueTimer.
+						self sendNextMessage]].
+			dialogueTimer := TimerScheduler instance
+									scheduleIn: timerM asDuration block: [
+										deliveryDialogue ifNotNil: [
+											self signalForwardFailure: 'dialogue-not-confirmed']]]
 		ifFalse: [
-			confirmed := true.
+			dialogueConfirmed := true.
 			self forwardMessage].
 
 	deliveryDialogue

@@ -43,3 +43,5 @@ testSuccessfulDualWithEndSmsDelivery
 	self assert: mockDatabase operations first value equals: '1234'.
 	self assert: mockDatabase operations second key equals: #remove.
 	self assert: mockDatabase operations second value equals: '45678'.
+
+	self assert: smscEndPoint dialoguesAndTransactions size equals: 0.

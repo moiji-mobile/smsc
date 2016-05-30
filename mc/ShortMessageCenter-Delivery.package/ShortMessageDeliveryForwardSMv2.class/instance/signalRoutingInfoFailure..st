@@ -4,4 +4,5 @@ signalRoutingInfoFailure: log
 	message := pendingMessages first.
 	logger logError: 'SRIForSM failure' with: {
 				'smscId' -> (message at: '_id'). 'destMSISDN' -> (message at: 'destMSISDN'). 'log' -> log }.
-	self failAllMessages
+	self failAllMessages.
+	sriSMDialogue smscDiscardAllAndTerminate.

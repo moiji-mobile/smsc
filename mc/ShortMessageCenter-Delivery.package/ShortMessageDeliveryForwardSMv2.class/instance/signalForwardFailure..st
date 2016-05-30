@@ -1,9 +1,15 @@
 forward
-signalForwardFailure: aMessage
+signalForwardFailure: aLogMessage
 	"Fail.. and give up the dialogue..."
 	| lastMessage |
-	lastMessage := pendingMessages first.
+
+	logger logError: 'SignalForwardFailure' with: { 'imsi' -> imsi. 'msg' -> aLogMessage }.
+
+	self cancelDialogueTimer.
+	deliveryDialogue smscDiscardAllAndTerminate.
 	deliveryDialogue := nil.
+
+	lastMessage := pendingMessages first.
 
 	">>#failMessage can trigger a semaphore that adds some concurrency, so
 	let us read pendingMessages first"

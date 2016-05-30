@@ -35,3 +35,5 @@ testNoReponseToBigSMSForwardSM
 	self assert: mockDatabase operations size equals: 1.
 	self assert: mockDatabase operations first key equals: #deliveryAttempt.
 	self assert: mockDatabase operations first value equals: '1234'.
+
+	self assert: smscEndPoint dialoguesAndTransactions size equals: 0.
