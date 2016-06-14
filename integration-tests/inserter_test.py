@@ -92,7 +92,7 @@ def sms_parts(smpp_client):
 
 @pytest.mark.usefixtures("smsc_inserter_image")
 class TestInserter:
-    def test_inserter_server(self, sms_parts, mongo_client, smsc_database):
+    def test_inserter_server(sms_parts, mongo_client, smsc_database):
 
         source, destination, message = sms_parts
 
