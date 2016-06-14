@@ -4,12 +4,9 @@ baseline: spec
 
 	spec for: #'common' do: [
 		spec baseline: 'VoyageMongo' with: [
-				spec repository: 'github://estebanlm/voyage/mc'].
-		spec project: 'MongoTalk' with: [
-				spec
-					className: #ConfigurationOfMongoTalk;
-					versionString: #'bleedingEdge';
-					repository: 'http://smalltalkhub.com/mc/MongoTalkTeam/mongotalk/main/' ].
+				spec repository: 'github://pharo-nosql/voyage/mc'].
+		spec baseline: 'MongoTalk' with: [
+				spec repository: 'github://pharo-nosql/mongotalk/mc'].
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;
