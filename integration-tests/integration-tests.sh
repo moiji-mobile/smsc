@@ -11,7 +11,7 @@ exit_status=0
 git clone git://github.com/noha/image-launch.git $(dirname $0)/image-launch || true
 
 # rest test
-python2 -m pytest \
+python2 -m pytest -vvvv \
     $(dirname $0)/om_rest_test.py \
     --junitxml=junitxml/om_rest_test.xml \
     --pharo-vm=$SMALLTALK_CI_HOME/_cache/vms/${TRAVIS_SMALLTALK_VERSION}/pharo-vm/pharo \
@@ -19,7 +19,7 @@ python2 -m pytest \
     --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
 
 # inserter test
-python2 -m pytest \
+python2 -m pytest -vvvv \
     $(dirname $0)/inserter_test.py \
     --junitxml=junitxml/inserter_test.xml \
     --pharo-vm=$SMALLTALK_CI_HOME/_cache/vms/${TRAVIS_SMALLTALK_VERSION}/pharo-vm/pharo \
@@ -27,7 +27,7 @@ python2 -m pytest \
     --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
 
 # delivery test
-python2 -m pytest \
+python2 -m pytest -vvvv \
     $(dirname $0)/delivery_test.py \
     --junitxml=junitxml/delivery_test.xml \
     --pharo-vm=$SMALLTALK_CI_HOME/_cache/vms/${TRAVIS_SMALLTALK_VERSION}/pharo-vm/pharo \
