@@ -3,8 +3,6 @@
 set -u
 set -ex
 
-source "${SMALLTALK_CI_HOME}/helpers.sh"
-
 exit_status=0
 
 # Get the image-launch...
@@ -34,4 +32,4 @@ python2 -m pytest \
     --pharo-image=$(dirname $0)/../OsmoSmsc.image \
     --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
 
-print_results $(dirname $0)/junitxml/
+cat $(dirname $0)/junitxml/*
