@@ -24,7 +24,7 @@ before_install:
   docker-engine osc rpm-common rpm
 
 install:
-- "sudo /opt/python/2.7.10/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
+- "sudo /opt/python/2.7.*/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
 
 smalltalk:
 - Pharo-5.0
