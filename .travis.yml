@@ -21,7 +21,7 @@ addons:
 
 before_install:
 - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
-  docker-engine osc rpm-common rpm
+  docker-engine osc rpm-common rpm pandoc libxml2-utils
 
 install:
 - "sudo /opt/python/2.7.*/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
