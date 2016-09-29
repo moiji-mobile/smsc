@@ -1,6 +1,9 @@
 Scalable Smalltalk Short Message Center (SMSC)
 ----------------------------------------------
 
+image:https://travis-ci.org/moiji-mobile/smsc.svg?branch=master["Build Status", link="https://travis-ci.org/moiji-mobile/smsc"]
+
+
 The work on this software has been sponsored by On-Waves ehf. Commercial
 support for deployment, maintenance and extensions is available through
 link:http://moiji-mobile.com[moiji-mobile]. Please contact
