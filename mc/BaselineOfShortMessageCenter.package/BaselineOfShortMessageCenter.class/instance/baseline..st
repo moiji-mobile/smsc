@@ -3,8 +3,10 @@ baseline: spec
 	<baseline>
 
 	spec for: #'common' do: [
-		spec baseline: 'VoyageMongo' with: [
-				spec repository: 'github://pharo-nosql/voyage/mc'].
+		spec baseline: 'Voyage' with: [
+				spec
+					repository: 'github://pharo-nosql/voyage/mc';
+					loads: #('mongo tests')].
 		spec baseline: 'MongoTalk' with: [
 				spec repository: 'github://pharo-nosql/mongotalk/mc'].
 		spec project: 'SMPP' with: [
@@ -45,7 +47,7 @@ baseline: spec
 					repository: 'http://mc.stfx.eu/ZincHTTPComponents' ].
 
 		spec package: #'ShortMessageCenter-Database' with: [
-			spec requires: #('VoyageMongo' 'MongoTalk' 'OsmoLogging') ].
+			spec requires: #('Voyage' 'MongoTalk' 'OsmoLogging') ].
 		spec package: #'ShortMessageCenter-Inserter' with: [
 			spec requires: #('ShortMessageCenter-Database' 'OsmoLogging')].
 		spec package: #'ShortMessageCenter-Delivery' with: [
