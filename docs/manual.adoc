@@ -1,12 +1,13 @@
-= OsmoSMSC - Scalable Smalltalk Short Message Center - User Manaul
-Holger Hans Peter Freyther <holger@freyther.de>
+= SMSC - Scalable Smalltalk Short Message Center - User Manaul
+Holger Hans Peter Freyther <holger@moiji-mobile.com>
 
 == Introduction
 
 The OsmoSMSC is a scalable Short Message Center implemented using the
 Pharo Object Environment and MongoDB. Commercial support for deployment,
-maintenance and extensions is available through sysmocom s.f.m.c. GmbH.
-Please contact sales@sysmocom.de.
+maintenance and extensions is available through
+link:http://moiji-mobile.com[moiji-mobile]. Please contact
+help@moiji-mobile.com.
 
 The system consists out of four parts that handle different aspects
 of the SMS processing. The first step is to configure links and routes
