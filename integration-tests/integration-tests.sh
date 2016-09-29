@@ -31,5 +31,3 @@ python2 -m pytest \
     --pharo-vm=$SMALLTALK_CI_HOME/_cache/vms/${TRAVIS_SMALLTALK_VERSION}/pharo-vm/pharo \
     --pharo-image=$(dirname $0)/../OsmoSmsc.image \
     --image-launch=$(dirname $0)/image-launch/share/image-launch/bootstrap.st
-
-cat $(dirname $0)/junitxml/*
