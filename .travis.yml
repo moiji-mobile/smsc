@@ -9,11 +9,11 @@ services:
 - mongodb # Essential to what we do
 - docker
 
-# Target mongodb v3.0 as lowest version
+# Target mongodb v3.2 as lowest version
 addons:
   apt:
     sources:
-    - mongodb-3.0-precise
+    - mongodb-3.2-precise
     packages:
     - mongodb-org-server
     - asciidoc
