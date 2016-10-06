@@ -1,0 +1,16 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 10/3/2016 19:56",
+	"instvars" : [
+		"canceled",
+		"sem",
+		"lastResult" ],
+	"name" : "ShortMessageNotifierEntry",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

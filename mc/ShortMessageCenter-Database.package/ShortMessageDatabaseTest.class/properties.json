@@ -8,7 +8,8 @@
 	"instvars" : [
 		"root",
 		"database",
-		"smscDatabase" ],
+		"smscDatabase",
+		"notifier" ],
 	"name" : "ShortMessageDatabaseTest",
 	"pools" : [
 		 ],

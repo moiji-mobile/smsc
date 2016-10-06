@@ -1,0 +1,8 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"cancel" : "TravisCI 10/5/2016 19:12",
+		"dispatch:" : "TravisCI 10/5/2016 21:00",
+		"initialize" : "HolgerHansPeterFreyther 10/3/2016 19:16",
+		"waitForSeconds:" : "TravisCI 10/5/2016 21:02" } }

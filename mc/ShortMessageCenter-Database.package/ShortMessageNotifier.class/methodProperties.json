@@ -1,0 +1,13 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"database:collectionForNotification:" : "HolgerHansPeterFreyther 10/6/2016 13:05",
+		"dispatchAll" : "HolgerHansPeterFreyther 10/6/2016 14:09",
+		"doQueryOnce" : "TravisCI 10/5/2016 20:59",
+		"initialize" : "TravisCI 10/5/2016 19:11",
+		"queryOnce" : "HolgerHansPeterFreyther 10/6/2016 14:20",
+		"register" : "HolgerHansPeterFreyther 10/3/2016 20:16",
+		"run" : "HolgerHansPeterFreyther 10/6/2016 13:18",
+		"stop" : "HolgerHansPeterFreyther 10/3/2016 20:19",
+		"swapNotificationQueue" : "HolgerHansPeterFreyther 10/6/2016 13:11" } }

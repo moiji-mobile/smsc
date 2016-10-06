@@ -1,0 +1,22 @@
+{
+	"category" : "ShortMessageCenter-Database",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "HolgerHansPeterFreyther 10/3/2016 19:14",
+	"instvars" : [
+		"sem",
+		"notifiers",
+		"database",
+		"smscDatabase",
+		"collectionForNotification",
+		"quit",
+		"runProc",
+		"lastReturnCount",
+		"root" ],
+	"name" : "ShortMessageNotifier",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

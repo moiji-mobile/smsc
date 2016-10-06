@@ -1,6 +1,6 @@
 as yet unclassified
 start: numJobs
-	| root database |
+	| root database notifierDatabase notifierCollection |
 
 	"Open the DB and "
 	root := Mongo host: dbHost port: dbPort.
@@ -10,7 +10,13 @@ start: numJobs
 	omDatabase := ShortMessageOMDatabase withDatabase: database.
 	self startSmppLinks.
 	self startSS7Links.
-	root close.
+	omDatabase := nil.
+
+	notifierDatabase := root databaseNamed: smscDatabaseName.
+	notifierCollection := MongoCollection database: notifierDatabase name: 'insertNotification'.
+	notifier := ShortMessageNotifier new
+						database: notifierDatabase collectionForNotification: notifierCollection;
+						yourself.
 
 	workers := Array new: numJobs.
 	1 to: numJobs do: [:each |
@@ -21,6 +27,7 @@ start: numJobs
 			deliveryCentral: self.
 		proc := [
 			worker
+				notifier: notifier;
 				databaseHost: dbHost port: dbPort omName: omDatabaseName smscName: smscDatabaseName;
 				doWork ] newProcess.
 		proc name: 'Worker ', each asString.

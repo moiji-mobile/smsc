@@ -8,12 +8,16 @@ testWaitUntil
 
 	"Here mongodb will return earlier than anything has arrived. Let's accept it for now"
 	res := smscDatabase waitUntil: (DateAndTime now + 10 seconds).
-	self assert: res equals: ShortMessageWorkArrived.
+	self assert: res equals: ShortMessageTimeout.
 
 	"Jump through some hoops?"
 	sem := Semaphore new.
-	[ (Delay forMilliseconds: 100) wait. smscDatabase addNewShortMessageNotification: 'Wake up'] fork.
+	[
+		(Delay forMilliseconds: 100) wait.
+		smscDatabase addNewShortMessageNotification: 'Wake up'.
+		sem signal] fork.
 	res := smscDatabase waitUntil: (DateAndTime now + 5 seconds).
+	sem wait.
 	self assert: res equals: ShortMessageWorkArrived.
 
 	"And add a message so we do not wait at all"
