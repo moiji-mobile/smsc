@@ -1,0 +1,1 @@
+I was created because of strict cmd/resp handling of MongoTalk. I work with a dedicated database connection and inform apps about change.

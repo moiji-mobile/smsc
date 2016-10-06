@@ -15,7 +15,8 @@
 		"workers",
 		"baseWorkerName",
 		"omDatabaseName",
-		"smscDatabaseName" ],
+		"smscDatabaseName",
+		"notifier" ],
 	"name" : "ShortMessageCenterDeliveryCentral",
 	"pools" : [
 		 ],

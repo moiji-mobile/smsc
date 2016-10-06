@@ -2,14 +2,14 @@
 	"class" : {
 		 },
 	"instance" : {
-		"setUp" : "HolgerHansPeterFreyther 2/7/2016 18:58",
-		"tearDown" : "HolgerHansPeterFreyther 5/28/2016 12:16",
-		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 5/29/2016 15:52",
-		"testFindAndLockPendingSmsReject" : "HolgerHansPeterFreyther 3/18/2016 15:13",
-		"testInsertShortMessageMessageTypeDestinationSourceDeliverInExpireInReceivedOn" : "HolgerHansPeterFreyther 3/16/2016 18:08",
-		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 2/7/2016 20:21",
-		"testLockNextSmsForLocked" : "HolgerHansPeterFreyther 3/18/2016 20:02",
-		"testNextSms" : "HolgerHansPeterFreyther 5/28/2016 22:52",
-		"testRemoveSms" : "HolgerHansPeterFreyther 3/18/2016 15:14",
-		"testSmsPending" : "HolgerHansPeterFreyther 3/18/2016 15:14",
-		"testWaitUntil" : "HolgerHansPeterFreyther 3/18/2016 15:14" } }
+		"setUp" : "TravisCI 10/5/2016 19:20",
+		"tearDown" : "HolgerHansPeterFreyther 10/3/2016 20:21",
+		"testAddNewShortMessageNotification" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testFindAndLockPendingSmsReject" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testInsertShortMessageMessageTypeDestinationSourceDeliverInExpireInReceivedOn" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testLockAndReleaseDestination" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testLockNextSmsForLocked" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testNextSms" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testRemoveSms" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testSmsPending" : "HolgerHansPeterFreyther 5/29/2016 15:58:11",
+		"testWaitUntil" : "TravisCI 10/5/2016 21:05" } }

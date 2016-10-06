@@ -6,6 +6,8 @@ databaseHost: dbHost port: dbPort omName: aOmName smscName: aSmscName
 	root open.
 
 	smscDatabase := ShortMessageDatabase withDatabase: (root databaseNamed: aSmscName).
+	smscDatabase notifier: notifier.
+
 	omDatabase := ShortMessageOMDatabase withDatabase: (root databaseNamed: aOmName).
 	messagesSelector := ShortMessageCenterMessagesSelector new
 								smscDatabase: smscDatabase;
