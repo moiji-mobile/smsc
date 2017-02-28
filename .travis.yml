@@ -31,6 +31,7 @@ smalltalk:
 - Pharo-5.0
 
 script:
+- set -e
 - $SMALLTALK_CI_HOME/run.sh
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.changes OsmoSmsc.changes
 - cp $SMALLTALK_CI_HOME/_builds/TravisCI.image OsmoSmsc.image
