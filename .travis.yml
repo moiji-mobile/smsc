@@ -18,10 +18,11 @@ addons:
     - mongodb-org-server
     - asciidoc
     - dblatex
+    - docker-ce
 
 before_install:
 - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
-  docker-engine osc rpm-common rpm pandoc libxml2-utils
+  osc rpm-common rpm pandoc libxml2-utils
 
 install:
 #- pip install benchupload
