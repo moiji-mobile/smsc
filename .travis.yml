@@ -24,7 +24,7 @@ before_install:
   docker-engine osc rpm-common rpm pandoc libxml2-utils
 
 install:
-- pip install benchupload
+#- pip install benchupload
 - "sudo /opt/python/2.7.*/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
 
 smalltalk:
@@ -41,12 +41,12 @@ script:
 - bash deploy/deploy.sh
 
 after_success:
- - benchupload --dir=$SMALLTALK_CI_BUILD
+# - benchupload --dir=$SMALLTALK_CI_BUILD
 
 after_failure:
 - bash integration-tests/after_failure.sh
 - bash deploy/after_failure.sh
-- benchupload --dir=$SMALLTALK_CI_BUILD
+#- benchupload --dir=$SMALLTALK_CI_BUILD
 
 env:
   global:
