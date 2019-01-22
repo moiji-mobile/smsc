@@ -24,7 +24,7 @@ before_install:
   osc rpm-common rpm pandoc libxml2-utils
 
 install:
-- "sudo -H /opt/python/2.7.*/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
+- "sudo python2 -m pip install -r ./integration-tests/requirements.txt"
 
 smalltalk:
 - Pharo-5.0
