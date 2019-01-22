@@ -6,7 +6,7 @@ baseline: spec
 		spec baseline: 'VoyageMongo' with: [
 				spec repository: 'github://pharo-nosql/voyage:47d4673e871f086e0be5fc3a0235e17dbf56e2ad/mc'].
 		spec baseline: 'MongoTalk' with: [
-				spec repository: 'github://pharo-nosql/mongotalk/mc'].
+				spec repository: 'github://pharo-nosql/mongotalk:671fc18fdf13a52cbc806dcee96d2fbef0d0e8d3/mc'].
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;
