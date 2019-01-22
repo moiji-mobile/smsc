@@ -2,7 +2,7 @@ FROM debian
 
 RUN dpkg --add-architecture i386 && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget make
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget make gnupg2
 
 RUN mkdir -p /tmp/osmo-smsc
 
