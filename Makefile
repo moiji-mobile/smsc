@@ -4,7 +4,7 @@ all: build_clean package
 
 NAME=OsmoSmsc
 RDEPS_PARSE=`grep -r ^Depends debian/control | head -1 | sed -e "s/,//g" -e "s/Depends: //g" -e "s/\\\$${.*} //g" -e "s/ pharo.*\[.*\]//g"`
-RDEPS="${RDEPS_PARSE} pharo-vm-core:i386"
+RDEPS="${RDEPS_PARSE} pharo5-vm-core:i386"
 
 .PHONY: build_clean install-rdepends
 build_clean:
