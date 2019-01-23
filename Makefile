@@ -14,6 +14,7 @@ build_clean:
 install-rdepends:
 	echo "deb http://download.opensuse.org/repositories/home:/zecke23/Debian_8.0/ ./" > /etc/apt/sources.list.d/obs.list
 	wget -O - http://download.opensuse.org/repositories/home:/zecke23/Debian_8.0/Release.key | apt-key add -
+	echo "deb http://security.debian.org/debian-security jessie/updates main" > /etc/apt/sources.list.d/debian-security.list
 	apt-get update
 	DEBIAN_FRONTEND=noninteractive echo $(RDEPS) | xargs apt-get install -y --no-install-recommends --force-yes
 
