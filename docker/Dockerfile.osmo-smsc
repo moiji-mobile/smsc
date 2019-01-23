@@ -11,13 +11,13 @@ ADD ./ /tmp/osmo-smsc
 RUN make -C /tmp/osmo-smsc/ install-rdepends install && rm -rf /tmp/osmo-smsc
 
 # reuse the start script
-RUN cp /usr/bin/pharo-vm-nox /usr/bin/pharo-vm-nox.bak && \
-    dpkg --purge pharo-vm-core && \
+RUN cp /usr/bin/pharo5-vm-nox /usr/bin/pharo-vm-nox.bak && \
+    dpkg --purge pharo5-vm-core && \
     mv /usr/bin/pharo-vm-nox.bak /usr/bin/pharo-vm-nox
 
-COPY pharo-vm/*.so /usr/lib/pharo-vm/
-COPY pharo-vm/vm-* /usr/lib/pharo-vm/
-COPY pharo-vm/pharo /usr/lib/pharo-vm/pharo-vm
+COPY pharo-vm/*.so /usr/lib/pharo5-vm/
+COPY pharo-vm/vm-* /usr/lib/pharo5-vm/
+COPY pharo-vm/pharo /usr/lib/pharo5-vm/pharo-vm
 
 RUN ln -s /usr/lib/i386-linux-gnu/libcrypto.so.1.0.0 /usr/share/osmo-smsc/links/libcrypto.so && \
 ln -s /usr/share/osmo-smsc/scripts/om /usr/share/osmo-smsc/template/om/launch.d/99-om && \
