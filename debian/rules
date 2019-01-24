@@ -7,7 +7,7 @@ override_dh_auto_build:
 	# nothing...
 
 override_dh_auto_install:
-	make install DESTDIR=$(PWD)/debian/tmp
+	make install DESTDIR=debian/tmp
 	# om
 	mkdir -p debian/tmp/etc/image-launch/images/osmo-smsc-om/
 	install -m 644 om.launch debian/tmp/etc/image-launch/images/osmo-smsc-om/image-launch.conf
