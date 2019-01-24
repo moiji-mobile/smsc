@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 if [ "${TRAVIS_SMALLTALK_VERSION}" != "Pharo-5.0" ]; then
     exit 0
