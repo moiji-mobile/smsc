@@ -2,7 +2,7 @@
 
 set -eu
 
-if [ "${TRAVIS_SMALLTALK_VERSION}" != "Pharo-4.0" ]; then
+if [ "${TRAVIS_SMALLTALK_VERSION}" != "Pharo-5.0" ]; then
     exit 0
 fi
 
