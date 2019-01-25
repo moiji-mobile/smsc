@@ -11,9 +11,9 @@ ADD ./ /tmp/osmo-smsc
 RUN make -C /tmp/osmo-smsc/ install-rdepends install && rm -rf /tmp/osmo-smsc
 
 # reuse the start script
-RUN cp /usr/bin/pharo5-vm-nox /usr/bin/pharo-vm-nox.bak && \
+RUN cp /usr/bin/pharo5-vm-nox /usr/bin/pharo5-vm-nox.bak && \
     dpkg --purge pharo5-vm-core && \
-    mv /usr/bin/pharo-vm-nox.bak /usr/bin/pharo-vm-nox
+    mv /usr/bin/pharo5-vm-nox.bak /usr/bin/pharo5-vm-nox
 
 COPY pharo-vm/*.so /usr/lib/pharo5-vm/
 COPY pharo-vm/vm-* /usr/lib/pharo5-vm/
