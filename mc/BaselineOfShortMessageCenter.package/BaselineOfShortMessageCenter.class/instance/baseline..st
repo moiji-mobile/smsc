@@ -4,9 +4,9 @@ baseline: spec
 
 	spec for: #'common' do: [
 		spec baseline: 'VoyageMongo' with: [
-				spec repository: 'github://pharo-nosql/voyage:47d4673e871f086e0be5fc3a0235e17dbf56e2ad/mc'].
+				spec repository: 'github://zecke/voyage-stable:1.3.1-patch/mc'].
 		spec baseline: 'MongoTalk' with: [
-				spec repository: 'github://pharo-nosql/mongotalk/mc'].
+				spec repository: 'github://zecke/mongotalk:0d05850bb7af9e650f29042ec5b074b9ed0ac719/mc'].
 		spec project: 'SMPP' with: [
 				spec
 					className: #ConfigurationOfSMPP;

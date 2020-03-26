@@ -15,9 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-set -eu
+set -eux
 
-if [ x"${TRAVIS_SMALLTALK_VERSION}" != x"Pharo-4.0" ]; then
+if [ x"${TRAVIS_SMALLTALK_VERSION}" != x"Pharo-5.0" ]; then
     exit 0
 fi
 

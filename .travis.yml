@@ -3,7 +3,6 @@ sudo: required
 
 os:
 - linux
-#  - osx OSX doesn't come with a mongodb service
 
 services:
 - mongodb # Essential to what we do
@@ -18,14 +17,14 @@ addons:
     - mongodb-org-server
     - asciidoc
     - dblatex
+    - docker-ce
 
 before_install:
 - sudo apt-get install -yy --no-install-recommends -o Dpkg::Options::="--force-confdef"
-  docker-engine osc rpm-common rpm pandoc libxml2-utils
+  osc rpm-common rpm pandoc libxml2-utils
 
 install:
-- pip install benchupload
-- "sudo /opt/python/2.7.*/bin/python2 -m pip install -r ./integration-tests/requirements.txt"
+- "sudo python2 -m pip install -r ./integration-tests/requirements.txt"
 
 smalltalk:
 - Pharo-5.0
@@ -40,13 +39,9 @@ script:
 - sh ./docker/debian-build.sh
 - bash deploy/deploy.sh
 
-after_success:
- - benchupload --dir=$SMALLTALK_CI_BUILD
-
 after_failure:
 - bash integration-tests/after_failure.sh
 - bash deploy/after_failure.sh
-- benchupload --dir=$SMALLTALK_CI_BUILD
 
 env:
   global:

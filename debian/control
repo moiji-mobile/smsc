@@ -7,8 +7,8 @@ Standards-Version: 3.9.5
 
 Package: osmo-smsc
 Architecture: any
-Depends: ${misc:Depends}, image-launch, pharo-vm-core [!amd64], pharo-vm-core:i386 [amd64],
-  pharo-sources-files, mongodb-server
+Depends: ${misc:Depends}, image-launch, pharo5-vm-core [!amd64], pharo5-vm-core:i386 [amd64],
+  pharo5-sources-files, mongodb-server
 Description: osmo-smsc
  Contains the pharo images for osmo-smsc.
 
